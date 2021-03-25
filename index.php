@@ -2,6 +2,6 @@
 ?>
 
 <html>
-<h1>Hola mundo</h1>
-<h2>Jaja</h2>
+<title>App Tour de Francia</title>
+<head>Tour de Francia</head>
 </html>
