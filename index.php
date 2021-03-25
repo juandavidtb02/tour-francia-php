@@ -3,6 +3,5 @@
 
 <html>
 <title>App Tour de Francia</title>
-<head>Tour de Francia</head>
-<h1>2021</h1>
+<h1>Tour De Francia 2021</h1>
 </html>
