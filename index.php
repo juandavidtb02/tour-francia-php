@@ -8,21 +8,30 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estiloInicio.css" />
+    <link rel="stylesheet" type="text/css" href="estiloBorrador.css" />
 </head>
 
 <body>
     <div class="cabecera">
         <h1><center><font face="Comic Sans MS">APP TOUR DE FRANCIA</font></center></h1>
+        <img src="https://i1.wp.com/mcusercontent.com/23e248de0b05fce198ede786a/images/3754bb62-1be2-4ab4-ba10-a4e3afb94864.png?w=1170&ssl=1">
     </div>
     <nav class="menu">
         <ul>
-            <li><a href="#" style="text-decoration: none;">Inicio</a></li>
-            <li><a href="#" style="text-decoration: none;">Equipos</a></li>
-            <li><a href="#" style="text-decoration: none;">Clasificaciones</a></li>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Equipos</a></li>
+            <li>
+                <a href="#">Clasificaciones</a>
+                <ul>
+                    <li><a href="#">Clasificacion general</a></li>
+                    <li><a href="#">Clasificacion de Sprint</a></li>
+                    <li><a href="#">Clasificacion por montaña</a></li>
+                    <li><a href="#">Clasificacion por puntos</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Etapas</a></li>
         </ul>
     </nav>
-    
     
 </body>
 
