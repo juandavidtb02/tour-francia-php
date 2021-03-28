@@ -19,7 +19,14 @@
     <nav class="menu">
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Equipos</a></li>
+            <li>
+                <a href="#">Equipos</a>
+                <ul>
+                    <li><a href="#">Equipos participantes</a></li>
+                    <li><a href="#">Ciclistas participantes</a></li>
+                    <li><a href="#">Paises participantes</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="#">Clasificaciones</a>
                 <ul>
@@ -29,7 +36,13 @@
                     <li><a href="#">Clasificacion por puntos</a></li>
                 </ul>
             </li>
-            <li><a href="#">Etapas</a></li>
+            <li>
+                <a href="#">Etapas</a>
+                <ul>
+                    <li><a href="#">Recorrido 2021</a></li>
+                    <li><a href="#">Ganadores por etapa</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     
