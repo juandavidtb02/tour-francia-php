@@ -34,6 +34,7 @@
                     <li><a href="#">Clasificacion de Sprint</a></li>
                     <li><a href="#">Clasificacion por montaña</a></li>
                     <li><a href="#">Clasificacion por puntos</a></li>
+                    <li><a href="#">Clasificacion por equipos</a></li>
                 </ul>
             </li>
             <li>
