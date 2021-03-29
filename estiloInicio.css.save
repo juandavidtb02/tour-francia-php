@@ -1,6 +1,5 @@
 body {
-
-    background-image: url("https://media.istockphoto.com/photos/parasol-tour-de-france-picture-id458081865?b=1&k=6&m=458081865&s=170667a&w=0&h=y3WfyigVEnPW4q0kkdM4X_YmHzgluTij1EdtqByjbgM=");    
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.france24.com%2Fes%2F20200825-guia-tour-de-francia-2020-recorrido-etapas&psig=AOvVaw1KW9IpZZR8k2_yOxgDVPHt&ust=1617147951616000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMDg1t3X1u8CFQAAAAAdAAAAABAD");
     background-position: 5px 25px;
     background-repeat: no-repeat;
     background-size: 110%;
