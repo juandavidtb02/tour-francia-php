@@ -1,6 +1,5 @@
 body {
-    
-    background-position: 5px 25px;
+    background-image: url("https://wallpapercave.com/wp/wp2030806.jpg");
     background-repeat: no-repeat;
     background-size: 110%;
     margin-top: 0px;
@@ -9,81 +8,87 @@ body {
 
 }
 
-.cabecera{
+header h1{
+    display: flex;
+    font-family: arial;
+    color: white;
+    justify-content: center;
+}
+
+header{
     width: 100%; 
-    height: 100px;
+    height: 101px;
     position: relative;
     top: -21px;
-    background-color: #F7EC68;
+    background-color: black;
     background-size: auto;
     text-align: left;
 }
 
-.cabecera img{
-    position:relative;
-    width:9%;
-    position:relative;
-    top:-69px;
-    left:40px;
+#menu ul{
+    display: flex;
+    list-style: none;
+    padding:0;
+    position: relative;
+    top:0;
+    justify-content: center;
 }
 
-.menu ul li{
-    font-size: 18px;
-    display:inline-block;
-    width:15%;
-    height: 0px;
-    margin-left:50px;
-    padding: 0;
+#menu #item{
+    float:left;
+    flex-grow: 1;
     text-align: center;
-    color:#fff;
-    position: relative;
-    top: -66px;
-    left: 83px;
+}
+
+#menu #item a{
+    background: black;
+    color:white;
+    padding:12px 20px;
+    display: block;
     font-family: arial;
-}
-
-.menu ul li a{
-    padding-left: 8px;
-    color: black;
+    font-size: 16px;
     text-decoration: none;
-    padding: 4px;
-    display: block;
-    position: relative;
-    bottom: 12px;
 }
 
-
-.menu ul li a:hover{
-    background-color: white;
-    background-size: 5px;
-    border-radius: 20px;
-}
-
-
-.menu ul li:hover > ul{
-    display: block;
-}
-
-.menu ul ul{
-    width:191px;
-    height: 330px;
+#menu #desple {
     display: none;
     position: absolute;
-    top: 15px;
-    left:0;
-    background:#F7EC68;
-    padding:0;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+    min-width: 324px;
+    width:; 
+    top: 42px;
 }
 
-.menu ul ul li{
-    font-size: 16px;
-    float: none;
-    width: 150px;
-    position: relative;
-    left:-30px;
-    margin-top: 20px;
-    top:20px;
+#menu #desple2 {
+    display: none;
+    position: absolute;
+    min-width: 374px;
+    width:; 
+    top: 42px;
+}
+
+#menu #desple3 {
+    display: none;
+    position: absolute;
+    min-width: 315px;
+    width:; 
+    top: 42px;
+}
+
+#menu #item a:hover{
+    background: #34342F;
+    color: yellow;
+}
+
+
+#menu #item:hover #desple{
+    display: block;
+}
+
+#menu #item:hover #desple2{
+    display: block;
+}
+
+#menu #item:hover #desple3 {
+    display: block;
 }
 
