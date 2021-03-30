@@ -53,21 +53,21 @@ header{
 #menu #desple {
     display: none;
     position: absolute;
-    min-width: 324px;
+    width: 24.7%;
     top: 42px;
 }
 
 #menu #desple2 {
     display: none;
     position: absolute;
-    min-width: 374px;
+    width: 28.2%;
     top: 42px;
 }
 
 #menu #desple3 {
     display: none;
     position: absolute;
-    min-width: 315px;
+    width: 24.01%;
     top: 42px;
 }
 
