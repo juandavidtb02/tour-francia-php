@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1>TOUR DE FRANCIA 2021</h1>
+        <img src="https://lh3.googleusercontent.com/proxy/GfNuVAceFhlJEpA4mFA31zPaEIcmnewihFrNfhXsZAIUy0AcTinPl61oq36bk7Bd15HqPozY8nB-j28MW4T4YfmRaGc0SmRAgCMLB9v3">
         <nav id="menu">
             <ul>
                 <li id="item"><a href="#">Inicio</a></li>
