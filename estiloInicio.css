@@ -24,6 +24,32 @@ header{
     background-size: auto;
     text-align: left;
 }
+body {
+    background-image: url("https://wallpapercave.com/wp/wp2030806.jpg");
+    background-repeat: no-repeat;
+    background-size: 110%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+header h1{
+    display: flex;
+    font-family: arial;
+    color: white;
+    justify-content: center;
+}
+
+header{
+    width: 100%; 
+    height: 101px;
+    position: relative;
+    top: -21px;
+    background-color: black;
+    background-size: auto;
+    text-align: left;
+}
 
 #menu ul{
     display: flex;
@@ -91,4 +117,5 @@ header{
 #menu #item:hover #desple3 {
     display: block;
 }
+
 
