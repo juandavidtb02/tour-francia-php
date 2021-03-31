@@ -8,7 +8,7 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
 </head>
 
 <body>
