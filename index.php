@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <img src="https://lh3.googleusercontent.com/proxy/GfNuVAceFhlJEpA4mFA31zPaEIcmnewihFrNfhXsZAIUy0AcTinPl61oq36bk7Bd15HqPozY8nB-j28MW4T4YfmRaGc0SmRAgCMLB9v3">
+        <img src="https://www.aso.fr/img/dyn/otherEvents/tour-de-france_lg@2x.png?update=1615372557">
         <nav id="menu">
             <ul>
                 <li id="item"><a href="#">Inicio</a></li>
