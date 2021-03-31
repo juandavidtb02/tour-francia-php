@@ -139,16 +139,15 @@ header{
 }
 
 .cu2 h2{
-    position: relative;
-    top: -300px;
+    position: absolute;
+    top: 850px;
     left: 75.3%;
-    
 }
 
 .cu2 p{
     width: 480px;
     position: relative;
-    top: -300px;
+    top: -260px;
     left: 60%;
 }
 
