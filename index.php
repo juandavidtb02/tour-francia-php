@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <img src="https://www.aso.fr/img/dyn/otherEvents/tour-de-france_lg@2x.png?update=1615372557">
+        <img src="https://www.letour.fr/img/global/logo-reversed@2x.png">
         <nav id="menu">
             <ul>
                 <li id="item"><a href="#">Inicio</a></li>
