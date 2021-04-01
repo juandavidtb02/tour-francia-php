@@ -1,7 +1,12 @@
 body {
+<<<<<<< HEAD:estilo.css
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 36%, rgba(255,252,0,1) 100%);
 
+=======
+	opacity: .9;
+    background: linear-gradient(180deg, black, yellow);
+>>>>>>> 4fe127352c44b37e2db8e1efc6ddb68f4475bec8:estilos.css
     background-repeat: no-repeat;
     margin-top: 0px;
     margin-left: 0px;
