@@ -8,12 +8,12 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estilos.css" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
 </head>
 
 <body>
     <header>
-        <img src="https://lh3.googleusercontent.com/proxy/GfNuVAceFhlJEpA4mFA31zPaEIcmnewihFrNfhXsZAIUy0AcTinPl61oq36bk7Bd15HqPozY8nB-j28MW4T4YfmRaGc0SmRAgCMLB9v3">
+        <img src="https://www.letour.fr/img/global/logo-reversed@2x.png">
         <nav id="menu">
             <ul>
                 <li id="item"><a href="#">Inicio</a></li>
@@ -50,6 +50,7 @@
         Nullam interdum, enim sed ultrices sagittis, nibh tortor viverra lacus, eu tristique risus sapien et eros. Cras gravida, felis sed sagittis convallis, nulla ante vehicula justo, id imperdiet enim nisi id mauris. Nunc egestas volutpat congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula purus eu enim vulputate rhoncus.</p>
         <img src="https://cope-cdnmed.agilecontent.com/resources/jpg/7/8/1597079096487.jpg">;
     </div>
+    
     
     <div id="cuadro2"></div>
     <div class="cu2">

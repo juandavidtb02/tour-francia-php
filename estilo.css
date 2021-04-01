@@ -1,5 +1,7 @@
 body {
-    background: linear-gradient(180deg, black, yellow);
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 36%, rgba(255,252,0,1) 100%);
+
     background-repeat: no-repeat;
     margin-top: 0px;
     margin-left: 0px;
@@ -11,7 +13,7 @@ header img{
     width: 8%;
     position: relative;
     left: 46%;
-    top:19%;
+    top:25%;
     justify-content: center;
 }
 
@@ -31,7 +33,7 @@ header{
     list-style: none;
     padding:0;
     position: relative;
-    top:-5px;
+    top:8px;
     justify-content: center;
 }
 
@@ -39,7 +41,9 @@ header{
     float:left;
     flex-grow: 1;
     text-align: center;
+    border-bottom: 1px solid yellow;
 }
+
 
 #menu #item a{
     background: black;
@@ -58,6 +62,7 @@ header{
     top: 42px;
 }
 
+
 #menu #desple2 {
     display: none;
     position: absolute;
@@ -69,8 +74,7 @@ header{
 #menu #desple3 {
     display: none;
     position: absolute;
-    min-width: 24.01%;
-    width:; 
+    min-width: 23.99%;
     top: 42px;
 }
 
@@ -82,14 +86,24 @@ header{
 
 #menu #item:hover #desple{
     display: block;
+    border-bottom: 1px solid yellow;
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow;
 }
 
 #menu #item:hover #desple2{
     display: block;
+    border-bottom: 1px solid yellow;
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow;
+    position: absolute;
+    z-index: 1;
 }
 
 #menu #item:hover #desple3 {
     display: block;
+    border-bottom: 1px solid yellow;
+    border-left: 1px solid yellow;
 }
 
 #cuadroPresentacion{
@@ -157,3 +171,6 @@ header{
     top: -270px;
     left: 74%;
 }
+
+
+
