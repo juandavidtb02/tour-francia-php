@@ -1,4 +1,4 @@
-<?php include('conexionDB.php');
+<?php include('../conexionDB.php');
 ?>
 
 
@@ -8,12 +8,12 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estiloPaises.css" />
 </head>
 
 <body>
     <header>
-        <a href="#"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
+        <a href="../index.php"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
         <nav id="menu">
             <ul>
                 <li id="item"><a href="#">Inicio</a></li>
@@ -21,7 +21,7 @@
                     <ul id="desple">
                         <li><a href="#">Equipos participantes</a></li>
                         <li><a href="#">Ciclistas participantes</a></li>
-                        <li><a href="equipos/paisesParticipantes.php">Paises participantes</a></li>
+                        <li><a href="#">Paises participantes</a></li>
                     </ul>
                 </li>
                 <li id="item"><a href="#">Clasificaciones</a>
@@ -43,24 +43,26 @@
         
         </nav>
     </header>
-    <div id="cuadroPresentacion"></div>
-    <div class="presentacion">
-        <h2>TOUR DE FRANCIA 2021</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non.
-        Nullam interdum, enim sed ultrices sagittis, nibh tortor viverra lacus, eu tristique risus sapien et eros. Cras gravida, felis sed sagittis convallis, nulla ante vehicula justo, id imperdiet enim nisi id mauris. Nunc egestas volutpat congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula purus eu enim vulputate rhoncus.</p>
-        <img src="https://cope-cdnmed.agilecontent.com/resources/jpg/7/8/1597079096487.jpg">;
-    </div>
     
-    
-    <div id="cuadro2"></div>
-    <div class="cu2">
-        <h2>Title 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non.
-        Nullam interdum, enim sed ultrices sagittis, nibh tortor viverra lacus, eu tristique risus sapien et eros. Cras gravida, felis sed sagittis convallis, nulla ante vehicula justo, id imperdiet enim nisi id mauris. Nunc egestas volutpat congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula purus eu enim vulputate rhoncus.</p>
-        <img src="https://cope-cdnmed.agilecontent.com/resources/jpg/7/8/1597079096487.jpg">
-    </div>
-    
-</body>
+    <h1><br>PAISES PARTICIPANTES</h1>
+    <?php
+        $conexion = conectarbase();
+        $query="select * from pais";
+        $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
+        $nr=pg_num_rows($resultado);
+        if($nr>0){
+            echo "<center><h2>Tabla paises</h2></center>";
+            echo "<table border=1 bgcolor=#A9B8BF align=center cellpadding=18>
+                      <tr><td>Codigo</td><td>Nombre</td>";
+            while($filas=pg_fetch_array($resultado)){
+                echo "<tr><td>".$filas["cod_pais"]."</td>";
+                echo "<td>".$filas["nomb_pais"]."</td>";
+            }echo "</table>";
+        }else{
+            echo "No hay datos ingresados";
+        }
+
+    ?>
     
     <footer><p><br>Creado por:</p>
         <p>Juan David Torres Barreto - 160004330</p>
@@ -70,6 +72,10 @@
         <a href="https://es-la.facebook.com/letour/"><img id="face" src="https://static1.elcorreo.com/www/multimedia/202004/23/media/cortadas/1565689109_969444_1565689520_noticia_normal-k3LD-U10010140614850aB-1248x770@El%20Correo.jpg" width="55px;"></a>
         <a href="https://twitter.com/letour"><img id="twitter" src="https://1000marcas.net/wp-content/uploads/2019/11/S%C3%ADmbolo-twitter.jpg" width="40px"></a>
     </footer>
+    
+</body>
+    
+    
     
     
 </html>
