@@ -181,39 +181,29 @@ header{
 
 footer{
     color:white;
-    position: absolute;
-    top: 1480px;
-    left: 40%;
+    text-align: center;
+    background-color: black;
     font-family: arial;
     font-size: 15px;
+    position: relative;
+    margin-top: ;0px;
+    width: 100%;
 }
 
-#cop {
-    color: white;
-    position: absolute;
-    font-family: arial;
-    left: 89%;
-    top:1546px;
-    font-size: 14px;
+footer #twitter {
+    position: relative;
+    left: 39.8%;
+    top: -72px;
 }
 
-#twitter {
-    position: absolute;
-    width: 3%;
-    top:1526px;
-    left: 86%;
+footer #face {
+    position: relative;
+    left: 40%;
+    top: -67px;
 }
 
-#face {
-    width: 4.6%;
-    top:1518px;
-    left:88%;
-    position: absolute;
-}
-
-#inst{
-    width: 5%;
-    position: absolute;
-    top: 1516px;
-    left: 91%;
+footer #inst {
+    position: relative;
+    left: 41%;
+    top: -65px;
 }
