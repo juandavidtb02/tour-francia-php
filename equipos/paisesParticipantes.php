@@ -16,7 +16,7 @@
         <a href="../index.php"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
         <nav id="menu">
             <ul>
-                <li id="item"><a href="#">Inicio</a></li>
+                <li id="item"><a href="../index.php">Inicio</a></li>
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
                         <li><a href="#">Equipos participantes</a></li>
