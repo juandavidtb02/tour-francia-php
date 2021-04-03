@@ -52,11 +52,11 @@
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<center><h2>Tabla paises</h2></center>";
-            echo "<table border=1 bgcolor=#A9B8BF align=center cellpadding=18>
-                      <tr><td>Codigo</td><td>Nombre</td>";
+            echo "<table align=center>
+                      <thead><td id=iz>Codigo</td><td id=der>Nombre</td></thead>";
             while($filas=pg_fetch_array($resultado)){
                 echo "<tr><td>".$filas["cod_pais"]."</td>";
-                echo "<td>".$filas["nomb_pais"]."</td>";
+                echo "<td id=der>".$filas["nomb_pais"]."</td>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";
