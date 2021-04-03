@@ -173,7 +173,7 @@ footer #unillanos{
     top:-70px;
 }
 
-@media screen and (max-width:800px) {
+@media (max-width:1080px) {
     footer{
         margin-top:1000px
     }
