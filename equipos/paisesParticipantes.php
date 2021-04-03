@@ -9,6 +9,7 @@
 <head>
     <title>TOUR DE FRANCIA 2021</title>
     <link rel="stylesheet" type="text/css" href="estiloPaises.css?v=<?php echo time(); ?>" />
+    <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                 <li id="item"><a href="../index.php">Inicio</a></li>
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
-                        <li><a href="#">Equipos participantes</a></li>
+                        <li><a href="./equiposParticipantes.php">Equipos participantes</a></li>
                         <li><a href="#">Ciclistas participantes</a></li>
                         <li><a href="#">Paises participantes</a></li>
                     </ul>
