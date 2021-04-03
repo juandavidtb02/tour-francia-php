@@ -1,6 +1,6 @@
 body {
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 36%, rgba(255,252,0,1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 86%, rgba(255,252,0,1) 100%);
 
     background-repeat: no-repeat;
     margin-top: 0px;
@@ -121,22 +121,29 @@ footer{
     position: relative;
     margin-top: ;0px;
     width: 100%;
+    border-top: 2px solid yellow;
 }
 
 footer #twitter {
     position: relative;
-    left: 39.8%;
+    left: 29.8%;
     top: -72px;
 }
 
 footer #face {
     position: relative;
-    left: 40%;
+    left: 30%;
     top: -67px;
 }
 
 footer #inst {
     position: relative;
-    left: 41%;
+    left: 31%;
     top: -65px;
+}
+
+footer #unillanos{
+    position: relative;
+    left: -30%;
+    top:-70px;
 }

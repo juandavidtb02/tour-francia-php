@@ -8,7 +8,7 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>
@@ -43,22 +43,19 @@
         
         </nav>
     </header>
-    <div id="cuadroPresentacion"></div>
-    <div class="presentacion">
-        <h2>TOUR DE FRANCIA 2021</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non.
-        Nullam interdum, enim sed ultrices sagittis, nibh tortor viverra lacus, eu tristique risus sapien et eros. Cras gravida, felis sed sagittis convallis, nulla ante vehicula justo, id imperdiet enim nisi id mauris. Nunc egestas volutpat congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula purus eu enim vulputate rhoncus.</p>
-        <img src="https://cope-cdnmed.agilecontent.com/resources/jpg/7/8/1597079096487.jpg">;
-    </div>
-    
-    
-    <div id="cuadro2"></div>
-    <div class="cu2">
-        <h2>Title 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non.
-        Nullam interdum, enim sed ultrices sagittis, nibh tortor viverra lacus, eu tristique risus sapien et eros. Cras gravida, felis sed sagittis convallis, nulla ante vehicula justo, id imperdiet enim nisi id mauris. Nunc egestas volutpat congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula purus eu enim vulputate rhoncus.</p>
-        <img src="https://cope-cdnmed.agilecontent.com/resources/jpg/7/8/1597079096487.jpg">
-    </div>
+    <center><div class="presentacion">
+        <h1>Tour de Francia 2021</h1>
+        <p>Bienvenidos a la web (no) oficial del Tour de Francia 2021, en este medio podrás consultar
+        toda la información sobre la competencia más grande del ciclismo.<br><br>
+        La 108ª edición del Tour de France arrancará en Brest, al oeste del país francés, el sábado 26 de junio del 2021.
+        Y terminará el 18 de julio del mismo año en la capital francesa, París.<br><br>
+        </p>
+        <img src="https://www.palco23.com/files/0002017/004temas/tour-francia-campos-eliseos-TAG.jpg" width="500px">
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Esta aplicacíon fue creada por los estudiantes de ingeníeria de sistemas Juan David Torres Barreto y Daniel Camilo
+        Alférez García para el proyecto final de la materia Bases de datos.<br><br>
+        Para el desarrollo de la aplicación, se utilizó PostgreSQL como motor de bases de datos, Heroku como servidor y herramienta para el desarrollo. Ademá
+        del uso de HTML y CSS para el diseño principal</p>
+    </div></center>
     
 </body>
     
@@ -66,6 +63,7 @@
         <p>Juan David Torres Barreto - 160004330</p>
         <p>Daniel Camilo Alferez Garcia - 160004302</p>
         <p id="copy">© 2021</p>
+        <a href="https://www.unillanos.edu.co/"><img id="unillanos" src="https://lh3.googleusercontent.com/proxy/ewCjKlFx0pO8Ldk5BTuGSPxtFBgUHlkufmqy71Jkr2_JRP9VdS_7LFd5_NxGU9E5uBe1rik7__nyI4HTGLY7ElCW3GIiDzPRKkLw65AWlBq8k0SjN4OsLCx7xWrS-Akc" width="200px"></a>
         <a href="https://www.instagram.com/letourdefrance/?hl=es-la"><img id="inst" src="https://imagenes.milenio.com/1udt1di_SAd03sjMqZeC9bQ7ePU=/958x596/https://www.milenio.com/uploads/media/2019/10/01/como-puedo-activar-el-modo.png" width="60px"></a>
         <a href="https://es-la.facebook.com/letour/"><img id="face" src="https://static1.elcorreo.com/www/multimedia/202004/23/media/cortadas/1565689109_969444_1565689520_noticia_normal-k3LD-U10010140614850aB-1248x770@El%20Correo.jpg" width="55px;"></a>
         <a href="https://twitter.com/letour"><img id="twitter" src="https://1000marcas.net/wp-content/uploads/2019/11/S%C3%ADmbolo-twitter.jpg" width="40px"></a>
