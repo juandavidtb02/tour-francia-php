@@ -48,7 +48,7 @@
     <h1><br>EQUIPOS PARTICIPANTES</h1>
     <?php
         $conexion = conectarbase();
-        $query="select * from equipos";
+        $query="select * from equipos order by cod_equipo";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
