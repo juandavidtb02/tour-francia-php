@@ -8,7 +8,7 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estiloPaises.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" type="text/css" href="estiloRecorrido.css?v=<?php echo time(); ?>" />
     <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
@@ -20,9 +20,9 @@
                 <li id="item"><a href="../index.php">Inicio</a></li>
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
-                        <li><a href="./equiposParticipantes.php">Equipos participantes</a></li>
+                        <li><a href="../equipos/equiposParticipantes.php">Equipos participantes</a></li>
                         <li><a href="#">Ciclistas participantes</a></li>
-                        <li><a href="./paisesParticipantes.php">Paises participantes</a></li>
+                        <li><a href="../equipos/paisesParticipantes.php">Paises participantes</a></li>
                     </ul>
                 </li>
                 <li id="item"><a href="#">Clasificaciones</a>
@@ -36,7 +36,7 @@
                 </li>
                 <li id="item"><a href="#">Etapas</a>
                     <ul id="desple3">
-                        <li><a href="../etapas/recorrido.php">Recorrido 2021</a></li>
+                        <li><a href="#">Recorrido 2021</a></li>
                         <li><a href="#">Ganadores por etapas</a></li>
                     </ul>
                 </li>
@@ -44,20 +44,26 @@
         
         </nav>
     </header>
+
     
-    <h1><br>PAISES PARTICIPANTES</h1>
+    
+    <h1><br>RECORRIDO 2021</h1>
     <?php
         $conexion = conectarbase();
-        $query="select * from pais order by nomb_pais";
-        $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
+        $query="select cod_etapa,distancia,fecha_etapa,c.nombre_ciudad as destino,d.nombre_ciudad as origen,tipo from ciudad c inner join etapa on c.cod_ciudad=ciudad_destino inner join ciudad d on ciudad_origen=d.cod_ciudad;";
+        $resultado=pg_query($conexion,$query) or die ("Error en consultar base");
         $nr=pg_num_rows($resultado);
         if($nr>0){
-            echo "<center><h2>Tabla paises</h2></center>";
+            echo "<center><h2>Tabla etapas</h2></center>";
             echo "<table align=center>
-                      <thead><td id=iz>Codigo</td><td id=der>Nombre</td></thead>";
+                      <thead><td id=iz>Codigo</td><td>Distancia (km)</td><td>Fecha</td><td>Ciudad origen</td><td>Ciudad destino</td><td id=der>Tipo</td></thead>";
             while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["cod_pais"]."</td>";
-                echo "<td id=der>".$filas["nomb_pais"]."</td>";
+                echo "<tr><td>".$filas["cod_etapa"]."</td>";
+                echo "<td>".$filas["distancia"]."</td>";
+                echo "<td>".$filas["fecha_etapa"]."</td>";
+                echo "<td>".$filas["origen"]."</td>";
+                echo "<td>".$filas["destino"]."</td>";
+                echo "<td id=der>".$filas["tipo"]."</td>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";
@@ -65,6 +71,10 @@
 
     ?>
     
+    <center><img id="reco" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/11/01/16042614796672.jpg"></center>
+
+
+
     <footer><p><br>Creado por:</p>
         <p>Juan David Torres Barreto - 160004330</p>
         <p>Daniel Camilo Alferez Garcia - 160004302</p>

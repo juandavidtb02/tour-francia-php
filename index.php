@@ -36,7 +36,7 @@
                 </li>
                 <li id="item"><a href="#">Etapas</a>
                     <ul id="desple3">
-                        <li><a href="#">Recorrido 2021</a></li>
+                        <li><a href="etapas/recorrido.php">Recorrido 2021</a></li>
                         <li><a href="#">Ganadores por etapas</a></li>
                     </ul>
                 </li>
