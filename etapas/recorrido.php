@@ -45,9 +45,11 @@
         </nav>
     </header>
 
-    
-    
     <h1><br>RECORRIDO 2021</h1>
+
+    <center><img id="reco" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/11/01/16042614796672.jpg"></center>
+    
+    
     <?php
         $conexion = conectarbase();
         $query="select cod_etapa,distancia,fecha_etapa,c.nombre_ciudad as destino,d.nombre_ciudad as origen,tipo from ciudad c inner join etapa on c.cod_ciudad=ciudad_destino inner join ciudad d on ciudad_origen=d.cod_ciudad order by cod_etapa";
@@ -70,9 +72,6 @@
         }
 
     ?>
-    
-    <center><img id="reco" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/11/01/16042614796672.jpg"></center>
-
 
 
     <footer><p><br>Creado por:</p>
