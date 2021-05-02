@@ -50,7 +50,7 @@
     <h1><br>RECORRIDO 2021</h1>
     <?php
         $conexion = conectarbase();
-        $query="select cod_etapa,distancia,fecha_etapa,c.nombre_ciudad as destino,d.nombre_ciudad as origen,tipo from ciudad c inner join etapa on c.cod_ciudad=ciudad_destino inner join ciudad d on ciudad_origen=d.cod_ciudad;";
+        $query="select cod_etapa,distancia,fecha_etapa,c.nombre_ciudad as destino,d.nombre_ciudad as origen,tipo from ciudad c inner join etapa on c.cod_ciudad=ciudad_destino inner join ciudad d on ciudad_origen=d.cod_ciudad order by cod_etapa";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar base");
         $nr=pg_num_rows($resultado);
         if($nr>0){
