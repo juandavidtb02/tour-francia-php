@@ -150,7 +150,7 @@ table thead #der{
     border-top-right-radius: 20px;
 }
 
-table tr:nth-child(even){
+table tr:nth-last-child(even){
     background-color:#1F1F1C;
 }
 

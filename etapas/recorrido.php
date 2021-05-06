@@ -21,7 +21,7 @@
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
                         <li><a href="../equipos/equiposParticipantes.php">Equipos participantes</a></li>
-                        <li><a href="#">Ciclistas participantes</a></li>
+                        <li><a href="../equipos/ciclistas.php">Ciclistas participantes</a></li>
                         <li><a href="../equipos/paisesParticipantes.php">Paises participantes</a></li>
                     </ul>
                 </li>

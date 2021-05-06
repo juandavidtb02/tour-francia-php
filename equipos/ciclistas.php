@@ -1,4 +1,4 @@
-<?php include('conexionDB.php');
+<?php include('../conexionDB.php');
 ?>
 
 
@@ -8,21 +8,21 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" type="text/css" href="estiloCiclistas.css?v=<?php echo time(); ?>" />
     <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
 <body>
     <header>
-        <a href="#"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
+        <a href="../index.php"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
         <nav id="menu">
             <ul>
-                <li id="item"><a href="#">Inicio</a></li>
+                <li id="item"><a href="../index.php">Inicio</a></li>
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
-                        <li><a href="equipos/equiposParticipantes.php">Equipos participantes</a></li>
-                        <li><a href="equipos/ciclistas.php">Ciclistas participantes</a></li>
-                        <li><a href="equipos/paisesParticipantes.php">Paises participantes</a></li>
+                        <li><a href="./equiposParticipantes.php">Equipos participantes</a></li>
+                        <li><a href="#">Ciclistas participantes</a></li>
+                        <li><a href="./paisesParticipantes.php">Paises participantes</a></li>
                     </ul>
                 </li>
                 <li id="item"><a href="#">Clasificaciones</a>
@@ -36,7 +36,7 @@
                 </li>
                 <li id="item"><a href="#">Etapas</a>
                     <ul id="desple3">
-                        <li><a href="etapas/recorrido.php">Recorrido 2021</a></li>
+                        <li><a href="../etapas/recorrido.php">Recorrido 2021</a></li>
                         <li><a href="#">Ganadores por etapas</a></li>
                     </ul>
                 </li>
@@ -44,21 +44,30 @@
         
         </nav>
     </header>
-    <center><div class="presentacion">
-        <h1>Tour de Francia 2021</h1>
-        <p>Bienvenidos a la web (no) oficial del Tour de Francia 2021, en este medio podrás consultar
-        toda la información sobre la competencia más grande del ciclismo.<br><br>
-        La 108ª edición del Tour de France arrancará en Brest, al oeste del país francés, el sábado 26 de junio del 2021.
-        Y terminará el 18 de julio del mismo año en la capital francesa, París.<br><br>
-        </p>
-        <img src="https://www.palco23.com/files/0002017/004temas/tour-francia-campos-eliseos-TAG.jpg" width="500px">
-        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Esta aplicacíon fue creada por los estudiantes de ingeníeria de sistemas Juan David Torres Barreto y Daniel Camilo
-        Alférez García para el proyecto final de la materia Bases de datos.<br><br>
-        Para el desarrollo de la aplicación, se utilizó PostgreSQL como motor de bases de datos, Heroku como servidor y herramienta para el desarrollo. Ademá
-        del uso de HTML y CSS para el diseño principal</p>
-    </div></center>
     
-</body>
+    <h1><br>CICLISTAS PARTICIPANTES</h1>
+
+
+    <?php
+        $conexion = conectarbase();
+        $query="select * from ciclistas";
+        $resultado=pg_query($conexion,$query) or die ("Error en consultar la base de datos");
+        $nr=pg_num_rows($resultado);
+        if($nr>0){
+            echo "<table align=center>
+                      <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Fecha de nacimiento</td><td id=der>Nacionalidad</td></thead>";
+            while($filas=pg_fetch_array($resultado)){
+                echo "<tr><td>".$filas["cod_ciclista"]."</td>";
+                echo "<td>".$filas["nomb_ciclista"]."</td>";
+                echo "<td>".$filas["apellido_ciclista"]."</td>";
+                echo "<td>".$filas["fech_nac"]."</td>";
+                echo "<td id=der>".$filas["pais_ciclista"]."</td>";
+            }echo "</table>";
+        }else{
+            echo "No hay datos ingresados";
+        }
+
+    ?>
     
     <footer><p><br>Creado por:</p>
         <p>Juan David Torres Barreto - 160004330</p>
@@ -69,6 +78,10 @@
         <a href="https://es-la.facebook.com/letour/"><img id="face" src="https://static1.elcorreo.com/www/multimedia/202004/23/media/cortadas/1565689109_969444_1565689520_noticia_normal-k3LD-U10010140614850aB-1248x770@El%20Correo.jpg" width="55px;"></a>
         <a href="https://twitter.com/letour"><img id="twitter" src="https://1000marcas.net/wp-content/uploads/2019/11/S%C3%ADmbolo-twitter.jpg" width="40px"></a>
     </footer>
+    
+</body>
+    
+    
     
     
 </html>

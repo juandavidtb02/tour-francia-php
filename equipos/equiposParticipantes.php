@@ -21,7 +21,7 @@
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
                         <li><a href="#">Equipos participantes</a></li>
-                        <li><a href="#">Ciclistas participantes</a></li>
+                        <li><a href="./ciclistas.php">Ciclistas participantes</a></li>
                         <li><a href="./paisesParticipantes.php">Paises participantes</a></li>
                     </ul>
                 </li>
@@ -46,6 +46,9 @@
     </header>
     
     <h1><br>EQUIPOS PARTICIPANTES</h1>
+
+    <section></section>
+
     <?php
         $conexion = conectarbase();
         $query="select * from equipos order by cod_equipo";
