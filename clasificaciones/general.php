@@ -50,14 +50,15 @@
 
     <?php
         $conexion = conectarbase();
-        $query="select nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista order by total";
+        $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista order by total;";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<table align=center>
-                      <thead><td id=iz>Nombre del ciclista</td><td>Apellido del ciclista</td><td id=der>Tiempo total</td></thead>";
+                      <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td id=der>Tiempo total</td></thead>";
             while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["nomb_ciclista"]."</td>";
+                echo "<tr><td>".$filas["puesto"]."</td>";
+                echo "<td>".$filas["nomb_ciclista"]."</td>";
                 echo "<td>".$filas["apellido_ciclista"]."</td>";
                 echo "<td id=der>".$filas["total"]."</td>";
             }echo "</table>";
