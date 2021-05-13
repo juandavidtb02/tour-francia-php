@@ -27,7 +27,7 @@
                 </li>
                 <li id="item"><a href="#">Clasificaciones</a>
                     <ul id="desple2">
-                        <li><a href="#">Clasificacion general</a></li>
+                        <li><a href="clasificaciones/general.php">Clasificacion general</a></li>
                         <li><a href="#">Clasificacion de Sprint</a></li>
                         <li><a href="#">Clasificacion por montaña</a></li>
                         <li><a href="#">Clasificacion por puntos</a></li>

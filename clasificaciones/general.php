@@ -8,7 +8,7 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estiloEquipos.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" type="text/css" href="../equipos/estiloEquipos.css?v=<?php echo time(); ?>" />
     <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
@@ -20,14 +20,14 @@
                 <li id="item"><a href="../index.php">Inicio</a></li>
                 <li id="item"><a href="#">Equipos</a>
                     <ul id="desple">
-                        <li><a href="#">Equipos participantes</a></li>
-                        <li><a href="./ciclistas.php">Ciclistas participantes</a></li>
-                        <li><a href="./paisesParticipantes.php">Paises participantes</a></li>
+                        <li><a href="../equipos/equiposParticipantes.php">Equipos participantes</a></li>
+                        <li><a href="../equipos/ciclistas.php">Ciclistas participantes</a></li>
+                        <li><a href="../equipos/paisesParticipantes.php">Paises participantes</a></li>
                     </ul>
                 </li>
                 <li id="item"><a href="#">Clasificaciones</a>
                     <ul id="desple2">
-                        <li><a href="../clasificaciones/general.php">Clasificacion general</a></li>
+                        <li><a href="#">Clasificacion general</a></li>
                         <li><a href="#">Clasificacion de Sprint</a></li>
                         <li><a href="#">Clasificacion por montaña</a></li>
                         <li><a href="#">Clasificacion por puntos</a></li>
@@ -45,22 +45,21 @@
         </nav>
     </header>
     
-    <h1><br>EQUIPOS PARTICIPANTES</h1>
+    <h1><br>CLASIFICACIÓN GENERAL</h1>
 
-    <section></section>
 
     <?php
         $conexion = conectarbase();
-        $query="select * from equipos order by cod_equipo";
+        $query="select nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista order by total";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<table align=center>
-                      <thead><td id=iz>Codigo del equipo</td><td>Nombre del equipo</td><td id=der>Pais</td></thead>";
+                      <thead><td id=iz>Nombre del ciclista</td><td>Apellido del ciclista</td><td id=der>Tiempo total</td></thead>";
             while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["cod_equipo"]."</td>";
-                echo "<td>".$filas["nomb_equipo"]."</td>";
-                echo "<td id=der>".$filas["pais_equipo"]."</td>";
+                echo "<tr><td>".$filas["nomb_ciclista"]."</td>";
+                echo "<td>".$filas["apellido_ciclista"]."</td>";
+                echo "<td id=der>".$filas["total"]."</td>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";
