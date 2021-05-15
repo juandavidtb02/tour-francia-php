@@ -8,27 +8,28 @@
     
 <head>
     <title>TOUR DE FRANCIA 2021</title>
-    <link rel="stylesheet" type="text/css" href="estiloPaises.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" type="text/css" href="../equipos/estiloEquipos.css?v=<?php echo time(); ?>" />
     <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
 <body>
-
     <?php require '../header.php' ?>
     
-    <h1><br>PAISES PARTICIPANTES</h1>
+    <h1><br>CLASIFICACIÓN POR PUNTOS</h1>
+
     <?php
         $conexion = conectarbase();
-        $query="select * from pais order by nomb_pais";
+        $query="select corre.cod_ciclista, nomb_ciclista, apellido_ciclista, sum(puntos_ciclista) as total_puntos from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by corre.cod_ciclista, nomb_ciclista, apellido_ciclista having sum(puntos_ciclista)!=0 order by total_puntos desc;";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
-            echo "<center><h2>Tabla paises</h2></center>";
             echo "<table align=center>
-                      <thead><td id=iz>Codigo</td><td id=der>Nombre</td></thead>";
+                      <thead><td id=iz>Codigo Ciclista</td><td>Nombre</td><td>Apellido</td><td id=der>Puntos</td></thead>";
             while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["cod_pais"]."</td>";
-                echo "<td id=der>".$filas["nomb_pais"]."</td>";
+                echo "<tr><td>".$filas["cod_ciclista"]."</td>";
+                echo "<td>".$filas["nomb_ciclista"]."</td>";
+                echo "<td>".$filas["apellido_ciclista"]."</td>";
+                echo "<td>".$filas["total_puntos"]."</td>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";
