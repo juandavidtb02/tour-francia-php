@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/tour-francia-app/estiloHeader.css?v=<?php echo time(); ?>" />
+<link rel="stylesheet" type="text/css" href="estiloHeader.css?v=<?php echo time(); ?>" />
 
 <header>
         <a href="/tour-francia-app/index.php"><img src="https://www.letour.fr/img/global/logo-reversed@2x.png"></a>
