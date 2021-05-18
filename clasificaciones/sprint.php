@@ -15,21 +15,21 @@
 <body>
     <?php require '../header.php' ?>
     
-    <h1><br>CLASIFICACIÓN POR PUNTOS</h1>
+    <h1><br>CLASIFICACIÓN POR SPRINT O CONTRARRELOJ</h1>
 
     <?php
         $conexion = conectarbase();
-        $query="select row_number() over (order by sum(puntos_ciclista) desc) as puesto,nomb_ciclista,apellido_ciclista,sum(puntos_ciclista) as total_puntos from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista having sum(puntos_ciclista)!=0 order by total_puntos desc";
-        $resultado=pg_query($conexion,$query) or die ("Error en consultar la base de datos");
+        $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from ciclistas inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where tipo='CONTRARRELOJ INDIVIDUAL' group by nomb_ciclista,apellido_ciclista order by total";
+        $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<table align=center>
-                      <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td id=der>Total puntos</td></thead>";
+                      <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td id=der>Tiempo total</td></thead>";
             while($filas=pg_fetch_array($resultado)){
                 echo "<tr><td>".$filas["puesto"]."</td>";
                 echo "<td>".$filas["nomb_ciclista"]."</td>";
                 echo "<td>".$filas["apellido_ciclista"]."</td>";
-                echo "<td>".$filas["total_puntos"]."</td>";
+                echo "<td>".$filas["total"]."</td>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";

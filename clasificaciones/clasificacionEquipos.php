@@ -19,15 +19,16 @@
 
     <?php
         $conexion = conectarbase();
-        $query="select nomb_equipo,sum(tiempo_equipo) as tiempo_total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by nomb_equipo order by tiempo_total;";
+        $query="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<table align=center>
-                      <thead><td id=iz>Equipo</td><td id=der>Tiempo total</td></thead>";
+                      <thead><td id=iz>Puesto</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
             while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["nomb_equipo"]."</td>";
-                echo "<td>".$filas["tiempo_total"]."</td>";
+                echo "<tr><td>".$filas["puesto"]."</td>";
+                echo "<td>".$filas["nomb_equipo"]."</td>";
+                echo "<td>".$filas["total"]."</td></tr>";
             }echo "</table>";
         }else{
             echo "No hay datos ingresados";
