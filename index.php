@@ -26,7 +26,7 @@
         <img src="https://www.palco23.com/files/0002017/004temas/tour-francia-campos-eliseos-TAG.jpg" width="500px">
         <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Esta aplicacíon fue creada por los estudiantes de ingeníeria de sistemas Juan David Torres Barreto y Daniel Camilo
         Alférez García para el proyecto final de la materia Bases de datos.<br><br>
-        Para el desarrollo de la aplicación, se utilizó PostgreSQL como motor de bases de datos, Heroku como servidor y herramienta para el desarrollo. Ademá
+        Para el desarrollo de la aplicación, se utilizó PostgreSQL como motor de bases de datos, Heroku como servidor y herramienta para el desarrollo. Además
         del uso de HTML y CSS para el diseño principal</p>
     </div></center>
     
