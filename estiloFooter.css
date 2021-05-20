@@ -1,0 +1,41 @@
+footer{
+    color:white;
+    text-align: center;
+    background-color: black;
+    font-family: arial;
+    font-size: 15px;
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    border-top: 2px solid yellow;
+}
+
+footer #twitter {
+    position: relative;
+    left: 29.8%;
+    top: -72px;
+}
+
+footer #face {
+    position: relative;
+    left: 30%;
+    top: -67px;
+}
+
+footer #inst {
+    position: relative;
+    left: 31%;
+    top: -65px;
+}
+
+footer #unillanos{
+    position: relative;
+    left: -30%;
+    top:-70px;
+}
+
+@media (max-width:1080px) {
+    footer{
+        margin-top:1000px
+    }
+}
