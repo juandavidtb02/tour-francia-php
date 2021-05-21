@@ -40,8 +40,11 @@
         <a href="infoPag.php"><div id="cuadrito3">Sobre nosotros</div></a>
     </section>
 
-    
-    
+    <div class="boxLogin">
+        <img src="https://cdn.pixabay.com/photo/2016/01/19/16/49/laptop-1149412_960_720.jpg">
+        <h2>¿Eres administrador?</h2>
+        <a href="/admin/login.php"><section id="boton"><p>¡Inicia sesión!</p></section></a>
+    </div>
 </body>
     
 <?php require 'footer.php' ?>

@@ -17,7 +17,7 @@ body {
     opacity: 0.9;
     top: 60px;
     margin-bottom: 200px;
-    margin-top: 80px;
+    margin-top: 60px;
     border-top: 2px solid yellow;
     border-bottom: 2px solid yellow;
     z-index: -1;
@@ -167,5 +167,66 @@ body {
 }
 
 #cuadroAboutus a{
+    text-decoration: none;
+}
+
+
+.boxLogin{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -250px;
+    margin-bottom: -50px;
+    width: 700px;
+    height: 260px;
+    background-color: rgba(0,0,0);
+    border-radius: 20px;
+    border: 2px solid yellow;
+}
+
+.boxLogin:hover #boton{
+    display: block;
+    transform: translateY(-10px);
+}
+
+.boxLogin img{
+    position: relative;
+    width: 60%;
+    height: 98.2%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 2px solid black;
+    clip-path: polygon(0 0, 0 800px, 300px 300px, 400px 0);
+}
+
+.boxLogin h2{
+    position: relative;
+    top: -95%;
+    text-align: right;
+    right: 42px;
+    color:white;
+    font-family: arial;
+    font-style: italic;
+}
+
+.boxLogin #boton{
+    position: relative;
+    top:-170px;
+    left: 63%;
+    background-color: yellow;
+    height: 60px;
+    width: 200px;
+    border-radius: 30px;
+    transition: transform .5s ease-in-out;
+}
+
+.boxLogin #boton p{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 55px;
+    color:black;
+}
+
+.boxLogin a{
     text-decoration: none;
 }
