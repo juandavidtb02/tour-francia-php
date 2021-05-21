@@ -20,9 +20,36 @@ h1{
     color: white;
     font-family: arial;
     text-shadow: 2px  0px 0px black,
-               0px  2px 0px black,
-              -2px  0px 0px black,
-               0px -2px 0px black;
+                0px  2px 0px black,
+                -2px  0px 0px black,
+                0px -2px 0px black;
+}
+
+.filtro{
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtro select{
+    width: 120px;
+    height: 32.5px;
+    margin: 2%;
+    border-radius:12px;
+    border: 2px solid black;
+    outline: none;
+    background-color: #ecec96;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.img-buscador{
+    width: 25px;
+    height: 25px;
+    margin: 2%;
+    outline: none;
 }
 
 table{
@@ -63,6 +90,7 @@ table thead #iz{
 
 table thead #der{
     border-top-right-radius: 20px;
+
 }
 
 table tr:nth-last-child(even){
