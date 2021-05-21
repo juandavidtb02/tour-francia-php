@@ -22,8 +22,9 @@
 
     <div class="buscador">
         <form action="ciclistas.php" method="GET" class="formulario">
-        <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda">
+        <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda" autocomplete="off">
         <select name="tipo" class="seleccion">
+            <option hidden selected>Todos</option>
             <option value="Codigo">Codigo</option>
             <option value="Nombre">Nombre</option>
             <option value="Apellido">Apellido</option>
@@ -61,6 +62,7 @@
         $resultado=pg_query($conexion,$query);
 
         if(!$resultado or pg_num_rows($resultado)==0){
+            echo '<p  style="font-size:30px; tex height:80px; color: white; text-align:center; font-family: Arial, Helvetica, sans-serif; ">Ingresa una busqueda nuevamente</p>';
             $resultado=pg_query($conexion,"select * from ciclistas") or die("Error");
         }
 

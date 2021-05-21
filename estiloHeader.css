@@ -2,13 +2,13 @@ header img{
     width: 8%;
     position: relative;
     left: 46%;
-    top:25%;
+    top:20%;
     justify-content: center;
 }
 
 header{
     width: 100%; 
-    height: 110px;
+    height: 145px;
     position: relative;
     top: -21px;
     background-color: black;

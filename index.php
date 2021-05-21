@@ -14,9 +14,9 @@
 
 <body>
     
-<?php require 'header.php' ?>
+    <?php require 'header.php' ?>
 
-<center><div class="presentacion">
+    <center><div class="presentacion">
         <br>
         <h1>Tour de Francia 2021</h1>
         <p>Bienvenidos a la web (no) oficial del Tour de Francia 2021, en este medio podrás consultar

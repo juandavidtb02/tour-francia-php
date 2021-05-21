@@ -5,9 +5,10 @@ footer{
     font-family: arial;
     font-size: 15px;
     position: relative;
-    margin-top: 60px;
+    margin-top: 18%;
     width: 100%;
     border-top: 2px solid yellow;
+    bottom: 0;
 }
 
 footer #twitter {
