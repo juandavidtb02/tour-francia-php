@@ -1,0 +1,80 @@
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 90%, rgba(255,252,0,1) 100%);
+
+    background-repeat: no-repeat;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#fondo{
+    position: absolute;
+    width: 98%;
+    z-index: -1;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-family: arial;
+    text-shadow: 2px  0px 0px black,
+               0px  2px 0px black,
+              -2px  0px 0px black,
+               0px -2px 0px black;
+}
+
+table{
+    background-color: black;
+    text-align: left;
+    border: 2px solid #B0B011;
+    border-radius: 20px;
+}
+
+table tr{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+table tr td{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+table #der{
+    border-left: 1px solid black;
+}
+
+table thead{
+    background-color: #9C9C27;
+    border:2px solid yellow;
+}
+
+table thead td{
+    color: black;
+}
+
+table thead #iz{
+    border-top-left-radius: 20px;
+}
+
+table thead #der{
+    border-top-right-radius: 20px;
+}
+
+table tr:nth-last-child(even){
+    background-color:#1F1F1C;
+}
+
+
+#reco{
+    position:static;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    width: 60%;
+    border-radius: 20px;
+    border: 3px solid yellow;
+}
