@@ -14,7 +14,8 @@ header{
     background-color: black;
     background-size: auto;
     text-align: left;
-    opacity: 0.8;
+    opacity: 0.9;
+    z-index: 2;
 }
 
 #menu ul{
@@ -22,7 +23,7 @@ header{
     list-style: none;
     padding:0;
     position: relative;
-    top:8px;
+    top:6px;
     justify-content: center;
 }
 

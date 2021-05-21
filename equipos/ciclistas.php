@@ -14,17 +14,56 @@
 
 <body>
     
+<img id="fondo"src="https://wallpapercave.com/wp/wp2030957.jpg">
+
 <?php require '../header.php' ?>
     
     <h1><br>CICLISTAS PARTICIPANTES</h1>
 
+    <div class="buscador">
+        <form action="ciclistas.php" method="GET" class="formulario">
+        <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda">
+        <select name="tipo" class="seleccion">
+            <option value="Codigo">Codigo</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Apellido">Apellido</option>
+            <option value="Edad">Edad</option>
+            <option value="Nacionalidad">Nacionalidad</option>    
+        </select>
+       <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+        </form>
+    </div>
+
 
     <?php
         $conexion = conectarbase();
-        $query="select * from ciclistas";
-        $resultado=pg_query($conexion,$query) or die ("Error en consultar la base de datos");
-        $nr=pg_num_rows($resultado);
-        if($nr>0){
+        if(isset($_GET["valor"]) && $_GET["valor"] != "" && isset($_GET["tipo"])){
+            $valor = $_GET["valor"];
+            if($_GET["tipo"] == "Codigo"){
+                $query="select * from ciclistas where cod_ciclista=$valor";
+            }
+            if($_GET["tipo"] == "Nombre"){
+                $query="select * from ciclistas where nomb_ciclista ilike '%$valor%'";
+            }
+            if($_GET["tipo"] == "Apellido"){
+                $query="select * from ciclistas where apellido_ciclista ilike '%$valor%'";
+            }
+            if($_GET["tipo"] == "Edad"){
+                $query="select * from ciclistas where date_part('year',age(current_date,fech_nac))=$valor";
+            }
+            if($_GET["tipo"] == "Nacionalidad"){
+                $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, fech_nac, pais_ciclista from ciclistas inner join pais on ciclistas.pais_ciclista=pais.cod_pais where nomb_pais ilike '%$valor%' or pais_ciclista ilike '%$valor%'";
+            }
+        }else{
+            $query="select * from ciclistas";
+        }
+
+        $resultado=pg_query($conexion,$query);
+
+        if(!$resultado or pg_num_rows($resultado)==0){
+            $resultado=pg_query($conexion,"select * from ciclistas") or die("Error");
+        }
+
             echo "<table align=center>
                       <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Fecha de nacimiento</td><td id=der>Nacionalidad</td></thead>";
             while($filas=pg_fetch_array($resultado)){
@@ -34,9 +73,6 @@
                 echo "<td>".$filas["fech_nac"]."</td>";
                 echo "<td id=der>".$filas["pais_ciclista"]."</td>";
             }echo "</table>";
-        }else{
-            echo "No hay datos ingresados";
-        }
 
     ?>
     

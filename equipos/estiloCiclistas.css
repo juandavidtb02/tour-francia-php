@@ -1,6 +1,6 @@
 body {
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 86%, rgba(255,252,0,1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 96%, rgba(255,252,0,1) 100%);
 
     background-repeat: no-repeat;
     margin-top: 0px;
@@ -9,10 +9,65 @@ body {
 
 }
 
+#fondo{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
 h1{
     text-align: center;
     color: white;
     font-family: arial;
+    text-shadow: 2px  0px 0px black,
+               0px  2px 0px black,
+              -2px  0px 0px black,
+               0px -2px 0px black;
+}
+
+.buscador{
+    color: wheat;
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 4%;
+    z-index: 1;
+}
+
+.formulario{
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto-ingreso{
+    margin: 3%;
+    height: 30px;
+    width: 250px;
+    background: rgb(251,250,218);
+    background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
+    border-radius:12px;
+}
+
+.formulario select{
+    width: 100px;
+    height: 30px;
+    margin: 2%;
+    background: rgb(251,250,218);
+    background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
+    border-radius:12px;
+}
+
+.img-buscador{
+    width: 40px;
+    height: 40px;
+    margin: 2%;
+    
 }
 
 table{

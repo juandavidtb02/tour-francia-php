@@ -14,6 +14,8 @@
 
 <body>
     <?php require '../header.php' ?>
+
+    <img id="fondo" src="https://image.api.playstation.com/cdn/EP4133/CUSA08153_00/xnXcOa0IMPBWJvBK7lmgra8EMy0ueIPH.jpg">
     
     <h1><br>CLASIFICACIÓN POR PUNTOS</h1>
 

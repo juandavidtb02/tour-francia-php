@@ -15,6 +15,8 @@
 
     <?php require '../header.php' ?>   
 
+    <img id="fondo" src="https://wallpapercave.com/wp/wp2030957.jpg">
+
     <h1><br>RECORRIDO 2021</h1>
 
     <center><img id="reco" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/11/01/16042614796672.jpg"></center>

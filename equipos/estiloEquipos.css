@@ -1,6 +1,6 @@
 body {
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 86%, rgba(255,252,0,1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 95%, rgba(255,252,0,1) 100%);
 
     background-repeat: no-repeat;
     margin-top: 0px;
@@ -9,10 +9,20 @@ body {
 
 }
 
+#fondo{
+    position: absolute;
+    width: 98%;
+    z-index: -1;
+}
+
 h1{
     text-align: center;
     color: white;
     font-family: arial;
+    text-shadow: 2px  0px 0px black,
+               0px  2px 0px black,
+              -2px  0px 0px black,
+               0px -2px 0px black;
 }
 
 table{

@@ -15,6 +15,8 @@
 <body>
 
     <?php require '../header.php' ?>
+
+    <img id="fondo" src="https://www.mundodeportivo.com/r/GODO/MD/p6/ContraPortada/Imagenes/2019/07/06/Recortada/20190706-636980227837280350_20190706151538848-kCOI-U463314237145moD-980x554@MundoDeportivo-Web.jpg">
     
     <h1><br>PAISES PARTICIPANTES</h1>
     <?php
@@ -23,7 +25,6 @@
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
         if($nr>0){
-            echo "<center><h2>Tabla paises</h2></center>";
             echo "<table align=center>
                       <thead><td id=iz>Codigo</td><td id=der>Nombre</td></thead>";
             while($filas=pg_fetch_array($resultado)){
