@@ -20,7 +20,7 @@
                 }
             }
             else {
-                $message = "Codigo de admin incorrecto.\nPara más información comunícate con los desarrolladores.";
+                $message = "Codigo de admin incorrecto."."\n" "Para más información comunícate con los desarrolladores de la página.";
             }
         }
         else{
