@@ -1,5 +1,3 @@
-<?php include('conexionDB.php');
-?>
 
 
 <!doctype html>
@@ -42,8 +40,13 @@
 
     <div class="boxLogin">
         <img src="https://cdn.pixabay.com/photo/2016/01/19/16/49/laptop-1149412_960_720.jpg">
-        <h2>¿Eres administrador?</h2>
-        <a href="/admin/login.php"><section id="boton"><p>¡Inicia sesión!</p></section></a>
+        <?php if(!empty($user)): ?>
+            <h2>Ya has ingresado</h2>
+            <a href="./admin/user.php"><section id="boton"><p>Ir al gestor</p></section></a>
+        <?php else: ?>
+            <h2>¿Eres administrador?</h2>
+            <a href="admin/login.php"><section id="boton"><p>¡Inicia sesión!</p></section></a>
+        <?php endif; ?>
     </div>
 </body>
     

@@ -1,9 +1,23 @@
-header img{
+header #logo{
     width: 8%;
     position: relative;
     left: 46%;
     top:20%;
     justify-content: center;
+}
+
+header #user{
+    width: 3.7%;
+    position: relative;
+    left: -2%;
+    top: 2%;
+}
+
+header #salir{
+    position: relative;
+    width:3%;
+    left:-10%;
+    top:-1px;
 }
 
 header{

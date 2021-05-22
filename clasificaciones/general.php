@@ -1,6 +1,3 @@
-<?php include('../conexionDB.php');
-?>
-
 
 <!doctype html>
 <html lang="es">
@@ -21,7 +18,7 @@
 
 
     <?php
-        $conexion = conectarbase();
+
         $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista order by total;";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);

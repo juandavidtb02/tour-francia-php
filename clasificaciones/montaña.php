@@ -1,6 +1,3 @@
-<?php include('../conexionDB.php');
-?>
-
 
 <!doctype html>
 <html lang="es">
@@ -20,7 +17,7 @@
     <h1><br>CLASIFICACIÓN POR MONTAÑA</h1>
 
     <?php
-        $conexion = conectarbase();
+
         $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,sum(tiempo_ciclista) as total from ciclistas inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where tipo='MONTAÑA' group by nomb_ciclista,apellido_ciclista order by total";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);

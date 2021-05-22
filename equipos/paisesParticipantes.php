@@ -1,6 +1,3 @@
-<?php include('../conexionDB.php');
-?>
-
 
 <!doctype html>
 <html lang="es">
@@ -20,7 +17,7 @@
     
     <h1><br>PAISES PARTICIPANTES</h1>
     <?php
-        $conexion = conectarbase();
+
         $query="select * from pais order by nomb_pais";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);

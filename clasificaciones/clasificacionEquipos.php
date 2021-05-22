@@ -1,5 +1,3 @@
-<?php include('../conexionDB.php');
-?>
 
 
 <!doctype html>
@@ -20,7 +18,6 @@
     <h1><br>CLASIFICACIÓN POR EQUIPOS</h1>
 
     <?php
-        $conexion = conectarbase();
         $query="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);

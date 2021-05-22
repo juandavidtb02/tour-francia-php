@@ -1,6 +1,3 @@
-<?php include('../conexionDB.php');
-?>
-
 
 <!doctype html>
 <html lang="es">
@@ -37,7 +34,7 @@
 
 
     <?php
-        $conexion = conectarbase();
+        
         if(isset($_GET["valor"]) && $_GET["valor"] != "" && isset($_GET["tipo"])){
             $valor = $_GET["valor"];
             if($_GET["tipo"] == "Codigo"){

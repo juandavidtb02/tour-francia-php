@@ -1,5 +1,3 @@
-<?php include('../conexionDB.php');
-?>
 
 <!doctype html>
 <html lang="es">
@@ -23,7 +21,6 @@
     
     
     <?php
-        $conexion = conectarbase();
         
     echo "<center><h2>Tabla etapas</h2></center><table align=center>
     <thead><td id=iz>Codigo</td><td>Distancia (km)</td><td>Fecha</td><td>Ciudad origen</td><td>Ciudad destino</td>

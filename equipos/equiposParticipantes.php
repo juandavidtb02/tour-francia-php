@@ -1,5 +1,3 @@
-<?php include('../conexionDB.php');
-?>
 
 
 <!doctype html>
@@ -28,7 +26,6 @@
     </div>
 
     <?php
-        $conexion = conectarbase();
         if(isset($_GET["valor"]) && $_GET["valor"] != ""){
             $valor = $_GET["valor"];
                 $query="select cod_equipo, nomb_equipo, pais_equipo from equipos inner join pais on equipos.pais_equipo=pais.cod_pais where UNACCENT(nomb_pais) ilike '%$valor%' or pais_equipo ilike '%$valor%'";

@@ -1,5 +1,3 @@
-<?php include('conexionDB.php');
-?>
 
 
 <!doctype html>

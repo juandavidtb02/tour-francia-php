@@ -1,6 +1,3 @@
-<?php include('../conexionDB.php');
-?>
-
 
 <!doctype html>
 <html lang="es">
@@ -20,7 +17,6 @@
     <h1><br>CLASIFICACIÓN POR PUNTOS</h1>
 
     <?php
-        $conexion = conectarbase();
         $query="select row_number() over (order by sum(puntos_ciclista) desc) as puesto,nomb_ciclista,apellido_ciclista,sum(puntos_ciclista) as total_puntos from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista group by nomb_ciclista,apellido_ciclista having sum(puntos_ciclista)!=0 order by total_puntos desc";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar la base de datos");
         $nr=pg_num_rows($resultado);

@@ -1,5 +1,4 @@
-<?php include('../conexionDB.php');
-?>
+
 
 <!doctype html>
 <html lang="es">
@@ -23,7 +22,7 @@
     
     
     <?php
-        $conexion = conectarbase();
+        
         $query="select etapa.cod_etapa,fecha_etapa,tipo,nomb_ciclista,apellido_ciclista,tiempo_ciclista from etapa inner join corre on etapa.cod_etapa=corre.cod_etapa inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista where posicion_ciclista=1;";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar base");
         $nr=pg_num_rows($resultado);
