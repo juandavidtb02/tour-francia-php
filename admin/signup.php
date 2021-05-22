@@ -3,28 +3,36 @@
     require '../header.php';
     $clave1= 'rout';
     $message='';
+    
 
     if(!empty($_POST['email']) && !empty($_POST['password'])){
 
-        if($_POST['password'] === $_POST['confirm_password']){
-            if($_POST['clave'] === $clave1 ){
-                $email1 = $_POST['email'];
-                $password1 = $_POST['password'];
-                $consulta = "INSERT INTO users(email,password_user) VALUES('".$email1."','".$password1."')";
-                $stmt = pg_query($conexion,$consulta);
-                if($stmt){
-                    $message = "Registro exitoso.";
-                }
-                else {
-                $message = "No se pudo completar el registro correctamente";
-                }
-            }
-            else {
-                $message = "Codigo de admin incorrecto. Para más información comunícate con los desarrolladores.";
-            }
+        $email1 = $_POST['email'];
+        $password1 = $_POST['password'];
+        $consulta1 = "SELECT * FROM users WHERE email='".$email1."' ";
+        $results1 = pg_query($conexion,$consulta1);
+        if($results1 && pg_num_rows($results1) > 0){
+            $message = "El correo ya ha sido registrado.";
         }
         else{
-            $message = "Las contraseñas no coinciden.";
+            if($_POST['password'] === $_POST['confirm_password']){
+                if($_POST['clave'] === $clave1 ){
+                    $consulta = "INSERT INTO users(email,password_user,fecha_registro) VALUES('".$email1."','".$password1."',current_date)";
+                    $stmt = pg_query($conexion,$consulta);
+                    if($stmt){
+                        $message = "Registro exitoso.";
+                    }
+                    else {
+                    $message = "No se pudo completar el registro correctamente";
+                    }
+                }
+                else {
+                    $message = "Codigo de admin incorrecto. Para más información comunícate con los desarrolladores.";
+                }
+            }
+            else{
+                $message = "Las contraseñas no coinciden.";
+            }
         }
         
         
