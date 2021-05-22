@@ -43,8 +43,10 @@ body {
     left: 22%;
 }
 
-#cuadroTour{
-    position: absolute;
+section{
+    outline: none;
+    display: inline-block;
+    margin: 50px;
     width: 300px;
     height: 450px;
     left: 10%;
@@ -54,8 +56,12 @@ body {
     transition: transform .3s ease-in-out;
 }
 
-#cuadroTour:hover{
+section:hover{
     transform: translate(0,-10px);
+}
+
+section:hover p{
+    color:white;
 }
 
 #imgTour{
@@ -66,7 +72,7 @@ body {
     border-top-right-radius: 15px;
 }
 
-#cuadroTour #cuadrito1{
+section #cuadrito{
     position: relative;
     display: flex;
     justify-content: center;
@@ -76,29 +82,24 @@ body {
     background-color: yellow;
     width: 150px;
     height: 55px;
-    top: 80px;
-    left: 73px;
+    top: 10%;
+    left: -4px;
     border-radius: 3px;
 }
 
-#cuadroTour a{
+section p{
+    cursor:default;
+    
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: color .3s ease-in-out;
+}
+
+section a{
     text-decoration: none;
 }
 
-#cuadroClasificaciones{
-    position: relative;
-    width: 300px;
-    height: 450px;
-    background-color: black;
-    left: 38.4%;
-    border-radius: 18px;
-    border: 2px solid yellow;
-    transition: transform .3s ease-in-out;
-}
 
-#cuadroClasificaciones:hover{
-    transform: translate(0,-10px);
-}
 
 #imgClasificaciones{
     opacity: 0.9;
@@ -108,40 +109,8 @@ body {
     border-top-right-radius: 15px;
 }
 
-#cuadroClasificaciones #cuadrito2{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    line-height: 52px;
-    color: black;
-    font-family: "Arial";
-    background-color: yellow;
-    width: 150px;
-    height: 55px;
-    top: 80px;
-    left: 73px;
-    border-radius: 3px;
-}
 
-#cuadroClasificaciones a{
-    text-decoration: none;
-}
 
-#cuadroAboutus{
-    position: relative;
-    width: 300px;
-    height: 450px;
-    background-color: black;
-    top: -455px;
-    left: 67%;
-    border-radius: 18px;
-    border: 2px solid yellow;
-    transition: transform .3s ease-in-out;
-}
-
-#cuadroAboutus:hover{
-    transform: translate(0,-10px);
-}
 
 #imgAbout{
     opacity: 0.9;
@@ -151,30 +120,12 @@ body {
     border-top-right-radius: 15px;
 }
 
-#cuadroAboutus #cuadrito3{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    line-height: 52px;
-    color: black;
-    font-family: "Arial";
-    background-color: yellow;
-    width: 150px;
-    height: 55px;
-    top: 80px;
-    left: 73px;
-    border-radius: 3px;
-}
-
-#cuadroAboutus a{
-    text-decoration: none;
-}
 
 
 .boxLogin{
     margin-right: auto;
     margin-left: auto;
-    margin-top: -250px;
+    margin-top: 250px;
     margin-bottom: -50px;
     width: 700px;
     height: 260px;
