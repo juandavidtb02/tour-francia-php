@@ -17,21 +17,77 @@
 
     <h1><br>CLASIFICACIÓN POR EQUIPOS</h1>
 
+    <div class="buscador">
+        <form action="clasificacionEquipos.php" method="GET" class="formulario">
+        <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar equipo" autocomplete="off">
+       <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+        </form>
+    </div>
+
     <?php
-        $query="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total";
-        $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
-        $nr=pg_num_rows($resultado);
-        if($nr>0){
-            echo "<table align=center>
-                      <thead><td id=iz>Puesto</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
-            while($filas=pg_fetch_array($resultado)){
-                echo "<tr><td>".$filas["puesto"]."</td>";
-                echo "<td>".$filas["nomb_equipo"]."</td>";
-                echo "<td>".$filas["total"]."</td></tr>";
-            }echo "</table>";
+        //declaramos los chequeos como falso
+        $check2=false;
+        $check=false;
+        //verificamos si existe alguna busqueda
+        if(isset($_GET["valor"]) && $_GET["valor"] != ""){
+            $valor = $_GET["valor"];
+            //realizamos la consulta con el valor ingresadl
+                $query="select equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo where UNACCENT(nomb_equipo) ilike '%$valor%' group by equipos.nomb_equipo";
+            //realizamos la consulta para obtener los puestos 
+                $pos="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo as nombre from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.cod_equipo";
+            //ejecutamos la consulta de los puestos
+                $resultado2=pg_query($conexion,$pos) or die("Error");
+            //se declara que la consulta con la busqueda ha sido realizada
+                $check2 = true;
+            
         }else{
-            echo "No hay datos ingresados";
+            //en caso de no exister una busqueda, realizamos la consulta con todos los equipos y sus puestos
+            $query="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total";
+            $check = false;
+            $check2 = false;
         }
+        //ejecutamos la consulta general
+        $resultado=pg_query($conexion,$query);
+        //verificamos si la consulta con la busqueda ha tenido resultados
+        //en caso contrario, se declara que la consulta con la busqueda no fue realizada correctamente
+        if(pg_num_rows($resultado) === 0 && $check2 === true){
+            $check2 = false;
+        }
+        //se verifica si la consulta con la busqueda ha sido realizada correctamente
+        if($check2){
+            //se extrae el nombre del equipo buscado
+            $result = pg_fetch_object($resultado,0);
+            $nombre = $result->nomb_equipo;
+            //se busca el nombre del equipo buscado en la consulta de los puestos
+            while($filas=pg_fetch_array($resultado2)){
+                if($filas['nombre'] === $nombre){
+                    //una vez ha sido encontrada, se guarda el puesto y se declara que el puesto ha sido encontrado
+                    $puesto = $filas["puesto"];
+                    $check = true;
+                }
+            }
+        }
+        
+
+        if(!$resultado or pg_num_rows($resultado)==0){
+            echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
+            $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total") or die("Error");
+        }
+
+
+        echo "<table align=center>
+                    <thead><td id=iz>Puesto</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
+            while($filas1=pg_fetch_array($resultado)){
+                //si el puesto ha sido encontrado, se muestra
+                if($check){
+                    echo "<tr><td>".$puesto."</td>";
+                }//en caso contrario, se muestra la tabla normal
+                else{
+                    echo "<tr><td>".$filas1["puesto"]."</td>";
+                }
+                echo "<td>".$filas1["nomb_equipo"]."</td>";
+                echo "<td>".$filas1["total"]."</td></tr>";
+            }echo "</table>";
 
     ?>
     

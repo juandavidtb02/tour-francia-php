@@ -36,7 +36,7 @@
         $resultado=pg_query($conexion,$query);
 
         if(!$resultado or pg_num_rows($resultado)==0){
-            echo '<p  style="font-size:30px; tex height:80px; color: white; text-align:center; font-family: Arial, Helvetica, sans-serif; ">Ingresa una busqueda nuevamente</p>';
+            echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
             $resultado=pg_query($conexion,"select * from equipos") or die("Error");
         }
 

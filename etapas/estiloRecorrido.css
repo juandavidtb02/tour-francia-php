@@ -55,20 +55,26 @@ h1{
 table{
     background-color: black;
     text-align: left;
-    border: 2px solid #B0B011;
+    border: 2px solid yellow;
     border-radius: 20px;
 }
 
 table tr{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    cursor: default;
 }
+
+table tr:hover{
+    color: black;
+    background-color: white;
+}
+
 table tr td{
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-right: 50px;
+    padding-right: 30px;
 }
 
 table #der{
@@ -76,7 +82,7 @@ table #der{
 }
 
 table thead{
-    background-color: #9C9C27;
+    background-color: yellow;
     border:2px solid yellow;
 }
 
@@ -90,11 +96,15 @@ table thead #iz{
 
 table thead #der{
     border-top-right-radius: 20px;
-
 }
 
 table tr:nth-last-child(even){
     background-color:#1F1F1C;
+}
+
+table tr:nth-last-child(even):hover{
+    background-color:white;
+
 }
 
 

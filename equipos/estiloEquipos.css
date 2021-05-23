@@ -53,6 +53,7 @@ h1{
     background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
     border-radius:12px;
     outline: none;
+    
 }
 
 .img-buscador{
@@ -62,22 +63,40 @@ h1{
     
 }
 
+#ingreso{
+    font-size:30px;
+    color: white;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px  0px 0px black,
+               0px  2px 0px black,
+              -2px  0px 0px black,
+               0px -2px 0px black;
+}
+
 table{
     background-color: black;
     text-align: left;
-    border: 2px solid #B0B011;
+    border: 2px solid yellow;
     border-radius: 20px;
 }
 
 table tr{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
 }
+
+table tr:hover{
+    color: black;
+    background-color: white;
+}
+
 table tr td{
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-right: 200px;
+    padding-right: 30px;
 }
 
 table #der{
@@ -85,7 +104,7 @@ table #der{
 }
 
 table thead{
-    background-color: #9C9C27;
+    background-color: yellow;
     border:2px solid yellow;
 }
 
@@ -103,4 +122,19 @@ table thead #der{
 
 table tr:nth-last-child(even){
     background-color:#1F1F1C;
+}
+
+table tr:nth-last-child(even):hover{
+    background-color:white;
+
+}
+
+.formulario select{
+    width: 100px;
+    height: 30px;
+    margin: 2%;
+    background: rgb(251,250,218);
+    background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
+    border-radius:12px;
+    outline: none;
 }
