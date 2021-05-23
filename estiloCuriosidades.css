@@ -146,15 +146,15 @@ body{
 }
 
 .contenido .tab3::after{
-    left: 320px;
+    left: 313px;
 }
 
 .contenido .tab4::after{
-    left: 450px;
+    left: 440px;
 }
 
 .contenido .tab5::after{
-    left: 595px;
+    left: 580px;
 }
 
 .contenedor .sidebar {
@@ -170,6 +170,7 @@ body{
     width: 500px;
     z-index: 1;
     object-position: top;
+    margin-bottom: 40px;
 }
 
 .contenedor .footer{
@@ -223,3 +224,50 @@ table tr:nth-last-child(even){
     background-color:#1F1F1C;
 }
 
+@media screen and (max-width: 1325px){
+    .contenedor .sidebar {
+        margin-top: 0px;
+    }
+    .contenedor{
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:    "header header header header header"
+                                "sidebar sidebar sidebar sidebar sidebar"
+                                "menuc menuc menuc menuc menuc"
+                                "footer footer footer footer footer";
+    }
+    .contenedor .Menu {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .contenedor .Menu {
+        margin-left: 20px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 745px){
+    .lbl label{
+        display: flex;
+    }
+    .contenido div::after{
+        position: relative;
+        content: "";
+        border-left: 0px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid transparent;
+        border-bottom: 0px solid #020100;
+    }
+    .lbl{
+    padding-right: 10px;
+    }
+    .contenedor .Menu {
+        margin-left: 20px;
+        height: 600px;
+    }
+    .contenedor .sidebar img{
+        height: 405px;
+        width: 400px;
+    }
+}
