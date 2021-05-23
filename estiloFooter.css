@@ -12,7 +12,7 @@ footer{
     
 }
 
-footer .social img:not(.unillanos){
+/*footer .social img:not(.unillanos){
     outline: none;
     display: inline-block;
     width: 2.5%;
@@ -21,9 +21,32 @@ footer .social img:not(.unillanos){
     left: 28%;
     top: -80px;
     transition: transform .3s ease-in-out;
+}*/
+
+.social{
+    
+    width: 200px;
+    height: 100px;
+    position: relative;
+    left: 77.3%;
+    top:-188px;
 }
 
-footer .social img:not(.unillanos):hover{
+.social img{
+    position: relative;
+    top:70px;
+    display: inline-block;
+    width: 15%;
+    margin-left: 33px;
+}
+
+.social h4{
+    position: relative;
+    left: 7%;
+    top:-25px;
+}
+
+/*footer .social img:not(.unillanos):hover{
     transform: translate(0,-10px);
 }
 
@@ -40,7 +63,7 @@ footer .social{
     padding-bottom: 0px;
 }
 
-/*footer #twitter {
+footer #twitter {
     position: relative;
     left: 29.8%;
     top: -72px;
@@ -60,9 +83,9 @@ footer #inst {
 
 footer .unillanos{
     position: relative;
-    left: -25%;
+    left: -35%;
     top:-70px;
-    width:200px;
+    width:230px;
     
 }
 
