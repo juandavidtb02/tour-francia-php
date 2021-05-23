@@ -24,6 +24,13 @@
                     <label for="radio4"><img src="https://image.flaticon.com/icons/png/512/59/59375.png"> Etapas</label>
                     <label for="radio5"><img src="https://image.flaticon.com/icons/png/512/47/47799.png"> Ganadores</label>
                 </div>
+                <div class="lbl-respo">
+                    <label for="radio1"><img src="https://img.icons8.com/material/452/home--v5.png"></label>
+                    <label for="radio2"><img src="https://image.flaticon.com/icons/png/512/64/64575.png"></label>
+                    <label for="radio3"><img src="https://image.flaticon.com/icons/png/512/484/484565.png"></label>
+                    <label for="radio4"><img src="https://image.flaticon.com/icons/png/512/59/59375.png"></label>
+                    <label for="radio5"><img src="https://image.flaticon.com/icons/png/512/47/47799.png"></label>
+                </div>
                 <div class="contenido">
                     <input type="radio" name="radio" id="radio1" checked="active">
                     <div class="tab1">

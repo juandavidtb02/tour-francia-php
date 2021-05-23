@@ -1,35 +1,54 @@
-header #logo{
-    width: 8%;
-    position: relative;
-    left: 46%;
-    top:20%;
+header #log{
+    position: absolute;
+    z-index: 3;
+    display: flex;
     justify-content: center;
 }
 
-header #user{
-    width: 3.7%;
-    position: relative;
-    left: -2%;
-    top: 2%;
+header #log #user{
+    width: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-header #salir{
-    position: relative;
-    width:3%;
-    left:-10%;
-    top:-1px;
+header #log #salir{
+    width: 25px;
+    margin-top: 28px;
+    margin-left: 10px;
 }
 
 header{
-    width: 100%; 
-    height: 145px;
-    position: relative;
-    top: -21px;
-    background-color: black;
-    background-size: auto;
-    text-align: left;
     opacity: 0.9;
     z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:    "img img img img"
+                            "img img img img"
+                            "menuc menuc menuc menuc";
+}
+
+header #logo{
+    background: black;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    grid-area: img;
+}
+
+header #logo img{
+    width: 90px;
+}
+
+#menu{
+    margin-top: -20px;
+    grid-area: menuc;
+}
+
+#menu img{
+    width: 20px;
+    margin-bottom: -5px;
+    margin-right: 10px;
 }
 
 #menu ul{
@@ -37,7 +56,7 @@ header{
     list-style: none;
     padding:0;
     position: relative;
-    top:6px;
+    background: black;
     justify-content: center;
 }
 
@@ -46,11 +65,11 @@ header{
     flex-grow: 1;
     text-align: center;
     border-bottom: 1px solid yellow;
+    width: 25%;
 }
 
 
 #menu #item a{
-    background: black;
     color:white;
     padding:12px 20px;
     display: block;
@@ -59,36 +78,39 @@ header{
     text-decoration: none;
 }
 
-#menu #desple {
-    display: none;
-    position: absolute;
-    width: 24.7%; 
-    top: 42px;
-}
-
-
-#menu #desple2 {
-    display: none;
-    position: absolute;
-    width: 28.2%;
-    top: 42px;
-}
-
-#menu #desple3 {
-    display: none;
-    position: absolute;
-    min-width: 23.99%;
-    top: 42px;
-}
-
 #menu #item a:hover{
     background: #34342F;
     color: yellow;
 }
 
 
+#menu #desple {
+    display: none;
+    position: absolute;
+    width: 25%; 
+    top: 43px;
+    grid-area: desple1;
+}
+
+#menu #desple2 {
+    display: none;
+    position: absolute;
+    width: 25%;
+    top: 43px;
+    grid-area: desple2;
+}
+
+#menu #desple3 {
+    display: none;
+    position: absolute;
+    width: 25%;
+    top: 43px;
+    grid-area: desple3;
+}
+
 #menu #item:hover #desple{
     display: block;
+    background: black;
     border-bottom: 1px solid yellow;
     border-left: 1px solid yellow;
     border-right: 1px solid yellow;
@@ -96,14 +118,132 @@ header{
 
 #menu #item:hover #desple2{
     display: block;
+    background: black;
     border-bottom: 1px solid yellow;
     border-left: 1px solid yellow;
     border-right: 1px solid yellow;
-    position: absolute;
 }
 
 #menu #item:hover #desple3 {
     display: block;
+    background: black;
     border-bottom: 1px solid yellow;
     border-left: 1px solid yellow;
+}
+
+#menu-res{
+    display: none;
+}
+
+@media screen and (max-width: 740px){
+    #menu{
+        display: none;
+    }
+    #menu-res{
+        display: inline;
+        margin-top: -20px;
+        grid-area: menuc;
+    }
+    
+    #menu-res img{
+        width: 20px;
+        margin-bottom: -5px;
+        margin-right: 10px;
+    }
+    
+    #menu-res ul{
+        display: flex;
+        list-style: none;
+        padding:0;
+        position: relative;
+        background: black;
+        justify-content: center;
+    }
+    
+    #menu-res #item{
+        float:left;
+        flex-grow: 1;
+        text-align: center;
+        border-bottom: 1px solid yellow;
+        width: 25%;
+    }
+
+    #menu-res #item a{
+        color:white;
+        padding:12px 20px;
+        display: block;
+        font-family: arial;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    
+    #menu-res #item a:hover{
+        background: #34342F;
+        color: yellow;
+    }
+    
+    
+    #menu-res #desple {
+        display: none;
+        position: absolute;
+        width: 25%; 
+        top: 43px;
+        grid-area: desple1;
+    }
+    
+    #menu-res #desple2 {
+        display: none;
+        position: absolute;
+        width: 25%;
+        top: 43px;
+        grid-area: desple2;
+    }
+    
+    #menu-res #desple3 {
+        display: none;
+        position: absolute;
+        width: 25%;
+        top: 43px;
+        grid-area: desple3;
+    }
+    
+    #menu-res #item:hover #desple{
+        display: block;
+        background: black;
+        border-bottom: 1px solid yellow;
+        border-left: 1px solid yellow;
+        border-right: 1px solid yellow;
+    }
+    
+    #menu-res #item:hover #desple2{
+        display: block;
+        background: black;
+        border-bottom: 1px solid yellow;
+        border-left: 1px solid yellow;
+        border-right: 1px solid yellow;
+    }
+    
+    #menu-res #item:hover #desple3 {
+        display: block;
+        background: black;
+        border-bottom: 1px solid yellow;
+        border-left: 1px solid yellow;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #menu-res #desple {
+        width: 35%; 
+        left: 20%;
+    }
+    
+    #menu-res #desple2 {
+        width: 33%;
+        left: 45%;
+    }
+    
+    #menu-res #desple3 {
+        left: 70%;
+        width: 30%;
+    }
 }

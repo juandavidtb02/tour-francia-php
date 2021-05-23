@@ -38,7 +38,7 @@ body{
     text-align: center;
     font-family:url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
     color: white;
-    font-size: 70px;
+    font-size: 60px;
     text-shadow: 5px 5px 5px black;
     text-decoration:underline;
     text-decoration-color:yellow;
@@ -68,7 +68,7 @@ body{
 .lbl img{
     width: 25px;
     margin-right: 5px;
-    margin-bottom: -5px;
+    -bottom: -5px;
 }
 
 .lbl label{
@@ -224,6 +224,16 @@ table tr:nth-last-child(even){
     background-color:#1F1F1C;
 }
 
+.lbl-respo{
+    display: none;
+}
+
+.lbl-respo img{
+    width: 25px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
 @media screen and (max-width: 1325px){
     .contenedor .sidebar {
         margin-top: 0px;
@@ -248,8 +258,8 @@ table tr:nth-last-child(even){
 }
 
 @media screen and (max-width: 745px){
-    .lbl label{
-        display: flex;
+    .contenedor .header .banner h1{
+        font-size: 40px;
     }
     .contenido div::after{
         position: relative;
@@ -259,15 +269,47 @@ table tr:nth-last-child(even){
         border-top: 10px solid transparent;
         border-bottom: 0px solid #020100;
     }
-    .lbl{
-    padding-right: 10px;
-    }
     .contenedor .Menu {
         margin-left: 20px;
-        height: 600px;
+        height: 200px;
     }
     .contenedor .sidebar img{
         height: 405px;
         width: 400px;
+    }
+    .lbl{
+        display: none;
+    }
+    .lbl-respo{
+        display: inline-block;
+        background: yellow;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }    
+    .lbl-respo label{
+        color: black;
+        display: inline-block;
+        cursor: pointer;
+        padding: 20px;
+        transition: all 400ms ease;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .lbl-respo label:hover{
+        background: #ffffff;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .contenedor .Menu {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 467px){
+    .contenedor .Menu {
+        height: 600px;
     }
 }
