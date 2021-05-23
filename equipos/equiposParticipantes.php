@@ -45,7 +45,7 @@
     while($filas=pg_fetch_array($resultado)){
     echo "<tr><td>".$filas["cod_equipo"]."</td>";
   echo "<td>".$filas["nomb_equipo"]."</td>";
-  echo "<td id=der>".$filas["pais_equipo"]."</td>";
+  echo "<td id=izq>".$filas["pais_equipo"]."</td>";
 }echo "</table>";
 
     ?>

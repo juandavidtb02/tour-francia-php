@@ -87,9 +87,10 @@ table tr{
     cursor: default;
 }
 
-table tr:hover{
+table tr:not(:last-child):hover{
     color: black;
     background-color: white;
+    border-bottom-left-radius: 20px;
 }
 
 table thead:hover tr{
@@ -133,6 +134,7 @@ table tr:nth-last-child(even):hover{
     background-color:white;
 
 }
+
 
 
 .formulario select{
