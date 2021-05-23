@@ -40,8 +40,6 @@ body{
     color: white;
     font-size: 70px;
     text-shadow: 5px 5px 5px black;
-    text-decoration:underline;
-    text-decoration-color:yellow;
     -webkit-text-stroke: 2px black;
 }
 
