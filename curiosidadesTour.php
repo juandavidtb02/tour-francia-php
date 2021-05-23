@@ -1,5 +1,4 @@
-<?php include('conexionDB.php');
-?>
+
 <!doctype html>
 <html lang="es">
     <meta charset="UTF -8" />
