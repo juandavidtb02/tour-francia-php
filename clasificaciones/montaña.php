@@ -66,24 +66,28 @@
         }
         //ejecutamos la consulta general
         $resultado=pg_query($conexion,$query);
+        $resultado3=pg_query($conexion,$query);
         //verificamos si la consulta con la busqueda ha tenido resultados
         //en caso contrario, se declara que la consulta con la busqueda no fue realizada correctamente
         if(pg_num_rows($resultado) === 0 && $check2 === true){
             $check2 = false;
         }
+        $puesto = array();
         //se verifica si la consulta con la busqueda ha sido realizada correctamente
         if($check2){
             //se extrae el nombre del equipo buscado
-            $result = pg_fetch_object($resultado,0);
-            $nombre = $result->cod_ciclista;
-            //se busca el nombre del equipo buscado en la consulta de los puestos
-            while($filas=pg_fetch_array($resultado2)){
-                if($filas['cod_ciclista'] === $nombre){
-                    //una vez ha sido encontrada, se guarda el puesto y se declara que el puesto ha sido encontrado
-                    $puesto = $filas["puesto"];
-                    $check = true;
+            while($result=pg_fetch_array($resultado3)){
+                while($filas=pg_fetch_array($resultado2)){
+                    //se busca el nombre del equipo buscado en la consulta de los puestos
+                    if($filas['cod_ciclista'] === $result['cod_ciclista']){
+                        //una vez ha sido encontrada, se guarda el puesto y se declara que el puesto ha sido encontrado
+                        $check = true;
+                        $puesto[] = $filas['puesto'];
+                        break;
+                    }
                 }
             }
+
         }
         
 
@@ -92,13 +96,14 @@
             $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where tipo='MONTAÑA' group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total") or die("Error");
         }
 
-
+        $n = 0;
         echo "<table align=center>
                     <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
             while($filas1=pg_fetch_array($resultado)){
                 //si el puesto ha sido encontrado, se muestra
                 if($check){
-                    echo "<tr><td>".$puesto."</td>";
+                    echo "<tr><td>".$puesto[$n]."</td>";
+                    $n++;
                 }//en caso contrario, se muestra la tabla normal
                 else{
                     echo "<tr><td>".$filas1["puesto"]."</td>";

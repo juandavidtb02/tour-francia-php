@@ -36,7 +36,6 @@
             //realizamos la consulta para obtener los puestos 
                 $pos="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo as nombre from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.cod_equipo";
             //ejecutamos la consulta de los puestos
-                $resultado2=pg_query($conexion,$pos) or die("Error");
             //se declara que la consulta con la busqueda ha sido realizada
                 $check2 = true;
             
@@ -48,24 +47,29 @@
         }
         //ejecutamos la consulta general
         $resultado=pg_query($conexion,$query);
+        $resultado3=pg_query($conexion,$query);
         //verificamos si la consulta con la busqueda ha tenido resultados
         //en caso contrario, se declara que la consulta con la busqueda no fue realizada correctamente
         if(pg_num_rows($resultado) === 0 && $check2 === true){
             $check2 = false;
         }
+        $puesto = array();
         //se verifica si la consulta con la busqueda ha sido realizada correctamente
         if($check2){
             //se extrae el nombre del equipo buscado
-            $result = pg_fetch_object($resultado,0);
-            $nombre = $result->nomb_equipo;
-            //se busca el nombre del equipo buscado en la consulta de los puestos
-            while($filas=pg_fetch_array($resultado2)){
-                if($filas['nombre'] === $nombre){
-                    //una vez ha sido encontrada, se guarda el puesto y se declara que el puesto ha sido encontrado
-                    $puesto = $filas["puesto"];
-                    $check = true;
+            while($result=pg_fetch_array($resultado3)){
+                $resultado4=pg_query($conexion,$pos);
+                while($filas=pg_fetch_array($resultado4)){
+                    //se busca el nombre del equipo buscado en la consulta de los puestos
+                    if($filas['nombre'] === $result['nomb_equipo']){
+                        //una vez ha sido encontrada, se guarda el puesto y se declara que el puesto ha sido encontrado
+                        $check = true;
+                        $puesto[] = $filas['puesto'];
+                        break;
+                    }
                 }
             }
+
         }
         
 
@@ -75,12 +79,14 @@
         }
 
 
+        $n=0;
         echo "<table align=center>
                     <thead><td id=iz>Puesto</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
             while($filas1=pg_fetch_array($resultado)){
                 //si el puesto ha sido encontrado, se muestra
                 if($check){
-                    echo "<tr><td>".$puesto."</td>";
+                    echo "<tr><td>".$puesto[$n]."</td>";
+                    $n++;
                 }//en caso contrario, se muestra la tabla normal
                 else{
                     echo "<tr><td>".$filas1["puesto"]."</td>";
