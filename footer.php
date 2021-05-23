@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/tour-francia-app/estiloFooter.css?v=<?php echo time(); ?>" />
+<link rel="stylesheet" type="text/css" href="/estiloFooter.css?v=<?php echo time(); ?>" />
 
 <footer><p><br>Creado por:</p>
         <p>Juan David Torres Barreto - 160004330</p>
