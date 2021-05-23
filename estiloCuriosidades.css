@@ -1,0 +1,225 @@
+body{
+    margin: 0;
+    margin-bottom: -10px;
+    background-color: black;
+    font-family: "Arial";
+    background: linear-gradient(180deg, rgba(0,0,0,1) 98%, rgba(255,252,0,1) 100%);
+}
+
+.contenedor{
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:    "header header header header header"
+                            "sidebar sidebar menuc menuc menuc"
+                            "footer footer footer footer footer";
+}
+
+.header {
+    background-image: url("https://cdn-ctstaging.pressidium.com/wp-content/uploads/2020/12/CORVOS_00031272-133.jpg");
+    margin-top: -20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    grid-area: header;
+}
+
+.contenedor .header .banner{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor .header .banner h1{
+    text-align: center;
+    font-family:url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+    color: white;
+    font-size: 70px;
+    text-shadow: 5px 5px 5px black;
+    text-decoration:underline;
+    text-decoration-color:yellow;
+    -webkit-text-stroke: 2px black;
+}
+
+.header svg{
+    margin-bottom: -10px;
+    opacity: 1;
+}
+
+.contenedor .Menu {
+    color: white;
+    padding-right: 30px;
+    z-index: 2;
+    margin-top: -20px;
+    height:900px;
+    grid-area: menuc;
+}
+
+.lbl{
+    background: yellow;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.lbl img{
+    width: 25px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+.lbl label{
+    color: black;
+    display: inline-block;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 400ms ease;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.lbl label:hover{
+    background: #ffffff;
+}
+
+.contenido{
+    position: relative;
+}
+
+.contenido div{
+    position: absolute;
+    line-height: 1.8;
+    transition: all 100ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    background:#020100;
+    padding-bottom: 40px;
+    padding:10px;
+}
+
+.tab1 img{
+    object-fit: cover;
+    width: 380px;
+}
+
+.tab2 img{
+    object-fit: cover;
+    width: 300px;
+    height: 350px;
+    position:absolute;
+    z-index: -2;
+    object-position: top;
+}
+
+#radio1, #radio2, #radio3, #radio4, #radio5{
+    display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4,
+#radio5:checked ~ .tab5
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.contenido div::after{
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #020100;
+    bottom: 100%;
+    left: 57px;
+}
+
+.contenido .tab2::after{
+    left: 183px;
+}
+
+.contenido .tab3::after{
+    left: 320px;
+}
+
+.contenido .tab4::after{
+    left: 450px;
+}
+
+.contenido .tab5::after{
+    left: 595px;
+}
+
+.contenedor .sidebar {
+    color: white;
+    padding-left: 30px;
+    margin-top: 100px;
+    grid-area: sidebar;
+}
+
+.contenedor .sidebar img{
+    object-fit: cover;
+    height: 505px;
+    width: 500px;
+    z-index: 1;
+    object-position: top;
+}
+
+.contenedor .footer{
+    margin-top: -200px;
+    grid-area: footer;
+}
+
+table{
+    background-color: black;
+    text-align: left;
+    border: 2px solid yellow;
+    border-radius: 20px;
+}
+
+table tr{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
+}
+
+.linea:hover{
+    color: black;
+    background-color: white;
+}
+
+table tr td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+table thead{
+    background-color: yellow;
+    border:2px solid yellow;
+}
+
+table thead td{
+    color: black;
+}
+
+table thead #iz{
+    border-top-left-radius: 20px;
+}
+
+table thead #der{
+    border-top-right-radius: 20px;
+}
+
+table tr:nth-last-child(even){
+    background-color:#1F1F1C;
+}
+
