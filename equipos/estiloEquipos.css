@@ -92,6 +92,11 @@ table tr:hover{
     background-color: white;
 }
 
+table thead:hover tr{
+    background-color: yellow;
+}
+
+
 table tr td{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -128,6 +133,7 @@ table tr:nth-last-child(even):hover{
     background-color:white;
 
 }
+
 
 .formulario select{
     width: 100px;
