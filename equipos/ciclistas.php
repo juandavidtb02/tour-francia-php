@@ -50,7 +50,7 @@
                 $query="select * from ciclistas where date_part('year',age(current_date,fech_nac))=$valor";
             }
             if($_GET["tipo"] == "Nacionalidad"){
-                $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, fech_nac, pais_ciclista from ciclistas inner join pais on ciclistas.pais_ciclista=pais.cod_pais where nomb_pais ilike '%$valor%' or pais_ciclista ilike '%$valor%'";
+                $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, fech_nac, pais_ciclista from ciclistas inner join pais on ciclistas.pais_ciclista=pais.cod_pais where unaccent(nomb_pais) ilike '%$valor%' or pais_ciclista ilike '%$valor%' or nomb_pais ilike '%$valor%'";
             }
         }else{
             $query="select * from ciclistas";

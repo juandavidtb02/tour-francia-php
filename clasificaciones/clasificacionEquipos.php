@@ -20,7 +20,7 @@
     <div class="buscador">
         <form action="clasificacionEquipos.php" method="GET" class="formulario">
         <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar equipo" autocomplete="off">
-       <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
         </form>
     </div>
 
@@ -31,17 +31,17 @@
         //verificamos si existe alguna busqueda
         if(isset($_GET["valor"]) && $_GET["valor"] != ""){
             $valor = $_GET["valor"];
-            //realizamos la consulta con el valor ingresadl
-                $query="select equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo where UNACCENT(nomb_equipo) ilike '%$valor%' group by equipos.nomb_equipo";
+            //realizamos la consulta con el valor ingresado
+                $query="select nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and UNACCENT(nomb_equipo) ilike '%$valor%' group by nomb_equipo order by tiempo";
             //realizamos la consulta para obtener los puestos 
-                $pos="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo as nombre from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.cod_equipo";
+                $pos="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo as nombre from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo group by nomb_equipo";
             //ejecutamos la consulta de los puestos
             //se declara que la consulta con la busqueda ha sido realizada
                 $check2 = true;
             
         }else{
             //en caso de no exister una busqueda, realizamos la consulta con todos los equipos y sus puestos
-            $query="select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total";
+            $query="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo group by nomb_equipo  order by tiempo";
             $check = false;
             $check2 = false;
         }
@@ -75,7 +75,7 @@
 
         if(!$resultado or pg_num_rows($resultado)==0){
             echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
-            $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_equipo)) as puesto,equipos.nomb_equipo,sum(tiempo_equipo) as total from participa inner join equipos on participa.cod_equipo=equipos.cod_equipo group by equipos.nomb_equipo order by total") or die("Error");
+            $resultado=pg_query($conexion,"select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo group by nomb_equipo  order by tiempo;") or die("Error");
         }
 
 
@@ -92,7 +92,7 @@
                     echo "<tr><td>".$filas1["puesto"]."</td>";
                 }
                 echo "<td>".$filas1["nomb_equipo"]."</td>";
-                echo "<td>".$filas1["total"]."</td></tr>";
+                echo "<td>".$filas1["tiempo"]."</td></tr>";
             }echo "</table>";
 
     ?>
