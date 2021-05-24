@@ -1,5 +1,6 @@
 <?php
-    require '../header.php';
+    require '../conexionDB.php';
+    $conexion = conectarbase();
     $error = false;
     $message = "";
     $var = $_GET['var'];
@@ -17,6 +18,7 @@
                     die("Hubo un error a la hora de editar el dato");
                 }
                 else{
+                    header_remove();
                     header("Location: ./user.php");
                 }
             }
@@ -45,6 +47,7 @@
 </head>
 
 <body>
+    <br><br><br><br>
     <center><h2>Editar registro <?php echo $var;?>=<?php echo $valor;?> de la tabla <?php echo $tabla;?></h2></center>
     <?php if($error):?>
         <center><h2><?php echo $message; ?></h2></center>
@@ -69,9 +72,7 @@
         </form>
 
         <?php endif;?>
-
-    
-    <?php require '../footer.php' ?>
+    <a href="./user.php"><div class="regresar"><p>Regresar</p></div></a>
 
     
 </html>
