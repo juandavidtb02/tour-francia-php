@@ -124,10 +124,11 @@ section a{
 
 
 .boxLogin{
+    position: relative;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 250px;
-    margin-bottom: -50px;
+    margin-top: 200px;
+    margin-bottom: 50px;
     width: 700px;
     height: 260px;
     background-color: rgba(0,0,0);
@@ -181,4 +182,33 @@ section a{
 
 .boxLogin a{
     text-decoration: none;
+}
+
+@media screen and (max-width: 740px){
+    .boxLogin{
+        width: 400px;
+        height: 260px;
+        background-color: rgba(0,0,0);
+        border-radius: 20px;
+        border: 2px solid yellow;
+    }
+    
+    .boxLogin img{
+        position: relative;
+        object-fit: cover;
+        object-position: bottom;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        border: 2px solid black;
+        clip-path: none;
+    }
+    
+    .boxLogin #boton{
+        left: 25%;
+    }
+    .boxLogin h2{
+        right: 70px;
+        color:black;
+    }
 }
