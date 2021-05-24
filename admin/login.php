@@ -1,7 +1,7 @@
 <?php 
     require'../header.php';
     if(isset($_SESSION['cod_user'])){
-        header('Location: ../index.php');
+        header('Location: ./user.php');
     }
 
     $message = '';
@@ -14,14 +14,14 @@
             $resultado = pg_fetch_object($results,0);
             if($password1 == $resultado->password_user){
                 $_SESSION['cod_user'] = $resultado->cod_user;
-                header('Location: ../index.php');
+                header('Location: ./user.php');
             }
             else{
                 $message = 'La contraseña no coincide';
             }
         }
         else{
-            $message = $results;
+            $message = "El usuario no existe";
         }
         
     }

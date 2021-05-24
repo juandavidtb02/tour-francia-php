@@ -1,0 +1,312 @@
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 86%, rgba(255,252,0,1) 100%);
+
+    background-repeat: no-repeat;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+/*   CONTENIDO GENERAL   */
+
+.container{
+    width: 100%;
+    max-width: 795px;
+    margin: auto;
+    margin-top: 100px;
+    height: 1000px;
+}
+
+/*   MENU   */
+
+.container .lbl{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    background: yellow;
+}
+
+.container .lbl :first-child{
+    margin-left: 10px;
+}
+
+.container .lbl label{
+    display: inline-block;
+    padding:20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.container .lbl label:hover{
+    background-color: white;
+    color: black;
+}
+
+/* CONTENIDO */
+
+.content{
+    position: relative;
+}
+
+.content div{
+    position: absolute;
+    line-height: 1.8;
+    transition: all 200ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    padding:30px;
+    padding-bottom: 40px;
+}
+
+#radio1,#radio2,#radio3,#radio4,#radio5,#radio6,#radio7,#radio8,#eliminar,#editar{
+    display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4,
+#radio5:checked ~ .tab5,
+#radio6:checked ~ .tab6,
+#radio7:checked ~ .tab7,
+#radio8:checked ~ .tab8{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.content div:after{
+    position: absolute;
+    content: "";
+    border-left: 10px solid
+    transparent;
+    border-right: 10px solid
+    transparent;
+    border-top: 10px solid
+    transparent;
+    border-bottom: 10px solid black;
+    left: 40px;
+    bottom: 100%;
+}
+
+.content .tab2:after{
+    left: 124px
+}
+
+.content .tab3:after{
+    left: 228px
+}
+
+.content .tab4:after{
+    left: 336px
+}
+
+.content .tab5:after{
+    left: 439px
+}
+
+.content .tab6:after{
+    left: 540px
+}
+
+.content .tab7:after{
+    left: 639px
+}
+
+.content .tab8:after{
+    left: 735px
+}
+
+/*   TITULOS Y TEXTO  */
+
+h1{
+    margin-top: 60px;
+    padding: 0;
+    font-family: 'Roboto',sans-serif;
+    text-align: center;
+    color:white;
+}
+
+h2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+}
+
+.content p{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+
+/*   TABLA   */
+
+
+table{
+    background-color: black;
+    text-align: left;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    /*position: relative;
+    left: 35%;*/
+    
+}
+
+table tr{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
+}
+
+
+table tr{
+    text-align: center;
+}
+
+table tr td{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+table thead{
+    background-color: yellow;
+    border:2px solid yellow;
+    font-size: 15px;
+    text-align: center;
+}
+
+table thead td{
+    color: black;
+    padding: 20px;
+    
+    
+}
+
+table thead #iz{
+    border-top-left-radius: 15px;
+}
+
+table thead #der{
+    border-top-right-radius: 15px;
+}
+
+table tr:nth-last-child(even){
+    background-color:#1F1F1C;
+}
+
+table tr #imgborrar{
+    
+    margin-bottom: 0px;
+    margin-left: 2px;
+}
+
+
+table tr #imgeditar{
+    position: relative;
+    top:-3px;
+    margin-left: 2px;
+}
+
+/*   AGREGAR   */
+
+
+.content input[type="text"], input[type="password"]{
+    font-size: 20px;
+    color: white;
+    caret-color: white;
+    outline: none;
+    padding: 15px;
+    display: block;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid yellow;
+    margin: 20px;
+    background-color: black;
+    /*position: relative;
+    left: -40%;*/
+}
+
+.content input[type="submit"]{
+    padding: 15px;
+    color: white;
+    background-color: yellow;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 20px;
+    cursor: pointer;
+    display: block;
+    /*position: relative;
+    left:-40%;*/
+}
+
+input[type="submit"]:hover{
+    background-color: black;
+    color: yellow;
+    border: 2px solid yellow;
+}
+
+/*   EDITAR  INFO */
+
+.dato{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.dato input[type="text"]:not(.tablaE,.valorE,.varE){
+    font-size: 20px;
+    color: white;
+    caret-color: white;
+    outline: none;
+    padding: 15px;
+    width: 250px;
+    border-radius: 3px;
+    border: 1px solid yellow;
+    background-color: black;
+    position: relative;
+    
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    /*position: relative;
+    left: -40%;*/
+}
+
+.dato .seleccion{
+    width: 150px;
+    height: 40px;
+    margin: 2%;
+    border: 1px solid yellow;
+    background: black;
+    color:grey;
+    font-size:18px;
+    border-radius:3px;
+    outline: none;
+}
+
+.dato #editboton{
+    background-color: yellow;
+    color: black;
+    border: 1px solid yellow;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dato #editboton:hover{
+    background-color: white;
+
+}
