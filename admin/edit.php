@@ -1,5 +1,6 @@
 <?php
     require '../conexionDB.php';
+    require './columns.php';
     $conexion = conectarbase();
     $error = false;
     $message = "";
@@ -7,33 +8,91 @@
     $valor = $_GET['valor'];
     $tabla = $_GET['tabla'];
     $tabla = str_replace("'","",$tabla);
-    if(isset($_GET['tipo'])){
-        $variable = $_GET['tipo'];
-        if($variable != 'Columna'){
-            if($_GET['cambio'] != ''){
-                $valorNew = $_GET['cambio'];
-                $query = "UPDATE $tabla SET  $variable='".$valorNew."' WHERE $var=$valor";
+    if($tabla==='users'){
+        if(isset($_GET['email'])){
+            $email = $_GET['email'];
+            $password = $_GET['password_user'];
+            
+            if($email != '' && $password != ''){
+                $query = "UPDATE $tabla SET  email='".$email."' WHERE $var='$valor'";
+                $result = pg_query($conexion,$query);
+                if(!$result){
+                    die("Hubo un error a la hora de editar el dato");
+                }
+                $query = "UPDATE $tabla SET  password_user='".$password."' WHERE $var='$valor'";
                 $result = pg_query($conexion,$query);
                 if(!$result){
                     die("Hubo un error a la hora de editar el dato");
                 }
                 else{
                     header_remove();
-                    header("Location: ./user.php");
+                    $message = "EL(LOS) DATO(S) HA(N) SIDO MODIFICADO CORRECTAMENTE";
+                    header("Location: ./user.php?mes=$message");
                 }
             }
             else{
-                $message = "Ingrese el nuevo dato correctamente";
-                $error = true;
+                if(isset($email) || isset($password)){
+                    $message = "Ingrese el nuevo dato correctamente";
+                    $error = true;
+                }
             }
         }
-        else{
-            $message = "Seleccione una columna valida";
-            $error = true;
-        }
+    }
+    else{
+        
+        if(isset($_GET['check'])){
+            $result = columnas($tabla,$conexion);
+            $result2 = columnas($tabla,$conexion);
+            $data = array();
+            $columns = array();
+            $nr = 0;
+            while($filas=pg_fetch_array($result)){
+                $data[$nr] = $_GET[$filas['column_name']];
+                $columns[$nr] = $filas['column_name'];
+                $nr++;
+            }
 
+            if($data[0] === ""){
+                $message = "INSERTE UNA LLAVE PRIMARIA VALIDA.";
+                $error = true;
+            }
+            else if($tabla === 'pais' && strlen($data[0]) > 3){
+                    $message = "INSERTE UNA LLAVE PRIMARIA VALIDA";   
+                    $error = true;
+            }
+            else{
+                $nr = 0;
+                $consult = "SELECT * FROM $tabla WHERE $columns[0]='$data[0]'";
+                $comprobar = pg_query($conexion,$consult);
+                if(pg_num_rows($comprobar) > 0 && $valor!=$data[0]){
+                    $message = "LA LLAVE PRIMARIA INGRESADA YA EXISTE.";
+                    $error = true;
+                }
+                else{
+                    while($filas2=pg_fetch_array($result2)){
+                        
+                        if($nr>0){
+                            $query = "UPDATE $tabla SET  $columns[$nr]='".$data[$nr]."' WHERE $columns[0]='$data[0]'";
+                            $llavepri = $data[0];
+                        }
+                        else if($llavepri != $valor){
+                            $query = "UPDATE $tabla SET  $columns[$nr]='".$data[$nr]."' WHERE $columns[0]='$valor'";
+                        }
+                        else{
+                            $query = "UPDATE $tabla SET  $columns[$nr]='".$data[$nr]."' WHERE $columns[0]='$data[0]'";
+                        }
+                        $stmt = pg_query($conexion,$query);
+                        if(!$stmt){
+                            die("ERROR");
+                        }
+                        $nr++;
+                    }
+                    $mensaje = "EL(LOS) DATO(S) HA(N) SIDO MODIFICADO CORRECTAMENTE";
+                    header("Location: ./user.php?mes=$mensaje");
+                }
+            }
         }
-    
+    }
 ?>
 
 <!doctype html>
@@ -55,24 +114,64 @@
 
 
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" class="dato">
-    <input hidden type="text" name="tabla" value="<?php echo $tabla;?>" class="tablaE">
-    <input hidden type="text" name="valor" value="<?php echo $valor;?>" class="valorE">
-    <input hidden type="text" name="var" value="<?php echo $var;?>" class="varE">
-    <?php if($tabla === 'users'):?>
-            <input type="text" name="cambio" placeholder="Inserte el nuevo dato" autocomplete="off">
-            <select name="tipo" class="seleccion">
-                <option hidden selected>Columna</option>
-                <option value="email">Correo</option>
-                <option value="password_user">Contraseña</option>
-            </select>
-            
-            <input type="submit" value="Editar" id="editboton">
-            
-            
-        </form>
+    <input type="hidden" name="tabla" value="<?php echo $tabla;?>" class="tablaE">
+    <input type="hidden" name="valor" value="<?php echo $valor;?>" class="valorE">
+    <input type="hidden" name="var" value="<?php echo $var;?>" class="varE">
 
+    <?php 
+        $result = columnas($tabla,$conexion);
+        $resulttext = columnas($tabla,$conexion);
+        $resultx = columnas($tabla,$conexion);
+        $columnasD = array();
+        while($filasA=pg_fetch_array($resultx)){
+            $columnasD[] = $filasA['column_name'];
+        }
+        $consultaData = "SELECT * FROM $tabla WHERE $var='$valor'";
+        $consultaUSERS = pg_query($conexion,$consultaData);
+        $datosU = pg_fetch_object($consultaUSERS,0);
+    ?>
+    
+    <?php if($tabla === 'users'):?>
+        <p class ="toc">EMAIL</p><input type="text" name="email" placeholder="Inserte el nuevo dato" autocomplete="off" value="<?php echo $datosU->email;?>">
+        <p class ="toc">CONTRASEÑA</p><input type="text" name="password_user" placeholder="Inserte el nuevo dato" autocomplete="off" value="<?php echo $datosU->password_user;?>">
+
+        <input type="submit" value="Editar" id="editboton">
+            
+            
+
+    <?php else: ?>
+        <?php
+            $consultaData = "SELECT * FROM $tabla WHERE $var='$valor'";
+            
+            $datos = array();
+            for($i=0;$i<pg_num_rows($result);$i++){
+                $resultadoConsultaData = pg_query($conexion,$consultaData);
+                while( $filasT=pg_fetch_array($resultadoConsultaData)){
+                    $datos[] = $filasT[$columnasD[$i]];
+                }
+            }
+            $nd = 0;
+        ?>
+            <?php if(!$resultadoConsultaData):?>
+                <?php die("HUBO UN ERROR");?>
+            
+            <?php else:?>
+                <?php while($filasD=pg_fetch_array($resulttext)):?>
+                    <p class="toc"><?php echo $filasD['column_name'];?></p>
+                    <input type="text" name="<?php echo $filasD['column_name'];?>" placeholder="Inserte el nuevo dato" autocomplete="off" value="<?php echo $datos[$nd];?>">
+                    <?php $nd++;?>
+                <?php endwhile;?>
+            <?php endif;?>
+        
+        <input type="hidden" name="check" value="enviado">
+        
+        <input type="submit" value="Editar" id="editboton">
+            
         <?php endif;?>
-    <a href="./user.php"><div class="regresar"><p>Regresar</p></div></a>
+
+        </form>
+        <a href="./user.php"><div class="regresar"><p>Regresar</p></div></a>
+        
 
     
 </html>

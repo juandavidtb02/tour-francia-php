@@ -17,7 +17,7 @@ body {
     max-width: 795px;
     margin: auto;
     margin-top: 100px;
-    height: 1000px;
+    
 }
 
 /*   MENU   */
@@ -261,7 +261,7 @@ input[type="submit"]:hover{
 /*   EDITAR  INFO */
 
 .dato{
-    display: flex;
+    
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -278,10 +278,11 @@ input[type="submit"]:hover{
     border: 1px solid yellow;
     background-color: black;
     position: relative;
-    
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    margin: 20px auto;
     /*position: relative;
     left: -40%;*/
 }
@@ -341,3 +342,12 @@ a{
     text-decoration: none;
 }
 
+.varT{
+    visibility: hidden;
+    
+}
+
+.toc{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}

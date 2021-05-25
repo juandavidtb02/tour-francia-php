@@ -1,7 +1,9 @@
 <?php 
     require'../header.php';
     if(isset($_SESSION['cod_user'])){
-        header('Location: ./user.php');
+        echo '<script type="text/javascript">
+                window.location="./user.php";
+                </script>';
     }
 
     $message = '';
@@ -13,9 +15,14 @@
         if($results && pg_num_rows($results) > 0){
             $resultado = pg_fetch_object($results,0);
             if($password1 == $resultado->password_user){
+                
                 $_SESSION['cod_user'] = $resultado->cod_user;
-                header('Location: ./user.php');
+
+                echo '<script type="text/javascript">
+                window.location="./user.php";
+                </script>';
             }
+            
             else{
                 $message = 'La contraseña no coincide';
             }

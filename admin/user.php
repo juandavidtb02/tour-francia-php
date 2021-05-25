@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    
+
+<?php require './columns.php' ?>
 <?php require '../header.php' ?>
     <?php if(!empty($user)): ?>
         <h1>Administrador de la base de datos</h2>
@@ -37,9 +38,11 @@
                         <h3>Añadir un dato</h3>
                         <section class="agregar">
                             <form action="./addData.php" method="post">
+                            <input type="hidden" name="tabla" value="users" class="varT">
                             <input type="text" name="email" placeholder="Digite el correo" autocomplete="off">
                             <input type="text" name="password" placeholder="Digite la contraseña" autocomplete="off">
-                            <input type="submit" name="users" value="Agregar">
+                            
+                            <input type="submit" value="Agregar">
                             </form>
                         </section>
 
@@ -66,14 +69,55 @@
                         ?>
 
                         </section>
-                    
                         
                 </div>
 
                 <input type="radio" name="radio" id="radio2">
                 <div class="tab2">
                     <h2>Paises</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
+                    <p>La siguiente información correspone a los paises participantes del Tour de Francia 2021:</p>
+                    <section class="box">
+                        <h3>Añadir un dato</h3>
+                        <?php 
+                            $tabla="pais";
+                            $var = "cod_pais";
+                            $query = "select * from pais";
+                            $tabla = str_replace("'","",$tabla);
+                            $result = columnas($tabla,$conexion);
+                        ?>
+
+                        <section class="agregar">
+                            <form action="./addData.php" method="post">
+                                <input type="hidden" name="tabla" value="pais" class="varT">
+                                <?php while($filas = pg_fetch_array($result)):?>
+                                    <input type="text" name="<?php echo $filas['column_name'];?>" placeholder="Digite el <?php echo $filas['column_name']; ?>" autocomplete="off">
+                                <?php endwhile;?>
+                                <input type="submit" name="users" value="Agregar">
+                            </form>
+                        </section>
+
+                        <h3>Tabla actual</h3>
+
+                        <?php
+                            $tabla = "pais";
+                            $var = "cod_pais";
+                            $query="select * from pais";
+                            $resultado=pg_query($conexion,$query) or die("Error al consultar usuarios");
+                            echo "<table>
+                                <thead class='head'><td id=iz>Cod pais</td><td>Nombre</td><td id=der>Opciones</td></thead>";
+                                while($filas=pg_fetch_array($resultado)){
+                                    echo "<tr class='linea'><td id='izq'>".$filas["cod_pais"]."</td>";
+                                    $valor = $filas["cod_pais"];
+                                    echo "<td>".$filas["nomb_pais"]."</td>";
+                                    echo "<td><section class='botones'>
+                                            <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
+                                            <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>
+                                        </section></td>";
+                                }echo "</table>";
+                        ?>
+                        
+                    </section>
+
                 </div>
 
                 <input type="radio" name="radio" id="radio3">
@@ -115,11 +159,17 @@
         </div>
         
         
+        
     <?php else: ?>
         <h1>No has iniciado sesión!</h1>
     <?php endif;?>
 
+    <?php if(isset($_GET['mes'])):?>
+        <script type="text/javascript">
+            alert("<?php echo $_GET['mes'];?>");
+        </script>
+    <?php endif;?>
     
-<?php require '../footer.php' ?>
+
 
 </html>
