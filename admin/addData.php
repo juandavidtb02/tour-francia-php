@@ -33,6 +33,9 @@
                 $mensaje = "INSERTE UNA LLAVE PRIMARIA VALIDA.";
                 
             }
+            else if($tabla ==='pais' && strlen($data[0]) > 3){
+                $mensaje = "INSERTE UNA LLAVE PRIMARIA VALIDA.";
+            }
             else{
                 $consult = "SELECT * FROM $tabla WHERE $columns[0]='$data[0]'";
                 $comprobar = pg_query($conexion,$consult);
