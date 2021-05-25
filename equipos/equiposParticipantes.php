@@ -46,12 +46,13 @@
             echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
             $resultado=pg_query($conexion,"select * from equipos") or die("Error");
         }
-
         echo "<table align=center>
         <thead><td id=iz>Codigo del equipo</td><td>Nombre del equipo</td><td id=der>País</td></thead>";
     while($filas=pg_fetch_array($resultado)){
+    $valor = $filas["cod_equipo"];
+    $var = $filas["nomb_equipo"];
     echo "<tr><td>".$filas["cod_equipo"]."</td>";
-    echo "<td>".$filas["nomb_equipo"]." <img class='libro' src='http://www.webquestcreator2.com/majwq/files/files_user/40279/guia.png'> </td>";
+    echo "<td>".$filas["nomb_equipo"]." <a href='./infoEquipos.php?cod=".$valor."'><img class='libro' src='http://www.webquestcreator2.com/majwq/files/files_user/40279/guia.png'></a></td>";
     echo "<td id=izq>".$filas["pais_equipo"]."</td>";
 }echo "</table>";
 
