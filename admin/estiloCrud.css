@@ -151,6 +151,54 @@ h3{
 
 /*   TABLA   */
 
+.buscador{
+    color: wheat;
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    
+    
+    z-index: 1;
+}
+
+.formulario select{
+    width: 100px;
+    height: 30px;
+    margin: 2%;
+    background: rgb(251,250,218);
+    background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
+    border-radius:12px;
+    outline: none;
+}
+
+.formulario{
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto-ingreso{
+    margin: 3%;
+    height: 30px;
+    width: 250px;
+    background: rgb(251,250,218);
+    background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
+    border-radius:12px;
+    outline: none;
+    
+}
+
+.img-buscador{
+    width: 40px;
+    height: 40px;
+    margin: 2%;
+    outline: none;
+}
+
 
 table{
     background-color: black;
@@ -350,4 +398,14 @@ a{
 .toc{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* IMAGEN */
+#reco{
+    position:static;
+    margin-top: 10px;
+    
+    width: 95%;
+    border-radius: 20px;
+    border: 3px solid yellow;
 }

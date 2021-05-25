@@ -13,6 +13,7 @@
 
 <?php require './columns.php' ?>
 <?php require '../header.php' ?>
+<?php require './tabla.php' ?>
     <?php if(!empty($user)): ?>
         <h1>Administrador de la base de datos</h2>
         <div class="container">
@@ -32,6 +33,10 @@
                     <h2>Inicio</h2>
                     <p>Bienvenido al administrador de la base de datos "Tour de Francia 2021". Recuerda que<br>
                     todos los cambios que realices traerán consecuencias en la información que se muestra en la página.</p>
+                    <h3>Modelo entidad relación</h3>
+                    <p>Recuerda que a la hora de editar la información debes tener en cuenta el modelo entidad-relación de la base de datos Tour de Francia 2021.</p>
+                    <img id="reco" src="./modeloER.png">
+                    <p>*No incluye la tabla users</p>
                     <h3>Usuarios registrados</h3>
                     <p>La siguiente información corresponde a los usuarios registrados hasta el momento con sus respectivos datos:</p>
                     <section class="box">
@@ -82,38 +87,18 @@
                             $tabla="pais";
                             $var = "cod_pais";
                             $query = "select * from pais";
-                            $tabla = str_replace("'","",$tabla);
-                            $result = columnas($tabla,$conexion);
+                            $tabla2 = str_replace("'","",$tabla);
+                            $result = columnas($tabla2,$conexion);
                         ?>
 
-                        <section class="agregar">
-                            <form action="./addData.php" method="post">
-                                <input type="hidden" name="tabla" value="pais" class="varT">
-                                <?php while($filas = pg_fetch_array($result)):?>
-                                    <input type="text" name="<?php echo $filas['column_name'];?>" placeholder="Digite el <?php echo $filas['column_name']; ?>" autocomplete="off">
-                                <?php endwhile;?>
-                                <input type="submit" name="users" value="Agregar">
-                            </form>
-                        </section>
+                        <?php require './addCajas.php'?>
 
                         <h3>Tabla actual</h3>
 
                         <?php
-                            $tabla = "pais";
-                            $var = "cod_pais";
-                            $query="select * from pais";
-                            $resultado=pg_query($conexion,$query) or die("Error al consultar usuarios");
-                            echo "<table>
-                                <thead class='head'><td id=iz>Cod pais</td><td>Nombre</td><td id=der>Opciones</td></thead>";
-                                while($filas=pg_fetch_array($resultado)){
-                                    echo "<tr class='linea'><td id='izq'>".$filas["cod_pais"]."</td>";
-                                    $valor = $filas["cod_pais"];
-                                    echo "<td>".$filas["nomb_pais"]."</td>";
-                                    echo "<td><section class='botones'>
-                                            <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
-                                            <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>
-                                        </section></td>";
-                                }echo "</table>";
+                            filtro($conexion,$tabla,$query);
+                            echo "<br>";
+                            tabla($conexion,$tabla,$var);
                         ?>
                         
                     </section>
