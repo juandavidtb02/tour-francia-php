@@ -135,8 +135,6 @@ table tr:nth-last-child(even):hover{
 
 }
 
-
-
 .formulario select{
     width: 100px;
     height: 30px;
@@ -145,4 +143,10 @@ table tr:nth-last-child(even):hover{
     background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
     border-radius:12px;
     outline: none;
+}
+
+.libro{
+    width: 30px;
+    margin-bottom: -15px;
+    padding: 5px;
 }

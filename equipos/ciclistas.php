@@ -28,7 +28,7 @@
             <option value="Edad">Edad</option>
             <option value="Nacionalidad">Nacionalidad</option>    
         </select>
-       <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
         </form>
     </div>
 

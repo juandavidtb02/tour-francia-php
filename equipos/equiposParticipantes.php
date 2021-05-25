@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="es">
 <meta charset="UTF -8" />
@@ -11,7 +9,6 @@
 </head>
 
 <body>
-   
     <?php require '../header.php' ?>
 
     <img id="fondo" src="https://image.api.playstation.com/cdn/EP4133/CUSA08153_00/xnXcOa0IMPBWJvBK7lmgra8EMy0ueIPH.jpg">
@@ -21,14 +18,24 @@
     <div class="buscador">
         <form action="equiposParticipantes.php" method="GET" class="formulario">
         <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar por pais" autocomplete="off">
-       <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+        <select name="tipo" class="seleccion">
+            <option hidden selected>Todos</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Pais">Pais</option>    
+        </select>
+        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
         </form>
     </div>
 
     <?php
-        if(isset($_GET["valor"]) && $_GET["valor"] != ""){
+        if(isset($_GET["valor"]) && $_GET["valor"] != "" && isset($_GET["tipo"])){
             $valor = $_GET["valor"];
+            if($_GET["tipo"] == "Nombre"){
+                $query="select cod_equipo, nomb_equipo, pais_equipo from equipos inner join pais on equipos.pais_equipo=pais.cod_pais where UNACCENT(nomb_equipo) ilike '%$valor%' or nomb_equipo ilike '%$valor%'";
+            }
+            if($_GET["tipo"] == "Pais"){
                 $query="select cod_equipo, nomb_equipo, pais_equipo from equipos inner join pais on equipos.pais_equipo=pais.cod_pais where UNACCENT(nomb_pais) ilike '%$valor%' or pais_equipo ilike '%$valor%'";
+            }
         }else{
             $query="select * from equipos";
         }
@@ -41,11 +48,11 @@
         }
 
         echo "<table align=center>
-        <thead><td id=iz>Codigo del equipo</td><td>Nombre del equipo</td><td id=der>Pais</td></thead>";
+        <thead><td id=iz>Codigo del equipo</td><td>Nombre del equipo</td><td id=der>País</td></thead>";
     while($filas=pg_fetch_array($resultado)){
     echo "<tr><td>".$filas["cod_equipo"]."</td>";
-  echo "<td>".$filas["nomb_equipo"]."</td>";
-  echo "<td id=izq>".$filas["pais_equipo"]."</td>";
+    echo "<td>".$filas["nomb_equipo"]." <img class='libro' src='http://www.webquestcreator2.com/majwq/files/files_user/40279/guia.png'> </td>";
+    echo "<td id=izq>".$filas["pais_equipo"]."</td>";
 }echo "</table>";
 
     ?>
