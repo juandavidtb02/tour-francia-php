@@ -28,7 +28,7 @@
                 <label for="radio8">Corre</label>
             </div>
             <div class="content">
-                <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio1" checked>
                 <div class="tab1">
                     <h2>Inicio</h2>
                     <p>Bienvenido al administrador de la base de datos "Tour de Francia 2021". Recuerda que<br>
@@ -80,7 +80,7 @@
                 <input type="radio" name="radio" id="radio2">
                 <div class="tab2">
                     <h2>Paises</h2>
-                    <p>La siguiente información correspone a los paises participantes del Tour de Francia 2021:</p>
+                    <p>La siguiente información corresponde a los paises participantes del Tour de Francia 2021:</p>
                     <section class="box">
                         <h3>Añadir un dato</h3>
                         <?php 
@@ -96,9 +96,11 @@
                         <h3>Tabla actual</h3>
 
                         <?php
+                            $resultx = columnas($tabla2,$conexion);
+                            $resultfilas = columnas($tabla2,$conexion);
                             filtro($conexion,$tabla,$query);
                             echo "<br>";
-                            tabla($conexion,$tabla,$var);
+                            tabla($conexion,$tabla,$var,$resultx,$resultfilas);
                         ?>
                         
                     </section>
@@ -108,19 +110,88 @@
                 <input type="radio" name="radio" id="radio3">
                 <div class="tab3">
                     <h2>Ciudades</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
+                    <p>La siguiente información corresponde a las ciudades presentes en el Tour de Francia 2021:</p>
+                    <section class="box">
+                        <h3>Añadir un dato</h3>
+                        <?php 
+                            $tabla="ciudad";
+                            $var = "cod_ciudad";
+                            $query = "select * from ciudad";
+                            $tabla2 = str_replace("'","",$tabla);
+                            $result = columnas($tabla2,$conexion);
+                        ?>
+
+                        <?php require './addCajas.php'?>
+
+                        <h3>Tabla actual</h3>
+
+                        <?php
+                            $resultx = columnas($tabla2,$conexion);
+                            $resultfilas = columnas($tabla2,$conexion);
+                            filtro($conexion,$tabla,$query);
+                            echo "<br>";
+                            tabla($conexion,$tabla,$var,$resultx,$resultfilas);
+                        ?>
+                        
+                    </section>
                 </div>
 
                 <input type="radio" name="radio" id="radio4">
                 <div class="tab4">
                     <h2>Ciclistas</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
+                    <p>La siguiente información corresponde a los ciclistas presentes en el Tour de Francia 2021:</p>
+                    <section class="box">
+                        <h3>Añadir un dato</h3>
+                        <?php 
+                            $tabla="ciclistas";
+                            $var = "cod_ciclista";
+                            $query = "select * from ciclistas";
+                            $tabla2 = str_replace("'","",$tabla);
+                            $result = columnas($tabla2,$conexion);
+                        ?>
+
+                        <?php require './addCajas.php'?>
+
+                        <h3>Tabla actual</h3>
+
+                        <?php
+                            $resultx = columnas($tabla2,$conexion);
+                            $resultfilas = columnas($tabla2,$conexion);
+                            filtro($conexion,$tabla,$query);
+                            echo "<br>";
+                            tabla($conexion,$tabla,$var,$resultx,$resultfilas);
+                        ?>
+                        
+                    </section>
                 </div>
 
                 <input type="radio" name="radio" id="radio5">
                 <div class="tab5">
-                    <h2>Equipos</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
+                <h2>Equipos</h2>
+                    <p>La siguiente información corresponde a los equipos presentes en el Tour de Francia 2021:</p>
+                    <section class="box">
+                        <h3>Añadir un dato</h3>
+                        <?php 
+                            $tabla="equipos";
+                            $var = "cod_equipo";
+                            $query = "select * from equipos";
+                            $tabla2 = str_replace("'","",$tabla);
+                            $result = columnas($tabla2,$conexion);
+                        ?>
+
+                        <?php require './addCajas.php'?>
+
+                        <h3>Tabla actual</h3>
+
+                        <?php
+                            $resultx = columnas($tabla2,$conexion);
+                            $resultfilas = columnas($tabla2,$conexion);
+                            filtro($conexion,$tabla,$query);
+                            echo "<br>";
+                            tabla($conexion,$tabla,$var,$resultx,$resultfilas);
+                        ?>
+                        
+                    </section>
                 </div>
 
                 <input type="radio" name="radio" id="radio6">

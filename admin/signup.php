@@ -63,8 +63,10 @@
         <input type="password" name="password" placeholder="Digite la contraseña">
         <input type="password" name="confirm_password" placeholder="Confirme la contraseña">
         <input type="password" name="clave" placeholder="Ingrese el código de admin">
+        
         <input type="submit" value="Registrarse">
     </form>
+    
 
     <?php endif; ?>
 
@@ -74,7 +76,12 @@
     
 
     <p>¿Ya tienes una cuenta? <a href="./login.php">¡Inicia sesión!</p></a>
-
+    <button id="boton" onclick="message()">?</button>
+    <script>
+        function message(){
+            alert("El código de admin asegura que solo las personas autorizadas puedan acceder al CRUD y así, evitar el uso incorrecto de este. Para más información comuníquese con los desarrolladores de la página.");
+        }
+    </script>
     <br><br><br><br>
 </body>
     

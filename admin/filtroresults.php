@@ -5,4 +5,8 @@
     if(isset($_POST['busq'])){
         $busq = $_POST['busq'];
     }
+    if(isset($_POST['tabla'])){
+        $tablaR = $_POST['tabla'];
+    }
+
 ?>

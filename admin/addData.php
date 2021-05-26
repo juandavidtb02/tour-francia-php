@@ -39,7 +39,6 @@
             else{
                 $consult = "SELECT * FROM $tabla WHERE $columns[0]='$data[0]'";
                 $comprobar = pg_query($conexion,$consult);
-                var_dump($comprobar);
                 if(pg_num_rows($comprobar) > 0){
                     $mensaje = "LA LLAVE PRIMARIA INGRESADA YA EXISTE.";
                     
@@ -49,7 +48,7 @@
                     $query = "INSERT INTO $tabla($columns[0]) VALUES('$data[0]')";
                     $stmt = pg_query($conexion,$query);
                     if(!$stmt){
-                        die("Hubo un error al registrar la informacion");
+                        die("<script>window.location = './error.php';</script>");
                     }
                     else{
                 
@@ -58,7 +57,9 @@
                                 $query = "UPDATE $tabla SET  $columns[$nr]='".$data[$nr]."' WHERE $columns[0]='$data[0]'";
                                 $stmt = pg_query($conexion,$query);
                                 if(!$stmt){
-                                    die("ERROR");
+                                    $query = "DELETE FROM $tabla WHERE $columns[0]='$data[0]'";
+                                    $stmt = pg_query($conexion,$query);
+                                    die("<script>window.location = './error.php';</script>");
                                 }
                             }
                             $nr++;

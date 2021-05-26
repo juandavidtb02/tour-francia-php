@@ -43,11 +43,14 @@
         if(isset($_GET['check'])){
             $result = columnas($tabla,$conexion);
             $result2 = columnas($tabla,$conexion);
+            $result3 = columnas($tabla,$conexion);
             $data = array();
+            $dataCopia = array();
             $columns = array();
             $nr = 0;
             while($filas=pg_fetch_array($result)){
                 $data[$nr] = $_GET[$filas['column_name']];
+                $dataCopia[$nr] = $_GET[$filas['column_name']];
                 $columns[$nr] = $filas['column_name'];
                 $nr++;
             }
@@ -62,6 +65,7 @@
             }
             else{
                 $nr = 0;
+                $nr2 = 0;
                 $consult = "SELECT * FROM $tabla WHERE $columns[0]='$data[0]'";
                 $comprobar = pg_query($conexion,$consult);
                 if(pg_num_rows($comprobar) > 0 && $valor!=$data[0]){
@@ -83,7 +87,21 @@
                         }
                         $stmt = pg_query($conexion,$query);
                         if(!$stmt){
-                            die("ERROR");
+                            while($filas3=pg_fetch_array($result3)){
+                                if($nrc>0){
+                                    $query = "UPDATE $tabla SET  $columns[$nrc]='".$dataCopia[$nrc]."' WHERE $columns[0]='$data[0]'";
+                                    $llavepri = $data[0];
+                                }
+                                else if($llavepri != $valor){
+                                    $query = "UPDATE $tabla SET  $columns[$nrc]='".$dataCopia[$nrc]."' WHERE $columns[0]='$valor'";
+                                }
+                                else{
+                                    $query = "UPDATE $tabla SET  $columns[$nrc]='".$dataCopia[$nrc]."' WHERE $columns[0]='$data[0]'";
+                                }
+                                $stmt = pg_query($conexion,$query);
+                                $nrc++;
+                            }
+                            die("<script>window.location = './error.php';</script>");
                         }
                         $nr++;
                     }
@@ -171,6 +189,7 @@
 
         </form>
         <a href="./user.php"><div class="regresar"><p>Regresar</p></div></a>
+        <br><br>
         
 
     
