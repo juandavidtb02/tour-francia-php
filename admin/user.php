@@ -28,7 +28,7 @@
                 <label for="radio8">Corre</label>
             </div>
             <div class="content">
-            <input type="radio" name="radio" id="radio1" checked>
+            <?php require './seccionMenu.php'?>
                 <div class="tab1">
                     <h2>Inicio</h2>
                     <p>Bienvenido al administrador de la base de datos "Tour de Francia 2021". Recuerda que<br>
@@ -77,7 +77,7 @@
                         
                 </div>
 
-                <input type="radio" name="radio" id="radio2">
+                
                 <div class="tab2">
                     <h2>Paises</h2>
                     <p>La siguiente información corresponde a los paises participantes del Tour de Francia 2021:</p>
@@ -107,7 +107,7 @@
 
                 </div>
 
-                <input type="radio" name="radio" id="radio3">
+                
                 <div class="tab3">
                     <h2>Ciudades</h2>
                     <p>La siguiente información corresponde a las ciudades presentes en el Tour de Francia 2021:</p>
@@ -136,7 +136,7 @@
                     </section>
                 </div>
 
-                <input type="radio" name="radio" id="radio4">
+                
                 <div class="tab4">
                     <h2>Ciclistas</h2>
                     <p>La siguiente información corresponde a los ciclistas presentes en el Tour de Francia 2021:</p>
@@ -165,7 +165,7 @@
                     </section>
                 </div>
 
-                <input type="radio" name="radio" id="radio5">
+                
                 <div class="tab5">
                 <h2>Equipos</h2>
                     <p>La siguiente información corresponde a los equipos presentes en el Tour de Francia 2021:</p>
@@ -194,19 +194,19 @@
                     </section>
                 </div>
 
-                <input type="radio" name="radio" id="radio6">
+                
                 <div class="tab6">
                     <h2>Etapas</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
                 </div>
 
-                <input type="radio" name="radio" id="radio7">
+                
                 <div class="tab7">
                     <h2>Participa</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
                 </div>
 
-                <input type="radio" name="radio" id="radio8">
+                
                 <div class="tab8">
                     <h2>Corre</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
