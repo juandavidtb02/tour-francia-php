@@ -70,6 +70,15 @@
     $apellido = $resultado->apellido_ciclista;
     ?>
 
+<!doctype html>
+<html lang="es">
+<meta charset="UTF -8" />
+    
+<head>
+    <title>TOUR DE FRANCIA 2021</title>
+    <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
+</head>
+
 <br><br>
 <center><h2>Contrato de <?php echo $nombre;?> <?php echo $apellido;?></h2></center>
 
@@ -93,3 +102,5 @@
     </form>
 <?php endif;?>
 <a href="../user.php"><div class="regresar"><p>Regresar</p></div></a>
+
+</html>
