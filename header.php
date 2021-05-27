@@ -26,7 +26,7 @@
         <?php if(!empty($user)): ?>
             <div id='log'>
                 <a href="/admin/user.php"><img id ="user" src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png"></a>
-                <a href="/admin/logout.php"><img id="salir" src="https://cdn.icon-icons.com/icons2/368/PNG/512/Logout_37127.png"></a>
+                <a href="/admin/logout.php"><img id="salir" src="https://cdn.pixabay.com/photo/2017/05/29/23/02/logging-out-2355227_960_720.png"></a>
             </div>
         <?php endif;?>
         <nav id="menu">

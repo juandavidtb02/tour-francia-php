@@ -44,10 +44,10 @@
         else if($tablaxd === 'etapa'){
             echo '<input type="radio" name="radio" id="radio1">';
             echo '<input type="radio" name="radio" id="radio2">';
-            echo '<input type="radio" name="radio" id="radio3" checked>';
+            echo '<input type="radio" name="radio" id="radio3">';
             echo '<input type="radio" name="radio" id="radio4">';
             echo '<input type="radio" name="radio" id="radio5">';
-            echo '<input type="radio" name="radio" id="radio6">';
+            echo '<input type="radio" name="radio" id="radio6" checked>';
             echo '<input type="radio" name="radio" id="radio7">';
             echo '<input type="radio" name="radio" id="radio8">';
         }

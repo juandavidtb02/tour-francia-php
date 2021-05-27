@@ -265,6 +265,15 @@ table tr #imgeditar{
     margin-left: 2px;
 }
 
+table tr #imgcontrato{
+    position: relative;
+    margin-left: 5px;
+}
+
+table tr #imgparticipa{
+    margin-left: 5px;
+}
+
 /*   AGREGAR   */
 
 

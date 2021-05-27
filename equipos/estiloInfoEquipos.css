@@ -108,11 +108,11 @@ table thead td{
 }
 
 table thead #iz{
-    border-top-left-radius: 20px;
+    border-top-left-radius: 15px;
 }
 
 table thead #der{
-    border-top-right-radius: 20px;
+    border-top-right-radius: 15px;
 }
 
 table tr:nth-last-child(even){

@@ -24,8 +24,7 @@
                 <label for="radio4">Ciclistas</label>
                 <label for="radio5">Equipos</label>
                 <label for="radio6">Etapas</label>
-                <label for="radio7">Participa</label>
-                <label for="radio8">Corre</label>
+                
             </div>
             <div class="content">
             <?php require './seccionMenu.php'?>
@@ -67,7 +66,7 @@
                                     echo "<td>".$filas["password_user"]."</td>";
                                     echo "<td>".$filas["fecha_registro"]."</td>";
                                     echo "<td><section class='botones'>
-                                            <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
+                                    <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
                                             <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>
                                         </section></td>";
                                 }echo "</table>";
@@ -196,21 +195,36 @@
 
                 
                 <div class="tab6">
-                    <h2>Etapas</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
+                <h2>Etapas</h2>
+                    <p>La siguiente información corresponde a las etapas del Tour de Francia 2021:</p>
+                    <section class="box">
+                        <h3>Añadir un dato</h3>
+                        <p>*Se debe ingresar el código de la ciudad.</p>
+                        <?php 
+                            $tabla="etapa";
+                            $var = "cod_etapa";
+                            $query = "select * from etapa";
+                            $tabla2 = str_replace("'","",$tabla);
+                            $result = columnas($tabla2,$conexion);
+                        ?>
+
+                        <?php require './addCajas.php'?>
+
+                        <h3>Tabla actual</h3>
+
+                        <?php
+                            $resultx = columnas($tabla2,$conexion);
+                            $resultfilas = columnas($tabla2,$conexion);
+                            filtro($conexion,$tabla,$query);
+                            echo "<br>";
+                            tabla($conexion,$tabla,$var,$resultx,$resultfilas);
+                        ?>
+                        
+                    </section>
                 </div>
 
                 
-                <div class="tab7">
-                    <h2>Participa</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
-                </div>
-
                 
-                <div class="tab8">
-                    <h2>Corre</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro hic inventore debitis temporibus, rem tenetur quaerat cupiditate. Quibusdam, error quasi! Voluptatem eveniet ad nisi! Consectetur laborum nesciunt omnis placeat.</p>
-                </div>
             </div>
         </div>
         
@@ -225,7 +239,7 @@
             alert("<?php echo $_GET['mes'];?>");
         </script>
     <?php endif;?>
-    
+
 
 
 </html>
