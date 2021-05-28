@@ -298,6 +298,31 @@ table tr #imgparticipa{
     left: -40%;*/
 }
 
+.content input[type="date"]{
+    font-size: 20px;
+    color: white;
+    caret-color: white;
+    outline: none;
+    padding: 15px;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid yellow;
+    background-color: black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin: 20px;
+    /*position: relative;
+    left: -40%;*/
+}
+
+.content input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    background-color: white;
+}
+
 .content input[type="submit"]{
     padding: 15px;
     color: white;
@@ -347,6 +372,31 @@ input[type="submit"]:hover{
     margin: 20px auto;
     /*position: relative;
     left: -40%;*/
+}
+
+.dato input[type="date"]{
+    font-size: 20px;
+    color: white;
+    caret-color: white;
+    outline: none;
+    padding: 15px;
+    width: 250px;
+    border-radius: 3px;
+    border: 1px solid yellow;
+    background-color: black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin: 20px auto;
+    /*position: relative;
+    left: -40%;*/
+}
+
+.dato input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    background-color: white;
 }
 
 .dato .seleccion{

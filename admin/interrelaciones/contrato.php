@@ -111,8 +111,8 @@
         <?php endif;?>
         <input type="hidden" name="existes" value="no">
         <p class ="toc">CODIGO EQUIPO</p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off">
-        <p class ="toc">INICIO CONTRATO</p><input type="text" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off">
-        <p class ="toc">FIN CONTRATO</p><input type="text" name="fin_contrato" placeholder="Inserte la fecha de fin" autocomplete="off">
+        <p class ="toc">INICIO CONTRATO</p><input type="date" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off">
+        <p class ="toc">FIN CONTRATO</p><input type="date" name="fin_contrato" placeholder="Inserte la fecha de fin" autocomplete="off">
         <input type="submit" value="Editar" id="editboton">
     </form>
 <?php else:?>
@@ -123,8 +123,8 @@
         <?php endif;?>
         <input type="hidden" name="existes" value="si">
         <p class ="toc">CODIGO EQUIPO</p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off" value="<?php echo $cod_equipo;?>">
-        <p class ="toc">INICIO CONTRATO</p><input type="text" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off" value="<?php echo $inicio;?>">
-        <p class ="toc">FIN CONTRATO</p><input type="text" name="fin_contrato" placeholder="Inserte la fecha de fin" autocomplete="off" value="<?php echo $fin;?>">
+        <p class ="toc">INICIO CONTRATO</p><input type="date" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off" value="<?php echo $inicio;?>">
+        <p class ="toc">FIN CONTRATO</p><input type="date" name="fin_contrato" placeholder="Inserte la fecha de fin" autocomplete="off" value="<?php echo $fin;?>">
         <input type="submit" value="Editar" id="editboton">
     </form>
 <?php endif;?>
