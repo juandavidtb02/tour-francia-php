@@ -23,6 +23,7 @@
 
     <?php if(!empty($user)): ?>
         <h1>Administrador de la base de datos</h2>
+        <center><p id="sesion">Has iniciado sesión como <?php echo $user->email;?></p></center>
         <div class="container">
             <div class="lbl">
                 <label for="radio1">Inicio</label>
