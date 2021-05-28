@@ -17,8 +17,11 @@
         die("Hubo un error a la hora de eliminar el dato");
     }
     $mensaje = "EL DATO HA SIDO ELIMINADO CORRECTAMENTE.";
-    if($tabla != 'corre'){
+    if($tabla != 'corre' && $tabla !='participa'){
         header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
+    }
+    else if($tabla === 'participa'){
+        header("Location: ./interrelaciones/participa.php?mes=$mensaje&valor=$valor");
     }
     else{
         header("Location: ./interrelaciones/corre.php?mes=$mensaje&valor=$valor");
