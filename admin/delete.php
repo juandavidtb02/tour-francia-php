@@ -5,12 +5,23 @@
     $valor = $_GET['valor'];
     $tabla = $_GET['tabla'];
     $tabla = str_replace("'","",$tabla);
-    $query = "DELETE FROM $tabla WHERE $var='$valor'";
+    if(isset($_GET['cod_etapa'])){
+        $etapa = $_GET['cod_etapa'];
+        $query = "DELETE FROM $tabla WHERE $var='$valor' AND cod_etapa=$etapa";
+    }
+    else{
+        $query = "DELETE FROM $tabla WHERE $var='$valor'";
+    }
     $result = pg_query($conexion,$query);
     if(!$result){
         die("Hubo un error a la hora de eliminar el dato");
     }
     $mensaje = "EL DATO HA SIDO ELIMINADO CORRECTAMENTE.";
-    header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
+    if($tabla != 'corre'){
+        header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
+    }
+    else{
+        header("Location: ./interrelaciones/corre.php?mes=$mensaje&valor=$valor");
+    }
     
 ?>

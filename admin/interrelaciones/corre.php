@@ -62,11 +62,12 @@
             <thead class='head'><td id=iz>Código etapa</td><td>Puntos</td><td>Tiempo</td><td>Posición</td><td id=der>Opciones</td></thead>";
             while($filas=pg_fetch_array($resultcorre)){
                 echo "<tr class='linea'><td id='izq'>".$filas["cod_etapa"]."</td>";
+                $etapa2 = $filas['cod_etapa'];
                 echo "<td>".$filas["puntos_ciclista"]."</td>";
                 echo "<td>".$filas["tiempo_ciclista"]."</td>";
                 echo "<td>".$filas["posicion_ciclista"]."</td>";
                 echo "<td><section class='botones'>
-                <a href='../delete.php?valor=".$valor."&tabla=corre&var=cod_ciclista'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
+                <a href='../delete.php?valor=".$valor."&tabla=corre&var=cod_ciclista&cod_etapa=".$etapa2."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
                     </section></td>";
             }echo "</table>";
         ?>
