@@ -17,7 +17,7 @@
             }
             else{
                 $mensaje = "NUEVO CONTRATO CREADO";
-                header("Location: ../user.php?mes=$mensaje");
+                header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
             }
         }
         else{
@@ -45,7 +45,7 @@
             }
             else{
                 $mensaje = "CONTRATO MODIFICADO";
-                header("Location: ../user.php?mes=$mensaje");
+                header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
             }
 
         }
@@ -101,6 +101,11 @@
         <input type="submit" value="Editar" id="editboton">
     </form>
 <?php endif;?>
-<a href="../user.php"><div class="regresar"><p>Regresar</p></div></a>
+
+    <?php if(!isset($_GET['equipo'])):?>
+        <a href="../user.php?tablaxd=ciclistas"><div class="regresar"><p>Regresar</p></div></a>
+    <?php else:?>
+        <a href="./contratos.php?valor=<?php echo $_GET['equipo'];?>"><div class="regresar"><p>Regresar</p></div></a>
+    <?php endif;?>
 
 </html>

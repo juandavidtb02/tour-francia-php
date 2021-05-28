@@ -1,6 +1,8 @@
 <?php
     function tabla($conexion,$tabla,$var,$resultx,$resultfilas){
-        require './filtroresults.php';
+        if($tabla!="corre"){
+            require './filtroresults.php';
+        }
         if(isset($numero) && isset($busq)){
             if($tablaxa === $tabla){
                 $nr = str_replace("'","",$numero);
@@ -34,7 +36,7 @@
                         $mensaje = "NO EXISTE UN DATO CON LA INFORMACION INGRESADA.";
                         
                         echo '<script type="text/javascript">
-                        window.location="./user.php?mes='.$mensaje.'";
+                        window.location="./user.php?mes='.$mensaje.'&tablaxd='.$tabla.'";
                         </script>';
                     }
                 }
@@ -85,14 +87,17 @@
             $nc++;
             if($tabla==='ciclistas'){
                 echo "<td><a href='./interrelaciones/contrato.php?valor=".$valor."'><img id='imgcontrato' src='https://cdn3.altiria.com/wp-content/uploads//2018/04/firma-contrato-sms.png' width='35px'></a>";
-                echo "<a href='./interrelaciones/corre.php'> <img id='imgparticipa' src='https://imagenesgratis.com.ar/wp-content/uploads/2020/04/bike-png-bicicleta-bycicle-design.png' width='35px'></a></td>";
+                echo "<a href='./interrelaciones/corre.php?valor=".$valor."'> <img id='imgparticipa' src='https://imagenesgratis.com.ar/wp-content/uploads/2020/04/bike-png-bicicleta-bycicle-design.png' width='35px'></a></td>";
             }
-            else if($tabla==='equipos'){
-                echo "<td><a href='./interrelaciones/participa.php'> <img id='imgparticipa' src='https://imagenesgratis.com.ar/wp-content/uploads/2020/04/bike-png-bicicleta-bycicle-design.png' width='35px'></a></td>";
+            else if($tabla === 'equipos'){
+                echo "<td><a href='./interrelaciones/contratos.php?valor=".$valor."'><img id='imgcontrato' src='https://cdn3.altiria.com/wp-content/uploads//2018/04/firma-contrato-sms.png' width='35px'></a>";
+                echo "<a href='./interrelaciones/participa.php?valor=".$valor."'> <img id='imgparticipa' src='https://imagenesgratis.com.ar/wp-content/uploads/2020/04/bike-png-bicicleta-bycicle-design.png' width='35px'></a></td>";
             }
             echo "<td><section class='botones'>
-            <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
-            <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>";
+            <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>";
+            if($tabla != 'corre'){
+                echo "<a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>";
+            }
             echo "</section></td>";
             
             

@@ -6,7 +6,7 @@ body {
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    height: 100%;
+    
 
 }
 
@@ -382,6 +382,7 @@ input[type="submit"]:hover{
     margin: auto;
     cursor: pointer;
     color: black;
+    border: 1px solid yellow;
 }
 
 .regresar p{
@@ -392,7 +393,6 @@ input[type="submit"]:hover{
 .regresar:hover{
     background-color: black;
     color: yellow;
-    border: 1px solid yellow;
 }
 
 a{
@@ -417,4 +417,60 @@ a{
     width: 95%;
     border-radius: 20px;
     border: 3px solid yellow;
+}
+
+/* corre */
+
+
+
+.datos{    
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.datos input[type="text"]:not(.tablaE,.valorE,.varE){
+    font-size: 15px;
+    color: white;
+    caret-color: white;
+    outline: none;
+    padding: 15px;
+    width: 120px;
+    border-radius: 3px;
+    border: 1px solid yellow;
+    background-color: black;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin: 5px;
+    /*position: relative;
+    left: -40%;*/
+}
+/*
+.datos .seleccion{
+    width: 150px;
+    height: 40px;
+    margin: 2%;
+    border: 1px solid yellow;
+    background: black;
+    color:grey;
+    font-size:18px;
+    border-radius:3px;
+    outline: none;
+}*/
+
+.datos #editboton{
+    background-color: yellow;
+    color: black;
+    border: 1px solid yellow;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.datos #editboton:hover{
+    background-color: white;
+
 }

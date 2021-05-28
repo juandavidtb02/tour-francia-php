@@ -73,7 +73,7 @@
         }
     }
     
-    header("Location: ./user.php?mes=$mensaje");
+    header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
     
     
 ?>

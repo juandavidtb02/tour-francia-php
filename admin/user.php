@@ -14,6 +14,13 @@
 <?php require './columns.php' ?>
 <?php require '../header.php' ?>
 <?php require './tabla.php' ?>
+
+    <?php if(isset($_GET['mes'])):?>
+        <script type="text/javascript">
+            alert("<?php echo $_GET['mes'];?>");
+        </script>
+    <?php endif;?>
+
     <?php if(!empty($user)): ?>
         <h1>Administrador de la base de datos</h2>
         <div class="container">
@@ -55,15 +62,15 @@
                         <?php
                             $tabla = "users";
                             $var = "cod_user";
-                            $query="select * from users";
+                            $query="select cod_user,email,fecha_registro from users";
                             $resultado=pg_query($conexion,$query) or die("Error al consultar usuarios");
                             echo "<table>
-                                <thead class='head'><td id=iz>ID usuario</td><td>Correo</td><td>Contraseña</td><td>Fecha de registro</td><td id=der>Opciones</td></thead>";
+                                <thead class='head'><td id=iz>ID usuario</td><td>Correo</td><td>Fecha de registro</td><td id=der>Opciones</td></thead>";
                                 while($filas=pg_fetch_array($resultado)){
                                     echo "<tr class='linea'><td id='izq'>".$filas["cod_user"]."</td>";
                                     $valor = $filas["cod_user"];
                                     echo "<td>".$filas["email"]."</td>";
-                                    echo "<td>".$filas["password_user"]."</td>";
+                                    
                                     echo "<td>".$filas["fecha_registro"]."</td>";
                                     echo "<td><section class='botones'>
                                     <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
@@ -234,11 +241,7 @@
         <h1>No has iniciado sesión!</h1>
     <?php endif;?>
 
-    <?php if(isset($_GET['mes'])):?>
-        <script type="text/javascript">
-            alert("<?php echo $_GET['mes'];?>");
-        </script>
-    <?php endif;?>
+    
 
 
 

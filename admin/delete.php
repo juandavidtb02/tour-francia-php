@@ -11,6 +11,6 @@
         die("Hubo un error a la hora de eliminar el dato");
     }
     $mensaje = "EL DATO HA SIDO ELIMINADO CORRECTAMENTE.";
-    header("Location: ./user.php?mes=$mensaje");
+    header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
     
 ?>

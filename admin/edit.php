@@ -27,7 +27,7 @@
                 else{
                     header_remove();
                     $message = "EL(LOS) DATO(S) HA(N) SIDO MODIFICADO CORRECTAMENTE";
-                    header("Location: ./user.php?mes=$message");
+                    header("Location: ./user.php?mes=$message&tablaxd=$tabla");
                 }
             }
             else{
@@ -106,7 +106,7 @@
                         $nr++;
                     }
                     $mensaje = "EL(LOS) DATO(S) HA(N) SIDO MODIFICADO CORRECTAMENTE";
-                    header("Location: ./user.php?mes=$mensaje");
+                    header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
                 }
             }
         }
@@ -188,7 +188,7 @@
         <?php endif;?>
 
         </form>
-        <a href="./user.php"><div class="regresar"><p>Regresar</p></div></a>
+        <a href="./user.php?tablaxd=<?php echo $tabla;?>"><div class="regresar"><p>Regresar</p></div></a>
         <br><br>
         
 
