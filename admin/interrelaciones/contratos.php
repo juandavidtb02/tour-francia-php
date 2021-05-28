@@ -37,7 +37,7 @@
                     </section></td>";
             }echo "</table>";
         ?>
-        <a href="../user.php?tablaxd=ciclistas"><div class="regresar"><p>Regresar</p></div></a>
+        <a href="../user.php?tablaxd=equipos"><div class="regresar"><p>Regresar</p></div></a>
         <br><br>
     </center>
 
