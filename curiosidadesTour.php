@@ -120,7 +120,7 @@
                         <h2>Equipo de Francia con un ciclista contratado por menor tiempo</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select nomb_equipo, nomb_ciclista, apellido_ciclista, (fin_contrato-inicio_contrato) as dias from ciclistas, contrato, equipos where ciclistas.cod_ciclista=contrato.cod_ciclista and contrato.cod_equipo=equipos.cod_equipo and  pais_equipo='FRA'  and (fin_contrato-inicio_contrato) in (select min(fin_contrato-inicio_contrato) from contrato)";
+                            $query="select nomb_equipo, nomb_ciclista, apellido_ciclista, (fin_contrato-inicio_contrato) as dias from ciclistas, contrato, equipos where ciclistas.cod_ciclista=contrato.cod_ciclista and contrato.cod_equipo=equipos.cod_equipo and  pais_equipo='FRA'  and (fin_contrato-inicio_contrato) in (select min(fin_contrato-inicio_contrato) from contrato, equipos where contrato.cod_equipo=equipos.cod_equipo and pais_equipo='FRA')";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Nombre equipo</td><td>Nombre ciclista</td><td>Apellido ciclista</td><td id=der>Dias de contrato</td></thead>";
