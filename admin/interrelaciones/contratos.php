@@ -41,5 +41,12 @@
         <br><br>
     </center>
 
+
+    <?php if(isset($_GET['mes'])):?>
+        <script type="text/javascript">
+            alert("<?php echo $_GET['mes'];?>");
+        </script>
+    <?php endif;?>
+
 </body>
 </html>

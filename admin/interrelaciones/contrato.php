@@ -4,6 +4,15 @@
     require '../../conexionDB.php';
     $conexion = conectarbase();
     $valor = $_GET['valor'];
+
+    if(isset($_GET['equipo'])){
+        $anterior = $_GET['equipo'];
+    }
+    else if(isset($_GET['anterior'])){
+        $anterior = $_GET['anterior'];
+    }
+
+
     if(isset($_GET['cod_equipo'])){
         $cod_equipo = $_GET['cod_equipo'];
         $inicio = $_GET['inicio_contrato'];
@@ -17,7 +26,13 @@
             }
             else{
                 $mensaje = "NUEVO CONTRATO CREADO";
-                header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
+                if(isset($anterior)){
+                    $valor = $anterior;
+                    header("Location: ./contratos.php?mes=$mensaje&valor=$valor");
+                }
+                else{
+                    header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
+                }
             }
         }
         else{
@@ -45,7 +60,13 @@
             }
             else{
                 $mensaje = "CONTRATO MODIFICADO";
-                header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
+                if(isset($anterior)){
+                    $valor = $anterior;
+                    header("Location: ./contratos.php?mes=$mensaje&valor=$valor");
+                }
+                else{
+                    header("Location: ../user.php?mes=$mensaje&tablaxd=ciclistas");
+                }
             }
 
         }
@@ -85,6 +106,9 @@
 <?php if(!$existe):?>
     <form action="contrato.php" method="GET" class="dato">
         <input type="hidden" name="valor" value="<?php echo $valor;?>">
+        <?php if(isset($anterior)):?>
+            <input type="hidden" name="anterior" value="<?php echo $anterior;?>">
+        <?php endif;?>
         <input type="hidden" name="existes" value="no">
         <p class ="toc">CODIGO EQUIPO</p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off">
         <p class ="toc">INICIO CONTRATO</p><input type="text" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off">
@@ -94,6 +118,9 @@
 <?php else:?>
     <form action="contrato.php" method="GET" class="dato">
         <input type="hidden" name="valor" value="<?php echo $valor;?>">
+        <?php if(isset($anterior)):?>
+            <input type="hidden" name="anterior" value="<?php echo $anterior;?>">
+        <?php endif;?>
         <input type="hidden" name="existes" value="si">
         <p class ="toc">CODIGO EQUIPO</p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off" value="<?php echo $cod_equipo;?>">
         <p class ="toc">INICIO CONTRATO</p><input type="text" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off" value="<?php echo $inicio;?>">
@@ -102,10 +129,10 @@
     </form>
 <?php endif;?>
 
-    <?php if(!isset($_GET['equipo'])):?>
+    <?php if(!isset($anterior)):?>
         <a href="../user.php?tablaxd=ciclistas"><div class="regresar"><p>Regresar</p></div></a>
     <?php else:?>
-        <a href="./contratos.php?valor=<?php echo $_GET['equipo'];?>"><div class="regresar"><p>Regresar</p></div></a>
+        <a href="./contratos.php?valor=<?php echo $anterior;?>"><div class="regresar"><p>Regresar</p></div></a>
     <?php endif;?>
 
 </html>
