@@ -10,10 +10,8 @@
 </head>
 
 <body>
-    <?php require '../header.php' ?>
-
-    <img id="fondo" src="https://image.api.playstation.com/cdn/EP4133/CUSA08153_00/xnXcOa0IMPBWJvBK7lmgra8EMy0ueIPH.jpg">
-    
+<div class="fondo2"><p></p></div>
+    <?php require '../header.php' ?> 
     <h1><br>CLASIFICACIÓN POR MONTAÑA</h1>
 
     <div class="buscador">

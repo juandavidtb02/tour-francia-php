@@ -11,12 +11,10 @@
 </head>
 
 <body>
+<div class="fondo2"><p></p></div>
     <?php require '../header.php' ?>
     
-    <img id="fondo" src="https://image.api.playstation.com/cdn/EP4133/CUSA08153_00/xnXcOa0IMPBWJvBK7lmgra8EMy0ueIPH.jpg">
-
     <h1><br>CLASIFICACIÓN POR EQUIPOS</h1>
-
     <div class="buscador">
         <form action="clasificacionEquipos.php" method="GET" class="formulario">
         <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar equipo" autocomplete="off">

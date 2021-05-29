@@ -1,7 +1,6 @@
 body {
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 98%, rgba(255,252,0,1) 100%);
-
     background-repeat: no-repeat;
     margin-top: 0px;
     margin-left: 0px;
@@ -9,9 +8,25 @@ body {
 
 }
 
-#fondo{
+.fondo{
     position: absolute;
-    width: 98%;
+    background-image: url("http://clipart.coolclips.com/480/vectors/tf05310/CoolClips_vc063681.png");
+    top: 80px;
+    height: 800px;
+    width: 800px;
+    background-repeat: no-repeat;
+    left: 37%;
+    z-index: -1;
+}
+
+.fondo2{
+    position: absolute;
+    background-image: url("http://clipart.coolclips.com/480/vectors/tf05100/CoolClips_spor0348.png");
+    top: 80px;
+    height: 800px;
+    width: 800px;
+    background-repeat: no-repeat;
+    left: 37%;
     z-index: -1;
 }
 
@@ -20,25 +35,37 @@ h1{
     color: white;
     font-family: arial;
     text-shadow: 2px  0px 0px black,
-               0px  2px 0px black,
-              -2px  0px 0px black,
-               0px -2px 0px black;
+                0px  2px 0px black,
+                -2px  0px 0px black,
+                0px -2px 0px black;
+    font-size: 50px;
 }
 
 .buscador{
     color: wheat;
     position: relative;
-    border-radius: 20px;
+    height: 60px;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin: 4%;
     z-index: 1;
+    background-color: rgb(22, 20, 14);
+    margin-bottom: 80px;
+    box-shadow:
+    1px 1px 0 rgb(255, 251, 0),
+    2px 2px 0 rgb(255, 251, 0),
+    3px 3px 0 rgb(255, 251, 0),
+    4px 4px 0 rgb(255, 251, 0),
+    5px 5px 0 rgb(255, 251, 0),
+    6px 6px 0 rgb(255, 251, 0),
+    7px 7px 0 rgb(255, 251, 0);
+    width: 400px;
+    margin: 5em auto;
 }
 
 .formulario{
-    height: 40px;
+    height: 80px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -47,13 +74,11 @@ h1{
 
 .texto-ingreso{
     margin: 3%;
-    height: 30px;
+    height: 35px;
     width: 250px;
     background: rgb(251,250,218);
     background: radial-gradient(circle, rgba(251,250,218,1) 0%, rgba(223,223,178,1) 100%);
-    border-radius:12px;
     outline: none;
-    
 }
 
 .img-buscador{

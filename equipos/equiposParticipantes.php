@@ -9,24 +9,21 @@
 </head>
 
 <body>
-    <?php require '../header.php' ?>
-
-    <img id="fondo" src="https://image.api.playstation.com/cdn/EP4133/CUSA08153_00/xnXcOa0IMPBWJvBK7lmgra8EMy0ueIPH.jpg">
+        <div class="fondo"><p></p></div>
+        <?php require '../header.php' ?>
+        <h1><br>EQUIPOS PARTICIPANTES</h1>
     
-    <h1><br>EQUIPOS PARTICIPANTES</h1>
-
     <div class="buscador">
-        <form action="equiposParticipantes.php" method="GET" class="formulario">
-        <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar por pais" autocomplete="off">
-        <select name="tipo" class="seleccion">
-            <option hidden selected>Todos</option>
-            <option value="Nombre">Nombre</option>
-            <option value="Pais">Pais</option>    
-        </select>
-        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
-        </form>
+            <form action="equiposParticipantes.php" method="GET" class="formulario">
+            <input class="texto-ingreso" type="search" name="valor" placeholder="Buscar por pais" autocomplete="off">
+            <select name="tipo" class="seleccion">
+                <option hidden selected>Todos</option>
+                <option value="Nombre">Nombre</option>
+                <option value="Pais">Pais</option>    
+            </select>
+            <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+            </form>
     </div>
-
     <?php
         if(isset($_GET["valor"]) && $_GET["valor"] != "" && isset($_GET["tipo"])){
             $valor = $_GET["valor"];

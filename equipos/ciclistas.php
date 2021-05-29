@@ -10,28 +10,23 @@
 </head>
 
 <body>
-    
-<img id="fondo"src="https://wallpapercave.com/wp/wp2030957.jpg">
-
-<?php require '../header.php' ?>
-    
-    <h1><br>CICLISTAS PARTICIPANTES</h1>
-
-    <div class="buscador">
-        <form action="ciclistas.php" method="GET" class="formulario">
-        <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda" autocomplete="off">
-        <select name="tipo" class="seleccion">
-            <option hidden selected>Todos</option>
-            <option value="Codigo">Codigo</option>
-            <option value="Nombre">Nombre</option>
-            <option value="Apellido">Apellido</option>
-            <option value="Edad">Edad</option>
-            <option value="Nacionalidad">Nacionalidad</option>    
-        </select>
-        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
-        </form>
-    </div>
-
+<div class="fondo"><p></p></div>
+        <?php require '../header.php' ?>  
+        <h1><br>CICLISTAS PARTICIPANTES</h1>
+        <div class="buscador">
+            <form action="ciclistas.php" method="GET" class="formulario">
+            <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda" autocomplete="off">
+            <select name="tipo" class="seleccion">
+                <option hidden selected>Todos</option>
+                <option value="Codigo">Codigo</option>
+                <option value="Nombre">Nombre</option>
+                <option value="Apellido">Apellido</option>
+                <option value="Edad">Edad</option>
+                <option value="Nacionalidad">Nacionalidad</option>    
+            </select>
+            <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
+            </form>
+        </div>
 
     <?php
         

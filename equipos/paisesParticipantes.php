@@ -9,15 +9,11 @@
     <link rel="shortcut icon" href="https://www.letour.fr/img/global/logo-reversed@2x.png"/>
 </head>
 
-<body>
-
-    <?php require '../header.php' ?>
-
-    <img id="fondo" src="https://www.mundodeportivo.com/r/GODO/MD/p6/ContraPortada/Imagenes/2019/07/06/Recortada/20190706-636980227837280350_20190706151538848-kCOI-U463314237145moD-980x554@MundoDeportivo-Web.jpg">
-    
-    <h1><br>PAISES PARTICIPANTES</h1>
-    <?php
-
+<body>  
+<div class="fondo"><p></p></div>
+        <?php require '../header.php' ?>  
+        <h1><br>PAISES PARTICIPANTES</h1>
+        <?php
         $query="select * from pais order by nomb_pais";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
         $nr=pg_num_rows($resultado);
