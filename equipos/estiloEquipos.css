@@ -16,11 +16,11 @@ body {
 }
 
 .fondo2{
-    background-image: url("http://clipart.coolclips.com/480/vectors/tf05100/CoolClips_spor0348.png");
+    background-image: url("http://clipart.coolclips.com/480/vectors/tf05054/CoolClips_peop0979.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center top;
     z-index: -1;
-    height: 300px;
+    height: 400px;
 }
 
 h1{
