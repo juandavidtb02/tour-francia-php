@@ -10,8 +10,8 @@
 </head>
 
 <body>
-<div class="fondo"><p></p></div>
         <?php require '../header.php' ?>  
+    <div class="fondo">
         <h1><br>CICLISTAS PARTICIPANTES</h1>
         <div class="buscador">
             <form action="ciclistas.php" method="GET" class="formulario">
@@ -27,7 +27,7 @@
             <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
             </form>
         </div>
-
+    </div>
     <?php
         
         if(isset($_GET["valor"]) && $_GET["valor"] != "" && isset($_GET["tipo"])){

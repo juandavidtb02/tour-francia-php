@@ -10,8 +10,9 @@
 </head>
 
 <body>
-<div class="fondo2"><p></p></div>
+
     <?php require '../header.php' ?> 
+    <div class="fondo2">
     <h1><br>CLASIFICACIÓN POR MONTAÑA</h1>
 
     <div class="buscador">
@@ -24,6 +25,7 @@
         </select>
        <input class="img-buscador" type="image" src="https://image.flaticon.com/icons/png/128/2932/2932802.png">
         </form>
+    </div>
     </div>
 
     <?php

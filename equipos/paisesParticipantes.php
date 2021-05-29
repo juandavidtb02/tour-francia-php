@@ -10,9 +10,11 @@
 </head>
 
 <body>  
-<div class="fondo"><p></p></div>
+
         <?php require '../header.php' ?>  
+    <div class="fondo">
         <h1><br>PAISES PARTICIPANTES</h1>
+    </div>
         <?php
         $query="select * from pais order by nomb_pais";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");

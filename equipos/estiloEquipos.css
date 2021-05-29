@@ -9,25 +9,18 @@ body {
 }
 
 .fondo{
-    position: absolute;
     background-image: url("http://clipart.coolclips.com/480/vectors/tf05310/CoolClips_vc063681.png");
-    top: 80px;
-    height: 800px;
-    width: 800px;
+    background-position: center top;
     background-repeat: no-repeat;
-    left: 37%;
     z-index: -1;
 }
 
 .fondo2{
-    position: absolute;
     background-image: url("http://clipart.coolclips.com/480/vectors/tf05100/CoolClips_spor0348.png");
-    top: 80px;
-    height: 800px;
-    width: 800px;
     background-repeat: no-repeat;
-    left: 37%;
+    background-position: center;
     z-index: -1;
+    height: 300px;
 }
 
 h1{
