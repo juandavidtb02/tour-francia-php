@@ -11,13 +11,21 @@
 </head>
 
 <body>
-    
-<?php require 'header.php' ?>
+<div class="cuadro0">
+    <?php require 'header.php' ?>    
+    <h1>Conoce más sobre nosotros</h1>
+</div>
 
-<div class="fon"><p> </p></div>
+<div class="lbl">
+                    <label for="radio1">Objetivo</label>
+                    <label for="radio2">Metodologia</label>
+                    <label for="radio3">About Us</label>
+    </div>
+
 <div class="cuadro">
-    <div class="cuadro1">
+    <div class="cuadro1" id='cuadro1'>
         <h1>Objetivos</h1>
+        <input type="radio" name="radio" id="radio1">
         <p>Comunicar toda la información sobre la última edición del torneo ciclístico más importante del mundo
             a todos los amantes de este deporte. Aquí podrás encontrar los datos de cada ciclista, su clasificación
             en las tablas, información de cada equipo, contratos, el recorrido del Tour, etc.
@@ -31,16 +39,18 @@
     </div>
     <div class="cuadro3">
         <h1>Metodología</h1>
+        <input type="radio" name="radio" id="radio2">
         <p>La creación de la pagina web se realizó mediante el uso HTML y CSS para la estructura básica del diseño web.
             <br><br>Se utilizó PostgreSQL como motor de bases de datos, Apache y Heroku como servidor web, y PHP como herramienta para
             mostrar correctamente toda la información en la pagina web.
         </p>
     </div>    
     <div class="cuadro4">
-        <img src="https://cnnespanol.cnn.com/wp-content/uploads/2020/08/200827164905-tour-de-france-fans-super-169.jpg?quality=100&strip=info"> 
+        <img src="https://softwareblog03.files.wordpress.com/2017/04/metodologia.png"> 
     </div>
     <div class="cuadro5">
         <h1>About us</h1>
+        <input type="radio" name="radio" id="radio3">
         <p>Este sitio web fue realizado por los estudiantes de 4to semestre de Ingeniería de sistemas de la Universidad de los Llanos, Juan David Torres Barreto y Daniel Camilo Alférez García,
             como proyecto para la materia "Bases de datos". <br><br>
             El objetivo principal es demostrar una de las tantas aplicaciones que
@@ -48,7 +58,7 @@
         </p>
     </div>
     <div class="cuadro6">
-        <img src="https://static.dw.com/image/49778979_101.jpg">
+        <img src="http://3.bp.blogspot.com/-8QPMwYDrvzE/TqormESdBoI/AAAAAAAADBY/grIGhK-YL30/s1600/Unillanos.png">
     </div>
 </div> 
 

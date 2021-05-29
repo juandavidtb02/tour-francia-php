@@ -1,35 +1,87 @@
 body {
-    background-image: url("https://cutewallpaper.org/21/tour-de-france-wallpaper/2018-Tour-De-France-Wallpapers-Wallpaper-Cave.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 98%, rgba(255,252,0,1) 100%);
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    background-attachment: fixed;
-}
-
-.fon{
-    top: 230px;
-    position: absolute;
-    background: black;
-    opacity: 0.8;
-    height: 1300px;
-    width: 100%;
 }
 
 .cuadro{
+    margin-left: 100px;
+    margin-right: 100px;
     padding: 50px;
     position: relative;
-    margin-top: 100px;
     z-index: 0;
     display: grid;
-    grid-gap: 50px;
+    grid-row-gap: 150px;
+    grid-column-gap: 50px;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(3, auto);
     grid-template-areas:    "c1 c2"
                             "c4 c3"
                             "c5 c6";
+    margin-bottom: -200px;
+    background-image: url(https://thumbs.dreamstime.com/t/animaci%C3%B3n-de-la-galaxia-en-un-fondo-negro-hd-138239050.jpg);
+}
+
+.cuadro0{
+    position: relative;
+    background-image: url(https://data.1freewallpapers.com/download/cyclist-silhouette-bicycle-clouds-art.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 600px;
+    text-align: center;
+}
+
+.cuadro0::before{
+    content: "";
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-hormigon-oscuro_24837-397.jpg?size=626&ext=jpg);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.3;
+}
+
+.cuadro0 h1{
+    margin-top: 8%;
+    color: white;
+    font-size: 80px;
+    margin-bottom: 120px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.boton{
+    margin-top: 60px;
+}
+
+.lbl{
+    background: rgb(20, 20, 16);
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    text-align: center;
+}
+
+.lbl label{
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 400ms ease;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 23px;
+}
+
+.lbl label:hover{
+    background: #36331d;
+}
+
+#radio1, #radio2, #radio3{
+    width: 0px;
 }
 
 .cuadro1{
@@ -87,80 +139,35 @@ body {
     font-family: Arial;
 }
 
-.cuadro2 img, .cuadro4 img, .cuadro6 img{
-    width: 600px;
-    border: 2px solid yellow;
+.cuadro2 img{
+    width: 500px;
     border-radius: 20px;
 }
 
-@media (max-width:1350px) {
+.cuadro4 img{
+    width: 380px;
+}
+
+
+.cuadro6 img{
+    width: 300px;
+}
+
+@media screen and (max-width: 1200px){
     .cuadro{
+        margin-left: 0px;
+        margin-right: 0px;
+}
+
+@media screen and (max-width: 1000px){
+    .cuadro{
+        grid-template-columns: repeat(1,1fr);
         grid-template-rows: repeat(6, auto);
-        grid-template-areas:    "c1 c1"
-                                "c2 c2"
-                                "c3 c3"
-                                "c4 c4"
-                                "c5 c5"
-                                "c6 c6";
-    }
-    .fon{
-        height: 2250px;
-    }
-}
-
-@media (max-width:1081px) {
-    .cuadro{
+        grid-template-areas:    "c1" 
+                                "c2"
+                                "c3"
+                                "c4"
+                                "c5"
+                                "c6";
         margin-bottom: -800px;
-}
-}
-
-@media (max-width:830px) {
-    .fon{
-        height: 2400px;
-    }
-}
-
-@media (max-width:650px) {
-    .cuadro2 img, .cuadro4 img, .cuadro6 img{
-        width: 380px;
-    }
-    .fon{
-        height: 2000px;
-    }
-}
-
-@media (max-width:632px) {
-    .fon{
-        height: 2100px;
-    }
-}
-
-@media (max-width:565px) {
-    .fon{
-        height: 2200px;
-    }
-}
-
-@media (max-width:632px) {
-    .fon{
-        height: 2100px;
-    }
-}
-
-@media (max-width:565px) {
-    .fon{
-        height: 2200px;
-    }
-}
-
-@media (max-width:471px) {
-    .fon{
-        height: 2400px;
-    }
-}
-
-@media (max-width:400px) {
-    .fon{
-        height: 2500px;
-    }
 }
