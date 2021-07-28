@@ -73,10 +73,15 @@
                                     echo "<td>".$filas["email"]."</td>";
                                     
                                     echo "<td>".$filas["fecha_registro"]."</td>";
-                                    echo "<td><section class='botones'>
-                                    <a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
-                                            <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>
-                                        </section></td>";
+                                    echo "<td><section class='botones'>";
+                                        if($valor != $_SESSION['cod_user']){
+                                            echo "<a href='./delete.php?valor=".$valor."&tabla=".$tabla."&var=".$var."'><img id='imgborrar' src='https://ayudawp.com/wp-content/uploads/2018/04/borrar-plugins-wordpress.png' width='40px'></a>
+                                            <a href='./edit.php?valor=".$valor."&tabla=".$tabla."&var=".$var."' ><img id='imgeditar' src='https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png' width='35px'></a>";
+                                        }
+                                        else{
+                                            echo "Sesión actual";
+                                        }
+                                        echo "</section></td>";
                                 }echo "</table>";
                         ?>
 

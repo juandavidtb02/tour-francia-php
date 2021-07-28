@@ -42,6 +42,7 @@
                 <li id="item"><a href="#"><img src="https://pngimage.net/wp-content/uploads/2018/06/icona-coppa-png-1.png"> Clasificaciones</a>
                     <ul id="desple2">
                         <li><a href="/clasificaciones/general.php">Clasificacion general</a></li>
+                        <li><a href="/clasificaciones/clasificacionEtapas.php">Clasificación por etapas</a></li>
                         <li><a href="/clasificaciones/sprint.php">Clasificacion de Sprint</a></li>
                         <li><a href="/clasificaciones/montaña.php">Clasificacion por montaña</a></li>
                         <li><a href="/clasificaciones/puntos.php">Clasificacion por puntos</a></li>

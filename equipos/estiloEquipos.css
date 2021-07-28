@@ -53,7 +53,7 @@ h1{
     5px 5px 0 rgb(255, 251, 0),
     6px 6px 0 rgb(255, 251, 0),
     7px 7px 0 rgb(255, 251, 0);
-    width: 400px;
+    width: 500px;
     margin: 5em auto;
 }
 
@@ -167,4 +167,15 @@ table tr:nth-last-child(even):hover{
     width: 30px;
     margin-bottom: -15px;
     padding: 5px;
+}
+
+h2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
 }
