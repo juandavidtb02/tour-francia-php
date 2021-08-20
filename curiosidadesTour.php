@@ -44,7 +44,9 @@
                         <h2>Ciclista con menos edad</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select max(fech_nac) from ciclistas)";
+                            //select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select max(fech_nac) from ciclistas)
+                            //Vista creada
+                            $query="SELECT * FROM cic_menos_edad";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td id=der>Nacionalidad</td></thead>";
