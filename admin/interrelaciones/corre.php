@@ -10,7 +10,7 @@
         //$puntos = $_GET['puntos'];
         $tiempo = $_GET['tiempo'];
         //$posicion = $_GET['posicion'];
-        $query2 = "INSERT INTO corre(cod_ciclista,cod_etapa,tiempo) VALUES($valor,$etapa,'$tiempo')";
+        $query2 = "INSERT INTO corre(cod_ciclista,cod_etapa,tiempo_ciclista) VALUES($valor,$etapa,'$tiempo')";
         $result2 = pg_query($conexion,$query2);
         if(!$result2){
             die("<script>window.location = '../error.php';</script>");
