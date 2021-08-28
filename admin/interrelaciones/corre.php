@@ -7,10 +7,10 @@
 
     if(isset($_GET['cod_etapa'])){
         $etapa = $_GET['cod_etapa'];
-        $puntos = $_GET['puntos'];
+        //$puntos = $_GET['puntos'];
         $tiempo = $_GET['tiempo'];
-        $posicion = $_GET['posicion'];
-        $query2 = "INSERT INTO corre VALUES ($valor,$etapa,$puntos,'$tiempo',$posicion)";
+        //$posicion = $_GET['posicion'];
+        $query2 = "INSERT INTO corre VALUES ($valor,$etapa,'$tiempo')";
         $result2 = pg_query($conexion,$query2);
         if(!$result2){
             die("<script>window.location = '../error.php';</script>");
@@ -49,9 +49,9 @@
         <form action="corre.php" method="GET" class="datos">
             <input type="hidden" name="valor" value="<?php echo $valor;?>">
             <input type="text" name="cod_etapa" placeholder="Inserte cod etapa" autocomplete="off">
-            <input type="text" name="puntos" placeholder="Inserte los puntos" autocomplete="off">
+            <!--<input type="text" name="puntos" placeholder="Inserte los puntos" autocomplete="off">-->
             <input type="text" name="tiempo" placeholder="Inserte el tiempo" autocomplete="off">
-            <input type="text" name="posicion" placeholder="Inserte la posición" autocomplete="off">
+            <!--input type="text" name="posicion" placeholder="Inserte la posición" autocomplete="off">-->
             <input type="submit" value="Agregar" id="editboton">
         </form>
         <a href="../user.php?tablaxd=ciclistas"><div class="regresar"><p>Regresar</p></div></a>
