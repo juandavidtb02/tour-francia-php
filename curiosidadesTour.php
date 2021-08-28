@@ -44,7 +44,9 @@
                         <h2>Ciclista con menos edad</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select max(fech_nac) from ciclistas)";
+                            //select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select max(fech_nac) from ciclistas)
+                            //Vista creada cic_menos_edad
+                            $query="SELECT * FROM cic_menos_edad";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td id=der>Nacionalidad</td></thead>";
@@ -60,7 +62,8 @@
                         <h2>Ciclista con más edad</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select min(fech_nac) from ciclistas)";
+                            //vista "cic_mas_edad":select cod_ciclista, nomb_ciclista, apellido_ciclista, (current_date-fech_nac)/365 as edad, nomb_pais from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista where fech_nac in (select min(fech_nac) from ciclistas)
+                            $query="SELECT * FROM cic_mas_edad";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td id=der>Nacionalidad</td></thead>";
@@ -76,7 +79,8 @@
                         <h2>Top 3 paises con mas ciclistas</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select pais.nomb_pais, count(cod_ciclista) cantidad from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista  group by nomb_pais order by cantidad desc limit 3";
+                            //vista "paises_mas_cic" :select pais.nomb_pais, count(cod_ciclista) cantidad from ciclistas inner join pais on pais.cod_pais=ciclistas.pais_ciclista  group by nomb_pais order by cantidad desc limit 3
+                            $query="SELECT * FROM paises_mas_cic";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Nacionalidad</td><td id=der>Cantidad de ciclistas</td></thead>";
@@ -92,7 +96,8 @@
                         <h2>Top 3 paises con mas equipos</h2>
                         <?php
                             $conexion = conectarbase();
-                            $query="select pais.nomb_pais, count(cod_equipo) as cantidad from equipos inner join pais on pais.cod_pais=equipos.pais_equipo group by nomb_pais order by cantidad desc limit 3";
+                            //vista "paises_mas_equ": select pais.nomb_pais, count(cod_equipo) as cantidad from equipos inner join pais on pais.cod_pais=equipos.pais_equipo group by nomb_pais order by cantidad desc limit 3
+                            $query="SELECT * FROM paises_mas_equ";
                             $resultado=pg_query($conexion,$query) or die ("Error en consultar universidad");
                             echo "<table>
                             <thead><td id=iz>Nacionalidad</td><td id=der>Cantidad de equipos</td></thead>";
