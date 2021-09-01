@@ -4,10 +4,7 @@
     require '../../conexionDB.php';
     $conexion = conectarbase();
     $valor = $_GET['valor'];
-    $queryNomb = "select nomb_equipo from equipos where cod_equipo=$valor";
-    $resultNomb = pg_query($conexion,$queryNomb);
-    $resultNomb2 = pg_fetch_object($resultNomb,0);
-    $resultNomb = $resultNomb2->nomb_equipo;
+    
     if(isset($_GET['equipo'])){
         $anterior = $_GET['equipo'];
     }
@@ -84,6 +81,12 @@
         $cod_equipo = $data->cod_equipo;
         $inicio = $data->inicio_contrato;
         $fin = $data->fin_contrato;
+
+        $queryNomb = "select nomb_equipo from equipos where cod_equipo=$cod_equipo";
+        $resultNomb = pg_query($conexion,$queryNomb);
+        $resultNomb2 = pg_fetch_object($resultNomb,0);
+        $resultNomb = $resultNomb2->nomb_equipo;
+
     }
     else{
         $existe = false;
