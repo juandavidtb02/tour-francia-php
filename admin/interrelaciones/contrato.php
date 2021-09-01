@@ -4,7 +4,10 @@
     require '../../conexionDB.php';
     $conexion = conectarbase();
     $valor = $_GET['valor'];
-
+    $queryNomb = "select nomb_equipo from equipos where cod_equipo=$valor";
+    $resultNomb = pg_query($conexion,$queryNomb);
+    $resultNomb2 = pg_fetch_object($resultNomb,0);
+    $resultNomb = $resultNomb2->nomb_equipo;
     if(isset($_GET['equipo'])){
         $anterior = $_GET['equipo'];
     }
@@ -122,7 +125,7 @@
             <input type="hidden" name="anterior" value="<?php echo $anterior;?>">
         <?php endif;?>
         <input type="hidden" name="existes" value="si">
-        <p class ="toc">CODIGO EQUIPO</p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off" value="<?php echo $cod_equipo;?>">
+        <p class ="toc">CODIGO DEL EQUIPO <?php echo $resultNomb ?></p><input type="text" name="cod_equipo" placeholder="Inserte el código del equipo" autocomplete="off" value="<?php echo $cod_equipo;?>">
         <p class ="toc">INICIO CONTRATO</p><input type="date" name="inicio_contrato" placeholder="Inserte la fecha de inicio" autocomplete="off" value="<?php echo $inicio;?>">
         <p class ="toc">FIN CONTRATO</p><input type="date" name="fin_contrato" placeholder="Inserte la fecha de fin" autocomplete="off" value="<?php echo $fin;?>">
         <input type="submit" value="Editar" id="editboton">

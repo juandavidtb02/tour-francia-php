@@ -28,7 +28,7 @@
         $nr=pg_num_rows($resultado);
         if($nr>0){
             echo "<table align=center>
-                      <thead><td id=iz>Código</td><td>Fecha</td><td>Tipo</td><td>Nombre</td><td>Apellido</td><td id=der>Tiempo</td></thead>";
+                    <thead><td id=iz>Código</td><td>Fecha</td><td>Tipo</td><td>Nombre</td><td>Apellido</td><td id=der>Tiempo</td></thead>";
             while($filas=pg_fetch_array($resultado)){
                 echo "<tr><td>".$filas["cod_etapa"]."</td>";
                 echo "<td>".$filas["fecha_etapa"]."</td>";
