@@ -6,8 +6,8 @@
         <input type="hidden" name="tabla" value="<?php echo $tabla;?>" class="varT">
         <?php while($filas = pg_fetch_array($result)):?>
             <?php if($filas['column_name'] === 'fecha_etapa' || $filas['column_name'] === 'fech_nac'):?>
-                <p id="text_date"><?php echo $filas['column_name'] ?>:</p>
-                <input type="date" name="<?php echo $filas['column_name'];?>" placeholder="Digite el <?php echo $filas['column_name']; ?>" autocomplete="off">
+                
+                <input type="text" name="<?php echo $filas['column_name'];?>" placeholder="Digite la <?php echo $filas['column_name']; ?>" onclick="ocultarError();" onfocus="(this.type='date')" onblur="(this.type='text')" autocomplete="off">
                 
             <?php else:?>
                 <input type="text" name="<?php echo $filas['column_name'];?>" placeholder="Digite el <?php echo $filas['column_name']; ?>" autocomplete="off">
