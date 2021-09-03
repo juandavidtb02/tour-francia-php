@@ -36,13 +36,13 @@
             $valor = $_GET["valor"];
             //realizamos la consulta con el valor ingresadl
             if($_GET["tipo"] == "Nombre"){
-                $query="select ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where UNACCENT(nomb_ciclista) ilike '%$valor%' and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
+                $query="select ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total,(sum(tiempo_ciclista)-(select sum(tiempo_ciclista) as total from corre group by cod_ciclista order by total limit 1)) as diferencia from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where UNACCENT(nomb_ciclista) ilike 'dan' and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
             }
             else if($_GET["tipo"] == "Apellido"){
-                $query="select ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where UNACCENT(apellido_ciclista) ilike '%$valor%' and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
+                $query="select ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total,(sum(tiempo_ciclista)-(select sum(tiempo_ciclista) as total from corre group by cod_ciclista order by total limit 1)) as diferencia from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where UNACCENT(apellido_ciclista) ilike '%$valor%' and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by ciclistas.cod_ciclista,nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
             }
             else{
-                $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where nomb_ciclista='' and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
+                $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total,(sum(tiempo_ciclista)-(select sum(tiempo_ciclista) as total from corre group by cod_ciclista order by total limit 1)) as diferencia from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total;";
                 $check2 = true;
             }
             //realizamos la consulta para obtener los puestos 
@@ -54,12 +54,12 @@
                 $check2 = false;
             }
             else{
-                $check2 = true;
+                $check2=true;
             }
             
         }else{
             //en caso de no exister una busqueda, realizamos la consulta con todos los ciclistas y sus puestos
-            $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total";
+            $query="select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total,(sum(tiempo_ciclista)-(select sum(tiempo_ciclista) as total from corre group by cod_ciclista order by total limit 1)) as diferencia from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total;";
             $check = false;
             $check2 = false;
         }
@@ -95,9 +95,12 @@
             $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total") or die("Error");
         }
         $n = 0;
-
+        $tiempo = 0;
+        
+        $tiempoTotal = 0;
+        
         echo "<table align=center>
-                    <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
+                    <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td>Equipo</td><td>Tiempo total</td><td id=der>Diferencia</td></thead>";
             while($filas1=pg_fetch_array($resultado)){
                 //si el puesto ha sido encontrado, se muestra
                 if($check){
@@ -106,11 +109,13 @@
                 }//en caso contrario, se muestra la tabla normal
                 else{
                     echo "<tr><td>".$filas1["puesto"]."</td>";
+                    
                 }
                 echo "<td>".$filas1["nomb_ciclista"]."</td>";
                 echo "<td>".$filas1["apellido_ciclista"]."</td>";
                 echo "<td>".$filas1["nomb_equipo"]."</td>";
                 echo "<td>".$filas1["total"]."</td>";
+                echo "<td>+".$filas1["diferencia"]."</td>";
             }echo "</table>";
 
     ?>
