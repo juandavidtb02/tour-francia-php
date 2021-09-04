@@ -30,16 +30,16 @@
         if(isset($_GET["valor"]) && $_GET["valor"] != ""){
             $valor = $_GET["valor"];
             //realizamos la consulta con el valor ingresado
-                $query="select nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and UNACCENT(nomb_equipo) ilike '%$valor%' and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) group by nomb_equipo order by tiempo";
+                $query="select nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and UNACCENT(nomb_equipo) ilike '%$valor%' and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) and ci.cod_ciclista in (select cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_equipo order by tiempo";
             //realizamos la consulta para obtener los puestos 
-                $pos="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo as nombre from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) group by nomb_equipo";
+                $pos="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo as nombre from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) and ci.cod_ciclista in (select cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_equipo";
             //ejecutamos la consulta de los puestos
             //se declara que la consulta con la busqueda ha sido realizada
                 $check2 = true;
             
         }else{
             //en caso de no exister una busqueda, realizamos la consulta con todos los equipos y sus puestos
-            $query="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) group by nomb_equipo  order by tiempo";
+            $query="select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) and ci.cod_ciclista in (select cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_equipo  order by tiempo";
             $check = false;
             $check2 = false;
         }
@@ -73,7 +73,7 @@
 
         if(!$resultado or pg_num_rows($resultado)==0){
             echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
-            $resultado=pg_query($conexion,"select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) group by nomb_equipo  order by tiempo;") or die("Error");
+            $resultado=pg_query($conexion,"select row_number() over (order by avg(tiempo_ciclista)) as puesto, nomb_equipo, avg(tiempo_ciclista) as tiempo from corre as co, ciclistas as ci, contrato as con, equipos as e where co.cod_ciclista=ci.cod_ciclista and ci.cod_ciclista=con.cod_ciclista and con.cod_equipo=e.cod_equipo and e.cod_equipo in (select participa.cod_equipo from participa group by cod_equipo having count(*)=21) and ci.cod_ciclista in (select cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_equipo  order by tiempo;") or die("Error");
         }
 
 
