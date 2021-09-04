@@ -17,7 +17,7 @@
     <?php
         
         
-        $query="select cod_ciclista,nomb_ciclista,apellido_ciclista,(current_date - fech_nac)/365 as edad,pais_ciclista, nom_equipo, inicio_contrato, fin_contrato, cant_etapas from ciclistas_retirados group by cod_ciclista,nomb_ciclista,apellido_ciclista,edad,pais_ciclista order by cod_ciclista";
+        $query="select cod_ciclista,nomb_ciclista,apellido_ciclista,(current_date - fech_nac)/365 as edad,pais_ciclista, nomb_equipo, inicio_contrato, fin_contrato, cant_etapas from ciclistas_retirados group by cod_ciclista,nomb_ciclista,apellido_ciclista,edad,pais_ciclista order by cod_ciclista";
         $resultado=pg_query($conexion,$query);
 
             echo "<table align=center>
