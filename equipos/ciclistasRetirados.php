@@ -12,9 +12,9 @@
 <body>
         <?php require '../header.php' ?>  
     <div class="fondo">
-        <h1><br>CICLISTAS Retirados</h1>
+        <h1><br>CICLISTAS RETIRADOS</h1>
         <div class="buscador">
-            <form action="ciclistas.php" method="GET" class="formulario">
+            <form action="ciclistasRetirados.php" method="GET" class="formulario">
             <input class="texto-ingreso" type="search" name="valor" placeholder="Realizar una busqueda" autocomplete="off">
             <select name="tipo" class="seleccion">
                 <option hidden selected>Todos</option>
