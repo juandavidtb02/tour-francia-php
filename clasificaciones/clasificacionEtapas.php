@@ -62,22 +62,22 @@
 
                 if($valor != ''){
                     if($cicl==='nombre'){
-                        $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' AND UNACCENT(nomb_ciclista) ilike '%$valor%' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
+                        $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista,(tiempo_ciclista-(select tiempo_ciclista from corre where cod_etapa='$etapa' order by tiempo_ciclista limit 1)) as diferencia from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' AND UNACCENT(nomb_ciclista) ilike '%$valor%' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
                     }
                     else if($cicl==='apellido'){
-                        $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' AND UNACCENT(apellido_ciclista) ilike '%$valor%' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
+                        $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista,(tiempo_ciclista-(select tiempo_ciclista from corre where cod_etapa='$etapa' order by tiempo_ciclista limit 1)) as diferencia from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' AND UNACCENT(apellido_ciclista) ilike '%$valor%' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
                     }
                 }
                 else{
-                    $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
+                    $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista,(tiempo_ciclista-(select tiempo_ciclista from corre where cod_etapa='$etapa' order by tiempo_ciclista limit 1)) as diferencia from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto;";
                 }
             }
             else{
-                $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
+                $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista,(tiempo_ciclista-(select tiempo_ciclista from corre where cod_etapa='$etapa' order by tiempo_ciclista limit 1)) as diferencia from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto;";
             }
         }
         else{
-            $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto";
+            $consult = "select posicion_ciclista as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista,(tiempo_ciclista-(select tiempo_ciclista from corre where cod_etapa='$etapa' order by tiempo_ciclista limit 1)) as diferencia from equipos inner join contrato on equipos.cod_equipo=contrato.cod_equipo inner join ciclistas on contrato.cod_ciclista=ciclistas.cod_ciclista inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where etapa.cod_etapa='$etapa' group by puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,tiempo_ciclista order by puesto;";
         }
 
         
@@ -96,7 +96,7 @@
         
 
         echo "<table align=center>
-                    <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td>Equipo</td><td id=der>Tiempo total</td></thead>";
+                    <thead><td id=iz>Puesto</td><td>Nombre</td><td>Apellido</td><td>Equipo</td><td>Tiempo total</td><td id=der>Diferencia</td></thead>";
             while($filas1=pg_fetch_array($resultado)){
                 //si el puesto ha sido encontrado, se muestra
                 //if($check){
@@ -110,6 +110,7 @@
                 echo "<td>".$filas1["apellido_ciclista"]."</td>";
                 echo "<td>".$filas1["nomb_equipo"]."</td>";
                 echo "<td>".$filas1["tiempo_ciclista"]."</td>";
+                echo "<td>+".$filas1["diferencia"]."</td>";
             }echo "</table>";
 
     ?>
