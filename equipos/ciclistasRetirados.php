@@ -59,7 +59,7 @@
         }
 
             echo "<table align=center>
-                      <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td>Nacionalidad</td><td>Equipo</td><td>Inicio Contrato</td><td>Fin Contrato</td>Etapas Completadas<td id=der></td></thead>";
+                      <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td>Nacionalidad</td><td>Equipo</td><td>Inicio Contrato</td><td>Fin Contrato</td><td id=der>Etapas Completadas</td></thead>";
             while($filas=pg_fetch_array($resultado)){
                 echo "<tr><td>".$filas["cod_ciclista"]."</td>";
                 echo "<td>".$filas["nomb_ciclista"]."</td>";
