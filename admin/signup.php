@@ -59,7 +59,7 @@
 
     <h1>Registro para administrador de la base de datos</h1>
     <form action="signup.php" method="post">
-        <input type="text" name="email" placeholder="Digite el correo" autocomplete="off">
+        <input type="text" name="email" placeholder="Digite el correo" autocomplete="off" required>
         <input type="password" name="password" placeholder="Digite la contraseña">
         <input type="password" name="confirm_password" placeholder="Confirme la contraseña">
         <input type="password" name="clave" placeholder="Ingrese el código de admin">

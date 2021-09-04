@@ -49,7 +49,7 @@
 
     <h1>Iniciar sesión en el administrador de la base de datos</h1>
     <form action="login.php" method="post">
-        <input type="text" name="email" placeholder="Digite el correo" autocomplete="off">
+        <input type="text" name="email" placeholder="Digite el correo" autocomplete="off" required>
         <input type="password" name="password" placeholder="Digite la contraseña">
         <input type="submit" value="Iniciar sesión">
     </form>
