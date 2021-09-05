@@ -92,7 +92,7 @@
 
         if(!$resultado or pg_num_rows($resultado)==0){
             echo '<p  id="ingreso">Ingresa una busqueda nuevamente</p>';
-            $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo where ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total") or die("Error");
+            $resultado=pg_query($conexion,"select row_number() over (order by sum(tiempo_ciclista)) as puesto,nomb_ciclista,apellido_ciclista,nomb_equipo,sum(tiempo_ciclista) as total,(sum(tiempo_ciclista)-(select sum(tiempo_ciclista) as total from corre group by cod_ciclista order by total limit 1)) as diferencia from corre inner join ciclistas on corre.cod_ciclista=ciclistas.cod_ciclista inner join contrato on ciclistas.cod_ciclista=contrato.cod_ciclista inner join equipos on contrato.cod_equipo=equipos.cod_equipo and ciclistas.cod_ciclista in (select corre.cod_ciclista from corre group by cod_ciclista having count(*)=21) group by nomb_ciclista,apellido_ciclista,nomb_equipo order by total;") or die("Error");
         }
         $n = 0;
         $tiempo = 0;
