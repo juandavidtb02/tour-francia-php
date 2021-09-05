@@ -48,11 +48,26 @@
             $dataCopia = array();
             $columns = array();
             $nr = 0;
+            $nrc = 0;
+           
+            
+            
             while($filas=pg_fetch_array($result)){
                 $data[$nr] = $_GET[$filas['column_name']];
-                $dataCopia[$nr] = $_GET[$filas['column_name']];
+                
                 $columns[$nr] = $filas['column_name'];
+                
+                
                 $nr++;
+            }
+            
+            $queryCopia = "SELECT * FROM $tabla WHERE $var=$valor";
+            $resultadoCopia = pg_query($conexion,$queryCopia);
+            while($filasCopias=pg_fetch_array($resultadoCopia)){
+                for($i=0;$i<$nr;$i++){
+                    $dataCopia[$i] = $filasCopias[$columns[$i]];
+                    //echo $dataCopia[$i];
+                }
             }
 
             if($data[0] === ""){
@@ -75,7 +90,7 @@
                 else{
                     while($filas2=pg_fetch_array($result2)){
                         
-                        if($nr>0){
+                        if($nr===0){
                             $query = "UPDATE $tabla SET  $columns[$nr]='".$data[$nr]."' WHERE $columns[0]='$data[0]'";
                             $llavepri = $data[0];
                         }
@@ -99,6 +114,8 @@
                                     $query = "UPDATE $tabla SET  $columns[$nrc]='".$dataCopia[$nrc]."' WHERE $columns[0]='$data[0]'";
                                 }
                                 $stmt = pg_query($conexion,$query);
+                                echo "xd";
+                                echo $dataCopia[$nrc];
                                 $nrc++;
                             }
                             die("<script>window.location = './error.php';</script>");
@@ -107,6 +124,7 @@
                     }
                     $mensaje = "EL(LOS) DATO(S) HA(N) SIDO MODIFICADO CORRECTAMENTE";
                     header("Location: ./user.php?mes=$mensaje&tablaxd=$tabla");
+                    //die($stmt);
                 }
             }
         }

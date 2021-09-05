@@ -1,6 +1,6 @@
 
 <?php $conexion = conectarbase();
-    $consulta = "SELECT cod_pais FROM pais";
+    $consulta = "SELECT cod_pais,nomb_pais FROM pais";
     $resultado = pg_query($conexion,$consulta);
 
 ?>
@@ -19,7 +19,7 @@
                 <select name="<?php echo $filas['column_name'];?>" id="selectPais">
                 <option hidden selected><?php echo $filas['column_name'];?></option>
                     <?php while($filasK=pg_fetch_array($resultado)):?>
-                        <option value="<?php echo $filasK['cod_pais'];?>"><?php echo $filasK['cod_pais'];?></option>
+                        <option value="<?php echo $filasK['cod_pais'];?>"><?php echo $filasK['nomb_pais'];?></option>
                     <?php endwhile;?>
                 </select>
             <?php else:?>
