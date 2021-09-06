@@ -19,7 +19,7 @@
         
         $query="select cod_ciclista,nomb_ciclista,apellido_ciclista,(current_date - fech_nac)/365 as edad,pais_ciclista, nomb_equipo, inicio_contrato, fin_contrato, cant_etapas from ciclistas_retirados group by cod_ciclista,nomb_ciclista,apellido_ciclista,edad,pais_ciclista order by cod_ciclista";
         $resultado=pg_query($conexion,$query);
-
+            if(pg_num_rows($resultado)===0){
             echo "<table align=center>
                       <thead><td id=iz>Codigo del ciclista</td><td>Nombre del ciclistas</td><td>Apellido del ciclista</td><td>Edad</td><td>Nacionalidad</td><td>Equipo</td><td>Inicio Contrato</td><td>Fin Contrato</td><td id=der>Etapas Completadas</td></thead>";
             while($filas=pg_fetch_array($resultado)){
@@ -32,8 +32,8 @@
                 echo "<td>".$filas["inicio_contrato"]."</td>";
                 echo "<td>".$filas["fin_contrato"]."</td>";
                 echo "<td id=der>".$filas["cant_etapas"]."</td>";
-
             }echo "</table>";
+        }else{echo '<p  id="ingreso">No hay ciclistas retirados</p>';}
 
     ?>
     

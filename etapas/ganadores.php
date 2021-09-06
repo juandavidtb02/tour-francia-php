@@ -22,7 +22,7 @@
     
     
     <?php
-        
+        //VIEW vganadores_etapa: select etapa.cod_etapa,fecha_etapa,tipo,nomb_ciclista,apellido_ciclista,tiempo_ciclista from ciclistas inner join corre on ciclistas.cod_ciclista=corre.cod_ciclista inner join etapa on corre.cod_etapa=etapa.cod_etapa where posicion_ciclista=1 order by etapa.cod_etapa;
         $query="SELECT * FROM vganadores_etapa;";
         $resultado=pg_query($conexion,$query) or die ("Error en consultar base");
         $nr=pg_num_rows($resultado);
