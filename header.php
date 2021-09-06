@@ -66,7 +66,7 @@
                         <li><a href="/equipos/equiposParticipantes.php">Equipos participantes</a></li>
                         <li><a href="/equipos/ciclistas.php">Ciclistas participantes</a></li>
                         <li><a href="/equipos/paisesParticipantes.php">Paises participantes</a></li>
-                        <li><a href="/equipos/ciclistasRetirados.php">Ciclistas Retirados</a></li>
+                        <li><a href="/equipos/ciclistasRetirados.php">Ciclistas retirados</a></li>
                     </ul>
                 </li>
                 <li id="item"><a href="#"><img src="https://pngimage.net/wp-content/uploads/2018/06/icona-coppa-png-1.png"></a>
