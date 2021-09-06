@@ -7,7 +7,7 @@
             if($tablaxa === $tabla){
                 $nr = str_replace("'","",$numero);
                 if($busq === ''){
-                    $query = "select * from $tabla limit $nr";
+                    $query = "select * from $tabla order by $var limit $nr";
                 }
                 else{
                     $resultC = columnas($tabla,$conexion);;
@@ -42,11 +42,11 @@
                 }
             }
             else{
-                $query = "select * from $tabla limit 5";
+                $query = "select * from $tabla order by $var limit 5";
             }
         }
         else{
-            $query = "select * from $tabla limit 5";
+            $query = "select * from $tabla order by $var limit 5";
         }
         $resultado=pg_query($conexion,$query) or die("Error al consultar usuarios");
         echo "<table><thead class='head'>";
