@@ -149,7 +149,7 @@
     <?php endif; ?>
 
 
-    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" class="dato">
+    <form action="./edit.php" method="GET" class="dato">
     <input type="hidden" name="tabla" value="<?php echo $tabla;?>" class="tablaE">
     <input type="hidden" name="valor" value="<?php echo $valor;?>" class="valorE">
     <input type="hidden" name="var" value="<?php echo $var;?>" class="varE">
